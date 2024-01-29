@@ -11,7 +11,7 @@ const Header = (): React.ReactNode => {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
   return (
-    <header className={`flex relative duration-200 justify-between py-6 lg:px-14 md:px-10 px-3 "items-center" sticky top-0 left-0 text-sm z-100 bg-white`}>
+    <header className={`flex relative duration-200 justify-between py-4 lg:px-16 md:px-10 px-3 items-center sticky top-0 left-0 text-sm z-100 bg-white`}>
       <Link href={'/'}>
         <Image
           src={`/images/logo.svg`}
