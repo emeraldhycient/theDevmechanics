@@ -30,7 +30,7 @@ const HeroSection = (): React.ReactNode => {
     <>
       <section className={`lg:px-16 md:px-10 px-3 py-8`}>
         <p className={`lg:text-base md:text-base text-sm`}>
-          Software Desgin Agency
+          Software Design Agency
         </p>
 
         <h1 className={`lg:text-6xl md:text-4xl text-3xl font-bold py-4 max-w-full w-[60rem] lg:leading-[80px] md:leading-[64px] leading-10`}>
