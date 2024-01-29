@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Links from '@/json/nav.json';
+import { IoReorderTwoOutline } from "react-icons/io5";
 
 const Header = (): React.ReactNode => {
   return (
-    <header className={`flex justify-between py-6 px-14 items-center sticky top-0 left-0 text-sm`}>
+    <header className={`flex justify-between py-6 lg:px-14 md:px-10 px-4 items-center sticky top-0 left-0 text-sm`}>
       <Link href={'/'}>
         <Image
           src={`/images/logo.svg`}
@@ -16,7 +17,7 @@ const Header = (): React.ReactNode => {
         />
       </Link>
 
-      <section className={`flex items-center gap-x-24`}>
+      <section className={`lg:flex md:flex hidden items-center gap-x-24`}>
         <nav>
           <ul className={`text-sm flex items-center gap-x-12`}>
             {Links.map((link, index) => (
@@ -43,6 +44,10 @@ const Header = (): React.ReactNode => {
           </Link>
         </section>
       </section>
+
+      <button className={`lg:hidden md:hidden block text-2xl`}>
+        <IoReorderTwoOutline />
+      </button>
     </header>
   )
 }
