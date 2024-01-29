@@ -66,23 +66,19 @@ const Footer = () => {
                 {link.title}
               </h3>
 
-              {link.listAreLinks && (
-                link.list.map((list, index) => (
+              {link.list.map((list, index) => (
+                (typeof list === "object") ? (
                   <Link key={index} href={list?.href}>
                     <p>
                       {list?.name}
                     </p>
                   </Link>
-                ))
-              )}
-
-              {!link.listAreLinks && (
-                link.list.map((list, index) => (
+                ) : (
                   <p key={index}>
                     {list}
                   </p>
-                ))
-              )}
+                )
+              ))}
             </div>
           ))}
 
@@ -102,7 +98,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} DevMechanics
         </p>
       </section>
-    </footer>
+    </footer >
   )
 }
 
