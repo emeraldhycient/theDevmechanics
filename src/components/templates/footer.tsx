@@ -30,7 +30,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={`[&_p]:text-[#9FA4A6] [&_h3]:font-bold [&_h3]:text-[16px] [&_p]:text-[14px] lg:[&_section]:px-16 md:[&_section]:px-10 [&_section]:px-3`}>
+    <footer className={`[&_p]:text-[#9FA4A6] [&_h3]:font-bold [&_h3]:text-[16px] [&_p]:text-[14px] lg:[&_section]:px-16 md:[&_section]:px-10 [&_section]:px-3 pt-7`}>
       <section className={`flex flex-wrap items-start justify-between gap-x-4 gap-y-8 py-8`}>
         <div className={`lg:w-[13rem] md:w-[13rem] w-full`}>
           <Link href={'mailto:info@devmechanics.com'}>
@@ -66,23 +66,19 @@ const Footer = () => {
                 {link.title}
               </h3>
 
-              {link.listAreLinks && (
-                link.list.map((list, index) => (
+              {link.list.map((list, index) => (
+                (typeof list === "object") ? (
                   <Link key={index} href={list?.href}>
                     <p>
                       {list?.name}
                     </p>
                   </Link>
-                ))
-              )}
-
-              {!link.listAreLinks && (
-                link.list.map((list, index) => (
+                ) : (
                   <p key={index}>
                     {list}
                   </p>
-                ))
-              )}
+                )
+              ))}
             </div>
           ))}
 
@@ -102,7 +98,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} DevMechanics
         </p>
       </section>
-    </footer>
+    </footer >
   )
 }
 
