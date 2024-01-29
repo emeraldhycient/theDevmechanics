@@ -33,7 +33,7 @@ const HeroSection = (): React.ReactNode => {
           Software Desgin Agency
         </p>
 
-        <h1 className={`lg:text-6xl md:text-4xl text-3xl font-bold py-4 max-w-full w-[60rem] leading-10`}>
+        <h1 className={`lg:text-6xl md:text-4xl text-3xl font-bold py-4 max-w-full w-[60rem] lg:leading-[80px] md:leading-[64px] leading-10`}>
           We build custom software to meet your unique needs, driving Efficiency & <span className={`text-[#9743FF]`}>Organization</span>.
         </h1> <br />
 

@@ -1,3 +1,4 @@
 import Footer from "./footer";
+import Services from "./services";
 
-export { Footer };
+export { Footer, Services };
