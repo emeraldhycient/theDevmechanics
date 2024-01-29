@@ -30,9 +30,9 @@ const Footer = () => {
   ];
 
   return (
-    <footer className={`[&_p]:text-[#9FA4A6] [&_h3]:font-bold [&_h3]:text-[16px] [&_p]:text-[14px] [&_section]:px-14`}>
-      <section className={`flex items-start justify-between py-8`}>
-        <div className={`w-[13rem]`}>
+    <footer className={`[&_p]:text-[#9FA4A6] [&_h3]:font-bold [&_h3]:text-[16px] [&_p]:text-[14px] lg:[&_section]:px-14 md:[&_section]:px-10 [&_section]:px-3`}>
+      <section className={`flex flex-wrap items-start justify-between gap-x-4 gap-y-8 py-8`}>
+        <div className={`lg:w-[13rem] md:w-[13rem] w-full`}>
           <Link href={'mailto:info@devmechanics.com'}>
             <h3>
               info@devmechanics.com
@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <section className={`flex items-start gap-x-20`}>
+        <section className={`flex flex-wrap gap-y-8 items-start gap-x-20`}>
           {Links.map((link, index) => (
             <div key={index} className={`flex flex-col gap-y-5`}>
               <h3>
@@ -94,7 +94,7 @@ const Footer = () => {
           src={`/images/logo.svg`}
           width={142}
           height={14.8}
-          className={`w-[10rem]`}
+          className={`lg:w-[10rem] w-[8rem]`}
           alt='Logo'
         />
 
