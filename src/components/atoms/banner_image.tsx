@@ -10,6 +10,7 @@ const BannerImage = ({ image }: { image: string }): React.ReactNode => {
         height={500}
         className={`w-full object-top lg:h-[200px] h-[100px] object-cover lg:rounded-t-[3rem] rounded-t-3xl`}
         alt='Image'
+        priority={true}
       /> <br /> <br />
     </>
   )

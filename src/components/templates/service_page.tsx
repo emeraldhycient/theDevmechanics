@@ -13,6 +13,7 @@ const ServicePage = (): React.ReactNode => {
             width={533.95}
             height={502.62}
             className={`w-[18rem] object-center object-cover`}
+            priority={true}
           />
 
           <section className={`flex-1`}>
