@@ -25,7 +25,7 @@ const Page = (): React.ReactNode => {
 
   return (
     <>
-      <section className={`lg:px-14 px-3 py-14 flex items-start lg:flex-row gap-x-36 gap-y-8 md:flex-row flex-col`}>
+      <section className={`lg:px-14 px-3 py-14 flex items-start lg:flex-row gap-x-36 gap-y-8 md:flex-row flex-col-reverse`}>
         <div>
           <p className={`text-[#9FA4A6] text-sm`}>
             Send us an email
