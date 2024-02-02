@@ -1,10 +1,28 @@
+"use client";
+
 import { SocialIcons } from '@/components/molecules';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import ProjectTypes from '@/json/contact/project_types.json';
 import Services from "@/json/contact/available_services.json";
 
 const Page = (): React.ReactNode => {
+  const [services, setServices] = useState<string[]>([]);
+  const [projectType, setProjectType] = useState<string[]>([]);
+
+  const addOrRemoveItem = (setter: React.Dispatch<React.SetStateAction<string[]>>, array: string[], item: string) => {
+    if (array.includes(item)) {
+      let copyArray = [...array];
+      let position = copyArray.indexOf(item);
+      copyArray.splice(position, 1);
+
+      setter(copyArray);
+      return;
+    }
+
+    setter((values) => ([...values, item]));
+  }
+
   return (
     <>
       <section className={`lg:px-14 px-3 py-14 flex items-start lg:flex-row gap-x-36 gap-y-8 md:flex-row flex-col`}>
@@ -35,7 +53,7 @@ const Page = (): React.ReactNode => {
           </p>
           <div className={`flex gap-x-3 flex-wrap gap-y-2`}>
             {ProjectTypes.map((type, index) => (
-              <button key={index} className={`bg-[#FCFAFF] lg:text-sm md:text-sm text-xs py-2 px-5`}>
+              <button onClick={() => { addOrRemoveItem(setProjectType, projectType, type) }} key={index} className={`${projectType.includes(type) ? "text-white bg-[#9743FF]" : "bg-[#FCFAFF]"} duration-100 lg:text-sm md:text-sm text-xs py-2 px-5`}>
                 {type}
               </button>
             ))}
@@ -45,9 +63,9 @@ const Page = (): React.ReactNode => {
             Services you need
           </p>
           <div className={`flex gap-x-3 flex-wrap gap-y-2`}>
-            {Services.map((type, index) => (
-              <button key={index} className={`bg-[#FCFAFF] lg:text-sm md:text-sm text-xs py-2 px-5`}>
-                {type}
+            {Services.map((service, index) => (
+              <button onClick={() => { addOrRemoveItem(setServices, services, service) }} key={index} className={`${services.includes(service) ? "text-white bg-[#9743FF]" : "bg-[#FCFAFF]"} duration-100 lg:text-sm md:text-sm text-xs py-2 px-5`}>
+                {service}
               </button>
             ))}
           </div>
