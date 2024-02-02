@@ -1,0 +1,46 @@
+[
+  {
+    "heading": "Crafting Future-Ready Software Solutions",
+    "title": "Custom Software Development",
+    "image": "/images/services/software.svg",
+    "text": "At The DevMechanics, we approach software development not just as a task, but as an art. Our method is a blend of innovation, expertise, and a deep understanding of your business needs. We specialize in creating solutions that are not only efficient and scalable but also aligned perfectly with your business goals.",
+    "hasPoints": false
+  },
+  {
+    "heading": "Where Aesthetics Meet Functionality",
+    "title": "Website Design Development",
+    "image": "/images/services/website.svg",
+    "text": "Your website is your digital storefront, and at The DevMechanics, we ensure it reflects the essence of your brand. Our design philosophy centers around creating a seamless user experience, integrating the latest trends with a touch of creativity. Our tech stack is cutting-edge, incorporating HTML5, CSS3, and React to build websites that are not only visually appealing but also high-performing and responsive.",
+    "hasPoints": true,
+    "points": {
+      "title": "Our Process",
+      "points": [
+        "Discovery & Planning: Understanding your vision and laying out a strategic plan.",
+        "Design & Development: Crafting designs that captivate and coding that delivers.",
+        "Testing & Launch: Rigorous testing for a flawless launch."
+      ]
+    }
+  },
+  {
+    "heading": "Crafting Future-Ready Software Solutions",
+    "title": "Application Maintenance And Support",
+    "image": "/images/services/maintenance.svg",
+    "text": "Architecture Development at The DevMechanics is about laying a solid foundation for your digital solutions. Our team excels in creating architectures that are not just robust but also scalable, ensuring your software grows with your business. Equally important is our technical documentation service, where we meticulously document every aspect of your project, providing you with a clear roadmap and understanding of your software’s architecture and functionalities.",
+    "hasPoints": true,
+    "points": {
+      "title": "Why it Matters?",
+      "points": [
+        "Good architecture and documentation mean easier maintenance, better scalability, and a clearer understanding for all stakeholders involved.",
+        "Design & Development: Crafting designs that captivate and coding that delivers.",
+        "Testing & Launch: Rigorous testing for a flawless launch."
+      ]
+    }
+  },
+  {
+    "heading": "Your Vision, Our Expertise",
+    "title": "Business Consultation",
+    "image": "/images/services/consultation.svg",
+    "text": "From the drawing board to the final launch, our consultation and software support services are designed to guide you through every step of the software development journey. Whether you're a startup or an established enterprise, our team brings a wealth of experience and insights to your project, ensuring your vision is realized with precision and expertise.",
+    "hasPoints": false
+  }
+]

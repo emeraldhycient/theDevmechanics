@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import { ServicePage } from '@/components/templates';
 
 const Page = (): React.ReactNode => {
   return (
     <>
-      <section className={`lg:px-14 px-3 py-24`}>
+      <section className={`lg:px-14 px-3 lg:py-24 md:py-20 py-14`}>
         <h1 className={`lg:text-6xl md:text-4xl text-center text-3xl font-bold py-4 max-w-full w-[60rem] mx-auto lg:leading-[80px] md:leading-[64px] leading-10`}>
           We bring your dreams to life, with optimized processes.
         </h1> <br />
-        <p className={`text-center w-[60rem] max-w-full mx-auto text-[20px] font-[400]`}>
+        <p className={`text-center w-[60rem] max-w-full mx-auto lg:text-[20px] md:text-base text-sm font-[400]`}>
           Explore our creative services and experience expert software solutions tailored to any industry. From architecture to implementation, we bring innovation to life.
         </p> <br />
 
@@ -41,32 +42,10 @@ const Page = (): React.ReactNode => {
 
         <h1 className={`lg:text-4xl md:text-2xl text-xl font-[900] py-2 max-w-full w-[50rem]`}>
           Expert Software Architecture, Design, and Implementation Across Industries
-        </h1> <br />
-
-        {/* <section className={`flex flex-wrap items-start gap-x-9 gap-y-6 justify-center lg:justify-normal md:justify-normal`}>
-          {ServicesList.map((service, index) => (
-            <div key={index} className={`lg:w-[250px] hover:shadow-sm duration-150 md:w-[250px] w-full lg:h-[400px] md:h-[400px] h-[300px] flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px]`}>
-              <section>
-                <Image
-                  src={service.icon}
-                  width={62.39}
-                  height={62.39}
-                  className={`w-[62px] h-[62px]`}
-                  alt=''
-                />
-
-                <h3 className={`font-bold text-base py-3 capitalize`}>
-                  {service.title}
-                </h3>
-              </section>
-
-              <p className={`text-sm`}>
-                {service.writeup}
-              </p>
-            </div>
-          ))}
-        </section> */}
+        </h1>
       </section> <br />
+
+      <ServicePage /> <br />
     </>
   )
 }
