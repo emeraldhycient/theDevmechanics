@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ArrowIcon from "../../../public/icons/arrow-icon";
+import ImageBlock from "../atoms/image-block";
 import SectionHeader from "../atoms/section-header";
 import SectionContainer from "../molecules/section-container.";
 
@@ -15,15 +16,15 @@ const Project = (props: Props) => {
 				subHeaderText="A testament to our versatility & commitment to
 							excellence 🔥"
 			/>
-			<div className="flex flex-col lg:flex-row items-center justify-between bg-[#FBF3EF] rounded-2xl px-3 md:px-12 py-9 gap-y-14 mt-20">
-				<div className="w-full lg:w-2/4 text-center lg:text-start flex flex-col items-center lg:items-start ">
+			<div className="flex flex-col md:flex-row items-center justify-between bg-[#FBF3EF] rounded-2xl px-3 md:px-12 py-9 md:py-7 gap-y-14 mt-20">
+				<div className="w-full md:w-[45%] text-center md:text-start flex flex-col items-center md:items-start ">
 					<div className="text-sm mb-5">
 						<p>Vision Pay</p>
 					</div>
-					<div className="text-3xl  font-semibold text-[#141515]">
+					<div className="text-2xl font-semibold text-[#141515]">
 						<p>Empowering Agency Banking</p>
 					</div>
-					<div className="text-sm my-4 text-[#9FA4A6] leading-loose">
+					<div className="text-sm my-5 text-[#9FA4A6] leading-loose">
 						<p>
 							Vision Pay is an innovative agency banking app
 							designed to make easy and secure banking
@@ -36,7 +37,7 @@ const Project = (props: Props) => {
 					</div>
 
 					<div>
-						<div className="mt-7 md:mt-5 flex flex-col sm:flex-row items-center ml-auto gap-x-3 gap-y-5">
+						<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center ml-auto gap-x-3 gap-y-5">
 							<Link
 								href=""
 								id=""
@@ -59,15 +60,12 @@ const Project = (props: Props) => {
 					</div>
 				</div>
 
-				<div className="relative block">
-					<div className="block overflow-hidden relative h-[27rem] w-[20rem] sm:w-[22rem] md:w-[25rem] rounded-lg">
-						<img
-							src={`/images/preview.png`}
-							alt="project-image"
-							className="absolute top-0 left-0 object-cover h-[27rem] w-full rounded-lg"
-						/>
-					</div>
-				</div>
+				<ImageBlock
+					subContainerClassName="block overflow-hidden relative !h-[25rem] !w-[19rem] min-[400px]:!w-[20rem] md:!w-[23rem] lg:!w-[25rem] !rounded-lg"
+					className="absolute top-0 left-0 rounded-lg"
+					src="/images/preview.png"
+					alt="project-image"
+				/>
 			</div>
 		</SectionContainer>
 	);
