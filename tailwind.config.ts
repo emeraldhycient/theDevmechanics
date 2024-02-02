@@ -15,7 +15,8 @@ const config: Config = {
       },
     },
     fontFamily: {
-      "gordita": "gordita"
+      // "gordita": "gordita",
+      gordita: ["Gordita", "sans-serif"],
     }
   },
   plugins: [],

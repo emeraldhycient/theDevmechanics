@@ -1,0 +1,14 @@
+@use "./fonts";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: "gordita";
+	src: url("/fonts/Gordita-Regular.otf");
+}
+
+body {
+	font-family: "Gordita", "Inter", sans-serif;
+}

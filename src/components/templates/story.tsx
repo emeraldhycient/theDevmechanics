@@ -4,7 +4,7 @@ import SwiperCore from "swiper";
 import { register } from "swiper/element/bundle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SliderArrowIcon from "../../../public/icons/slider-arrow-icon";
-import "../../app/globals.css";
+import "../../app/styles/globals.scss";
 import story from "../../json/story.json";
 import SectionHeader from "../atoms/section-header";
 import StoryItem from "../atoms/story-item";
