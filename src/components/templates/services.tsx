@@ -24,7 +24,7 @@ const Services = (): React.ReactNode => {
 
         <section className={`flex flex-wrap items-start gap-x-9 gap-y-6 justify-center lg:justify-normal md:justify-normal`}>
           {ServicesList.map((service, index) => (
-            <div key={index} className={`lg:w-[250px] hover:shadow-sm duration-150 md:w-[250px] w-full lg:h-[400px] md:h-[400px] h-[300px] flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px]`}>
+            <div key={index} className={`lg:w-[250px] hover:shadow-sm duration-150 md:w-[250px] w-full h-[300px] flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px]`}>
               <section>
                 <Image
                   src={service.icon}
