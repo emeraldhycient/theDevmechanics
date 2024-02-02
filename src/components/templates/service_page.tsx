@@ -12,7 +12,7 @@ const ServicePage = (): React.ReactNode => {
             alt='Service Image'
             width={533.95}
             height={502.62}
-            className={`w-[20rem] object-center object-cover`}
+            className={`w-[18rem] object-center object-cover`}
           />
 
           <section className={`flex-1`}>
