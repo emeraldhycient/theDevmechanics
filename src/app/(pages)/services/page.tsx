@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
 import { ServicePage } from '@/components/templates';
+import { BannerImage } from '@/components/atoms';
 
 const Page = (): React.ReactNode => {
   return (
@@ -28,13 +29,7 @@ const Page = (): React.ReactNode => {
       </section> <br /> <br />
 
       <section className={`py-3 lg:px-16 md:px-10 px-3`}>
-        <Image
-          src={`/images/services/banner.svg`}
-          width={800}
-          height={500}
-          className={`w-full object-top lg:h-[200px] h-[100px] object-cover lg:rounded-t-[3rem] rounded-t-3xl`}
-          alt='Image'
-        /> <br /> <br />
+        <BannerImage image={`/images/services/banner.svg`} />
 
         <p className={`lg:text-base md:text-base text-sm pb-4`}>
           Crafting Innovative Solutions

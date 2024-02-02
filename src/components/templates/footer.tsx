@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Links from '@/json/footer.json';
+import { SocialIcons } from '../molecules';
 
 const Footer = () => {
   const icons = [
@@ -42,21 +43,7 @@ const Footer = () => {
             89B, Shagari RD, Maryland, Opebi Allen Way, Lagos Nigeria.
           </p> <br /> <br />
 
-          <div className={`flex items-center flex-wrap gap-x-6 gap-y-3`}>
-            {
-              icons.map((icon, index) => (
-                <Link key={index} href={icon.link}>
-                  <Image
-                    src={icon.icon}
-                    alt='Icon'
-                    width={56}
-                    height={56}
-                    className={`p-3 rounded-full bg-[#FCFAFF] w-[40px] h-[40px]`}
-                  />
-                </Link>
-              ))
-            }
-          </div>
+          <SocialIcons />
         </div>
 
         <section className={`flex flex-wrap gap-y-8 items-start gap-x-20`}>
