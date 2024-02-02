@@ -45,7 +45,7 @@ const Page = (): React.ReactNode => {
 
         <section className={`flex-1`}>
           <h1 className={`font-bold lg:text-5xl md:text-4xl text-3xl`}>
-            Hey! Got A Project?
+            Hey! Got a project?
           </h1><br />
 
           <p className={`text-base mt-3 mb-3`}>
@@ -68,7 +68,22 @@ const Page = (): React.ReactNode => {
                 {service}
               </button>
             ))}
-          </div>
+          </div> <br /> <br />
+
+          <form onSubmit={(e) => { e.preventDefault() }} className={`flex flex-col gap-y-10`}>
+            <div className={`flex lg:flex-row md:flex-row flex-col gap-y-7 gap-x-7 w-full`}>
+              <input type="text" className={`flex-1 text-[#141515] placeholder:text-[#141515] outline-none border-b border-b-[#9FA4A64D] py-2 text-sm`} placeholder='Full Name' />
+              <input type="email" className={`flex-1 text-[#141515] placeholder:text-[#141515] outline-none border-b border-b-[#9FA4A64D] py-2 text-sm`} placeholder='Email Address' />
+            </div>
+
+            <textarea placeholder='Write about your idea' className={`min-w-full max-w-full text-[#141515] placeholder:text-[#141515] outline-none border-b border-b-[#9FA4A64D] py-2 text-sm min-h-[5rem] max-h-[5rem]`}></textarea>
+
+            <div className={`flex justify-end`}>
+              <button className={`text-sm rounded-full py-2 px-14 text-white bg-[#9743FF]`}>
+                Submit
+              </button>
+            </div>
+          </form>
         </section>
       </section>
     </>
