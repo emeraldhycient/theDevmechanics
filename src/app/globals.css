@@ -3,10 +3,25 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'gordita';
-  src: url("/fonts/Gordita-Regular.otf");
+	font-family: "gordita";
+	src: url("/fonts/Gordita-Regular.otf");
 }
 
 body {
-  font-family: "gordita", sans-serif;
+	font-family: "gordita", sans-serif;
+}
+
+.swiper-wrapper {
+	display: flex !important;
+	flex-direction: row !important;
+	justify-content: start !important;
+  align-items: center !important;
+      transform: translate3d(0px, 0px, 0px) !important;
+}
+
+#swiper-wrapper-7bb2f21a92c5e6c8 {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+  align-items: center;
 }
