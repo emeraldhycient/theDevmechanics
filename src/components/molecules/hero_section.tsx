@@ -4,7 +4,7 @@ import { SocialIcons } from '.';
 const HeroSection = (): React.ReactNode => {
   return (
     <>
-      <section className={`lg:px-16 md:px-10 px-3 py-8`}>
+      <section className={`lg:px-16 min-h-[80svh] flex flex-col justify-center md:px-10 px-3 py-8`}>
         <p className={`lg:text-base md:text-base text-sm`}>
           Software Design Agency
         </p>
