@@ -1,0 +1,50 @@
+[
+	{
+		"image": "https://example.com/profile1.jpg",
+		"name": "John Doe",
+		"role": "Software Engineer",
+		"linkedLink": "https://linkedin.com/in/johndoe"
+	},
+	{
+		"image": "https://example.com/profile2.jpg",
+		"name": "Jane Smith",
+		"role": "Data Scientist",
+		"linkedLink": "https://linkedin.com/in/janesmith"
+	},
+	{
+		"image": "https://example.com/profile2.jpg",
+		"name": "Jane Smith",
+		"role": "Data Scientist",
+		"linkedLink": "https://linkedin.com/in/janesmith"
+	},
+	{
+		"image": "https://example.com/profile2.jpg",
+		"name": "Jane Smith",
+		"role": "Data Scientist",
+		"linkedLink": "https://linkedin.com/in/janesmith"
+	},
+	{
+		"image": "https://example.com/profile2.jpg",
+		"name": "Jane Smith",
+		"role": "Data Scientist",
+		"linkedLink": "https://linkedin.com/in/janesmith"
+	},
+	{
+		"image": "https://example.com/profile2.jpg",
+		"name": "Jane Smith",
+		"role": "Data Scientist",
+		"linkedLink": "https://linkedin.com/in/janesmith"
+	},
+	{
+		"image": "https://example.com/profile2.jpg",
+		"name": "Jane Smith",
+		"role": "Data Scientist",
+		"linkedLink": "https://linkedin.com/in/janesmith"
+	},
+	{
+		"image": "https://example.com/profile3.jpg",
+		"name": "Alex Johnson",
+		"role": "Product Manager",
+		"linkedLink": "https://linkedin.com/in/alexjohnson"
+	}
+]

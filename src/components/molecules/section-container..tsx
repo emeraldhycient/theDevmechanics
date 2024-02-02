@@ -13,7 +13,7 @@ const SectionContainer = ({
 }: Props) => {
 	return (
 		<div className={`pt-24 pb-20 relative ${containerClassName}`}>
-			<div className={`w-11/12 md:w-10/12 mx-auto my-0  ${className}`}>
+			<div className={`w-11/12 md:w-10/12 mx-auto ${className}`}>
 				{children}
 			</div>
 		</div>
