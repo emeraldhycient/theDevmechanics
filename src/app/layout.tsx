@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./styles/globals.scss";
 
 // const inter = Inter({ subsets: ["latin"] });
 

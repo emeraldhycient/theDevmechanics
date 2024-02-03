@@ -19,7 +19,7 @@ const SectionHeader = ({ className, headerClassName, headerText, subHeaderClassN
 				<p>{headerText}</p>
 			</div>
 			<div
-				className={` text-neutral-900 font-extrabold leading-[3rem] md:leading-[4rem] lg:leading-[4rem] text-3xl md:text-4xl lg:text-5xl w-full lg:max-w-[70%] ${subHeaderClassName}`}
+				className={` text-neutral-900 font-bold leading-[3rem] md:leading-[3.5rem] text-3xl md:text-4xl  w-full md:max-w-[70%] ${subHeaderClassName}`}
 			>
 				<p>{subHeaderText}</p>
 			</div>
