@@ -61,8 +61,8 @@ const Project = (props: Props) => {
 				</div>
 
 				<ImageBlock
-					subContainerClassName="block overflow-hidden relative !h-[25rem] !w-[19rem] min-[400px]:!w-[20rem] md:!w-[23rem] lg:!w-[25rem] !rounded-lg"
-					className="absolute top-0 left-0 rounded-lg"
+					subContainerClassName="block overflow-hidden relative !h-[25rem] !w-[19rem] min-[400px]:!w-[20rem] md:!w-[23rem] lg:!w-[25rem] !rounded-3xl"
+					className="absolute top-0 left-0 "
 					src="/images/preview.png"
 					alt="project-image"
 				/>
