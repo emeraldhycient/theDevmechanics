@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Project 1",
+    "subtitle": "Subtitle 1",
+    "description": "Description 1...",
+    "skills": "UI/UX Design, Front & Back End Development",
+    "viewProjectLink": "/project1",
+    "caseStudyLink": "/case-study1",
+    "imageSrc": "/images/project1.png",
+    "altText": "Project 1 Image"
+  },
+  {
+    "title": "Project 1",
+    "subtitle": "Subtitle 1",
+    "description": "Description 1...",
+    "skills": "UI/UX Design, Front & Back End Development",
+    "viewProjectLink": "/project1",
+    "caseStudyLink": "/case-study1",
+    "imageSrc": "/images/project1.png",
+    "altText": "Project 1 Image"
+  },
+  {
+    "title": "Project 1",
+    "subtitle": "Subtitle 1",
+    "description": "Description 1...",
+    "skills": "UI/UX Design, Front & Back End Development",
+    "viewProjectLink": "/project1",
+    "caseStudyLink": "/case-study1",
+    "imageSrc": "/images/project1.png",
+    "altText": "Project 1 Image"
+  },
+  {
+    "title": "Project 1",
+    "subtitle": "Subtitle 1",
+    "description": "Description 1...",
+    "skills": "UI/UX Design, Front & Back End Development",
+    "viewProjectLink": "/project1",
+    "caseStudyLink": "/case-study1",
+    "imageSrc": "/images/project1.png",
+    "altText": "Project 1 Image"
+  },
+  {
+    "title": "Project 2",
+    "subtitle": "Subtitle 2",
+    "description": "Description 2...",
+    "skills": "UI/UX Design, Front & Back End Development",
+    "viewProjectLink": "/project2",
+    "caseStudyLink": "/case-study2",
+    "imageSrc": "/images/project2.png",
+    "altText": "Project 2 Image"
+  }
+]
