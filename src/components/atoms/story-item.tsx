@@ -1,5 +1,6 @@
 import React from "react";
 import StarIcon from "../../../public/icons/star-icon";
+import TestimonialCard from "./testimonial-card";
 
 type Props = {index: number};
 
@@ -23,43 +24,16 @@ const StoryItem = (props: Props) => {
 				</div>
 			</div>
 
-			<div className="w-full flex flex-col justify-start items-start gap-5">
-				<div className="justify-start items-center gap-4 inline-flex">
-					<div className="justify-start items-center gap-2.5 flex">
-						{Array.from({ length: maxStars }).map((_, index) => (
-							<StarIcon
-								key={index}
-								className={
-									index < rating
-										? "fill-blue-600"
-										: "stroke-black"
-								}
-								fill={index < rating ? "blue" : "transparent"}
-								empty={index < rating ? false : true}
-							/>
-						))}
-					</div>
-					<div className="text-neutral-900 text-sm font-semibold ">
-						{rating}.0
-					</div>
-				</div>
-				<div className="flex-col justify-center items-start gap-3 flex">
-					<div className=" text-neutral-900 text-base font-normal leading-[30px]">
-						“The DevMechanics didn&lsquo;t just provide a service;
+			<TestimonialCard
+				name="Dominic Praise"
+				maxStars={5}
+				message="The DevMechanics didn&lsquo;t just provide a service;
 						they delivered a transformation to our business process.
 						Their bespoke software solution has been a game-changer
-						in how we operate and serve our customers.”
-					</div>
-				</div>
-				<div>
-					<span className="text-neutral-900 text-base font-semibold  leading-7">
-						Dominic Praise,{" "}
-					</span>
-					<span className="text-neutral-900 text-sm font-medium  leading-7">
-						CEO at Frameio Stores
-					</span>
-				</div>
-			</div>
+						in how we operate and serve our customers."
+				position="CEO at Frameio Stores"
+				rating={3}
+			/>
 		</div>
 	);
 };
