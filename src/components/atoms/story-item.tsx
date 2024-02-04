@@ -6,12 +6,11 @@ type Props = {index: number};
 const StoryItem = (props: Props) => {
 	const maxStars = 5;
 	const rating = 3;
-	console.log(props.index);
-	// desktop: w-full min-w-[55rem]
+
 	return (
 		<div
-			className="bg-white rounded-[40px] py-10 px-10 gap-10 flex flex-col lg:flex-row items-center 
-        w-full lg:min-w-[55rem]
+			className="bg-white rounded-[40px] py-10 px-10 gap-10 flex flex-col lg:flex-row items-center md:items-start lg:items-center 
+        w-full lg:min-w-[55rem] cursor-grab
         "
 		>
 			<div className="relative block">
