@@ -2,7 +2,7 @@ import React from "react";
 import StarIcon from "../../../public/icons/star-icon";
 import TestimonialCard from "./testimonial-card";
 
-type Props = {index: number};
+type Props = { index: number };
 
 const StoryItem = (props: Props) => {
 	const maxStars = 5;
@@ -12,8 +12,7 @@ const StoryItem = (props: Props) => {
 		<div
 			className="bg-white rounded-[40px] py-10 px-10 gap-10 flex flex-col lg:flex-row items-center md:items-start lg:items-center 
         w-full lg:min-w-[55rem] cursor-grab
-        "
-		>
+        ">
 			<div className="relative block">
 				<div className="block overflow-hidden relative h-[18rem] w-[20rem] sm:w-[22rem] md:w-[20rem] rounded-3xl">
 					<img

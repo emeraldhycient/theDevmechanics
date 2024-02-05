@@ -18,8 +18,7 @@ const TestimonialCard = ({
 }) => {
 	return (
 		<div
-			className={`w-full flex flex-col justify-start items-start gap-5 ${containerClassName}`}
-		>
+			className={`w-full flex flex-col justify-start items-start gap-5 ${containerClassName}`}>
 			<div className="justify-start items-center gap-4 inline-flex">
 				<div className="justify-start items-center gap-2.5 flex">
 					{Array.from({ length: maxStars }).map((_, index) => (
@@ -38,8 +37,8 @@ const TestimonialCard = ({
 				<div className="text-neutral-900 text-sm font-semibold ">
 					{rating}.0
 				</div>
-            </div>
-            
+			</div>
+
 			<div className="flex-col justify-center items-start gap-3 flex">
 				<div className="text-neutral-900 text-base font-normal leading-[30px]">
 					“{message}”

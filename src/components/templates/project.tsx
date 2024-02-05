@@ -41,8 +41,7 @@ const Project = (props: Props) => {
 								href=""
 								id=""
 								className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-gradient-to-r from-purple-500 to-purple-700 min-h-fit min-w-fit border border-[#9743FF] 
-						hover:text-[#141515] hover:bg-white transition duration-500 ease-in-out"
-							>
+						hover:text-[#141515] hover:bg-white transition duration-500 ease-in-out">
 								<span>View Project</span>{" "}
 								<span>
 									<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] transition duration-500 ease-in-out" />
@@ -51,8 +50,7 @@ const Project = (props: Props) => {
 							<Link
 								href=""
 								id=""
-								className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-white hover:bg-gradient-to-r from-zinc-700 to-gray-600 transition duration-500 ease-in-out"
-							>
+								className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-white hover:bg-gradient-to-r from-zinc-700 to-gray-600 transition duration-500 ease-in-out">
 								Read Case Study
 							</Link>
 						</div>

@@ -12,7 +12,6 @@ import SliderButton from "../atoms/slider-button";
 type Props = {};
 
 const Story = (props: Props) => {
-
 	return (
 		<SectionContainer className="flex flex-col !gap-y-14">
 			<SectionHeader
@@ -34,8 +33,7 @@ const Story = (props: Props) => {
 							slidesPerView: 1.2,
 						},
 					}}
-					spaceBetween={50}
-				>
+					spaceBetween={50}>
 					{story.map((story, index) => (
 						<SwiperSlide key={index}>
 							<StoryItem index={index} />

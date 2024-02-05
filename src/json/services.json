@@ -1,22 +1,22 @@
 [
-  {
-    "icon": "/icons/services/custom.svg",
-    "title": "Custom Software Development",
-    "writeup": "We design and build custom software applications to meet the specific needs of our clients."
-  },
-  {
-    "icon": "/icons/services/consult.svg",
-    "title": "Business consulting",
-    "writeup": "Assisting other companies in improving business strategies and operations"
-  },
-  {
-    "icon": "/icons/services/web.svg",
-    "title": "Web development services",
-    "writeup": "Creating and designing functional websites for businesses or individuals."
-  },
-  {
-    "icon": "/icons/services/application.svg",
-    "title": "Application maintenance & support",
-    "writeup": "We ensure software applications run smoothly and efficiently through ongoing support and maintenance."
-  }
+	{
+		"icon": "/icons/services/custom.svg",
+		"title": "Custom Software Development",
+		"writeup": "We design and build custom software applications to meet the specific needs of our clients."
+	},
+	{
+		"icon": "/icons/services/consult.svg",
+		"title": "Business consulting",
+		"writeup": "Assisting other companies in improving business strategies and operations"
+	},
+	{
+		"icon": "/icons/services/web.svg",
+		"title": "Web development services",
+		"writeup": "Creating and designing functional websites for businesses or individuals."
+	},
+	{
+		"icon": "/icons/services/application.svg",
+		"title": "Application maintenance & support",
+		"writeup": "We ensure software applications run smoothly and efficiently through ongoing support and maintenance."
+	}
 ]

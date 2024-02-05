@@ -11,16 +11,13 @@ const SliderList = (props: any) => {
 
 	return (
 		<>
-			<div
-				className={`flex flex-row overflow-x-hidden touch-pan-y`}
-			>
+			<div className={`flex flex-row overflow-x-hidden touch-pan-y`}>
 				<div
 					className={`flex flex-row w-full`}
 					style={{
 						transform: `translate3d(${translateX}px, 0, 0)`,
 					}}
-					{...rest}
-				></div>
+					{...rest}></div>
 			</div>
 		</>
 	);
