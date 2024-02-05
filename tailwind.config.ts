@@ -14,19 +14,20 @@ const config: Config = {
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 			},
 			screens: {
-				'xs': '320px',
-				'sm': '480px',
-				'custom-sm': '559px',
-				'custom-md': '639px',
-				'md': '768px',
-				'lg': '1024px',
-				'xl': '1280px',
-				'2xl': '1920px',
+				// For each break point i tend to try and trigger at least three example: xs, xg, xx.
+				// Same with sm, sg, sx
+				xs: "320px",
+				sm: "480px",
+				md: "768px",
+				ls: "840px",
+				lg: "1024px",
+				xl: "1280px",
+				"2xl": "1920px",
 			},
 		},
 		fontFamily: {
 			gordita: ["Gordita", "sans-serif"],
-		}
+		},
 	},
 	plugins: [],
 };

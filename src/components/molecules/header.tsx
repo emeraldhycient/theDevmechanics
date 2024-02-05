@@ -12,7 +12,7 @@ const Header = (): React.ReactNode => {
 
 	return (
 		<header
-			className={`flex relative duration-200 justify-between py-4 lg:px-16 md:px-10 px-3 items-center sticky top-0 left-0 text-sm z-100 bg-white`}>
+			className={`flex duration-200 justify-between py-4 lg:px-16 md:px-10 px-3 items-center sticky top-0 left-0 text-sm z-[9999] bg-white`}>
 			<Link href={"/"}>
 				<Image
 					src={`/images/logo.svg`}
@@ -23,7 +23,7 @@ const Header = (): React.ReactNode => {
 				/>
 			</Link>
 
-			<section className={`lg:flex md:flex hidden items-center gap-x-24`}>
+			<div className={`lg:flex md:flex hidden items-center gap-x-24`}>
 				<nav>
 					<ul className={`text-sm flex items-center gap-x-12`}>
 						{Links.map((link, index) => (
@@ -36,7 +36,7 @@ const Header = (): React.ReactNode => {
 					</ul>
 				</nav>
 
-				<section
+				<div
 					className={`[&_button]:text-sm flex gap-x-3 [&_button]:rounded-full [&_button]:py-3 [&_button]:px-5`}>
 					<button>Get a Quote</button>
 
@@ -45,8 +45,8 @@ const Header = (): React.ReactNode => {
 							Contact Us
 						</button>
 					</Link>
-				</section>
-			</section>
+				</div>
+			</div>
 
 			<button
 				className={`lg:hidden md:hidden block text-3xl`}
