@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import JobOpeningItem from "@/components/atoms/job-opening-item";
 import SectionHeader from "@/components/atoms/section-header";
 import SectionContainer from "@/components/molecules/section-container.";
@@ -32,8 +32,7 @@ const Career = (props: Props) => {
 						href=""
 						id=""
 						className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
-						hover:text-[#141515] hover:bg-white hover:border-white ease-linear duration-500"
-					>
+						hover:text-[#141515] hover:bg-white hover:border-white ease-linear duration-500">
 						<span>Explore Jobs</span>{" "}
 						<span>
 							<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] ease-linear duration-500" />
@@ -42,8 +41,7 @@ const Career = (props: Props) => {
 					<Link
 						href=""
 						id=""
-						className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-[#9743FF] hover:bg-white hover:border-primary-white ease-linear duration-500"
-					>
+						className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-[#9743FF] hover:bg-white hover:border-primary-white ease-linear duration-500">
 						Learn More
 					</Link>
 				</div>
@@ -65,8 +63,7 @@ const Career = (props: Props) => {
 								slidesPerView: 2,
 							},
 						}}
-						spaceBetween={50}
-					>
+						spaceBetween={50}>
 						{story.map((story, index) => (
 							<SwiperSlide key={index}>
 								<TestimonialCard

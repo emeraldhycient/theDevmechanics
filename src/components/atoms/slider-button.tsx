@@ -15,14 +15,12 @@ const SliderButton = (props: Props) => {
 		<>
 			<button
 				onClick={() => swiperElement.slidePrev()}
-				className={`${className} left-0`}
-			>
+				className={`${className} left-0`}>
 				<TailedArrowIcon />
 			</button>
 			<button
 				onClick={() => swiperElement.slideNext()}
-				className={`${className} right-0`}
-			>
+				className={`${className} right-0`}>
 				<TailedArrowIcon className="rotate-180" />
 			</button>{" "}
 		</>

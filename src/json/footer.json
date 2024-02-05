@@ -1,49 +1,45 @@
 [
-  {
-    "title": "Services",
-    "listAreLinks": false,
-    "list": [
-      "Software Development",
-      "Website Design & Development",
-      "Consultation & Software Support",
-      "Architecture Development",
-      "Technical Documentation",
-      "Brand Identity"
-    ]
-  },
-  {
-    "title": "Company",
-    "listAreLinks": true,
-    "list": [
-      {
-        "name": "Services",
-        "href": "/services"
-      },
-      {
-        "name": "About Us",
-        "href": "/about"
-      },
-      {
-        "name": "Blog",
-        "href": "/blog"
-      },
-      {
-        "name": "Career",
-        "href": "/career"
-      },
-      {
-        "name": "Contact Us",
-        "href": "/contact"
-      }
-    ]
-  },
-  {
-    "title": "Solutions",
-    "listAreLinks": false,
-    "list": [
-      "For Businesses",
-      "For Companies",
-      "For Startups"
-    ]
-  }
+	{
+		"title": "Services",
+		"listAreLinks": false,
+		"list": [
+			"Software Development",
+			"Website Design & Development",
+			"Consultation & Software Support",
+			"Architecture Development",
+			"Technical Documentation",
+			"Brand Identity"
+		]
+	},
+	{
+		"title": "Company",
+		"listAreLinks": true,
+		"list": [
+			{
+				"name": "Services",
+				"href": "/services"
+			},
+			{
+				"name": "About Us",
+				"href": "/about"
+			},
+			{
+				"name": "Blog",
+				"href": "/blog"
+			},
+			{
+				"name": "Career",
+				"href": "/career"
+			},
+			{
+				"name": "Contact Us",
+				"href": "/contact"
+			}
+		]
+	},
+	{
+		"title": "Solutions",
+		"listAreLinks": false,
+		"list": ["For Businesses", "For Companies", "For Startups"]
+	}
 ]

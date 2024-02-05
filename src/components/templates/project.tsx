@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ArrowIcon from "../../../public/icons/arrow-icon";
@@ -16,15 +15,15 @@ const Project = (props: Props) => {
 				subHeaderText="A testament to our versatility & commitment to
 							excellence 🔥"
 			/>
-			<div className="flex flex-col md:flex-row items-center justify-between bg-[#FBF3EF] rounded-2xl px-3 md:px-12 py-9 md:py-7 gap-y-14 mt-20">
+			<div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-neutral-50 to-neutral-100 rounded-2xl px-3 md:px-12 py-9 md:py-7 gap-y-14 mt-20">
 				<div className="w-full md:w-[45%] text-center md:text-start flex flex-col items-center md:items-start ">
 					<div className="text-sm mb-5">
 						<p>Vision Pay</p>
 					</div>
-					<div className="text-2xl font-semibold text-[#141515]">
+					<div className="text-2xl font-semibold bg-gradient-to-r from-slate-700 to-gray-800 bg-clip-text text-transparent">
 						<p>Empowering Agency Banking</p>
 					</div>
-					<div className="text-sm my-5 text-[#9FA4A6] leading-loose">
+					<div className="text-base my-5 bg-gradient-to-r from-slate-400 to-gray-400 bg-clip-text text-transparent leading-loose">
 						<p>
 							Vision Pay is an innovative agency banking app
 							designed to make easy and secure banking
@@ -32,7 +31,7 @@ const Project = (props: Props) => {
 							user-centric design and reliable functionality.
 						</p>
 					</div>
-					<div className="text-base text-[#141515]">
+					<div className="text-base font-medium bg-gradient-to-r from-gray-900 to-neutral-800 bg-clip-text text-transparent">
 						<p>UI/UX Design, Front & Back End Development</p>
 					</div>
 
@@ -41,19 +40,17 @@ const Project = (props: Props) => {
 							<Link
 								href=""
 								id=""
-								className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
-						hover:text-[#141515] hover:bg-white hover:border-white ease-linear duration-500"
-							>
+								className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-gradient-to-r from-purple-500 to-purple-700 min-h-fit min-w-fit border border-[#9743FF] 
+						hover:text-[#141515] hover:bg-white transition duration-500 ease-in-out">
 								<span>View Project</span>{" "}
 								<span>
-									<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] ease-linear duration-500" />
+									<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] transition duration-500 ease-in-out" />
 								</span>
 							</Link>
 							<Link
 								href=""
 								id=""
-								className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-[#9743FF] hover:bg-white hover:border-primary-white ease-linear duration-500"
-							>
+								className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-white hover:bg-gradient-to-r from-zinc-700 to-gray-600 transition duration-500 ease-in-out">
 								Read Case Study
 							</Link>
 						</div>

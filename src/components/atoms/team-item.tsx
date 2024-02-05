@@ -8,10 +8,7 @@ type Props = {};
 const TeamItem = (props: Props) => {
 	return (
 		<div className="w-full flex flex-col gap-4">
-			<ImageBlock
-				src="/images/preview.png"
-				alt="project-image"
-			/>
+			<ImageBlock src="/images/preview.png" alt="project-image" />
 
 			<div className="justify-between items-center flex">
 				<div className="flex-col justify-center items-start gap-2 flex">
@@ -27,8 +24,7 @@ const TeamItem = (props: Props) => {
 						className="relative flex flex-row items-center justify-center w-full h-full align-middle"
 						href="http://"
 						target="_blank"
-						rel="noopener noreferrer"
-					>
+						rel="noopener noreferrer">
 						<LinkedIn
 							width="15"
 							height="15"

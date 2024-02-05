@@ -1,10 +1,10 @@
-import React from 'react'
-import ImageBlock from './image-block';
-import Link from 'next/link';
-import ArrowIcon from '../../../public/icons/arrow-icon';
+import React from "react";
+import ImageBlock from "./image-block";
+import Link from "next/link";
+import ArrowIcon from "../../../public/icons/arrow-icon";
 
 type Props = {
-    isEven?: number;
+	isEven?: number;
 	title?: string;
 	subtitle?: string;
 	description?: string;
@@ -23,15 +23,14 @@ const ProjectItem = ({
 	viewProjectLink,
 	caseStudyLink,
 	imageSrc,
-    altText,
-    isEven
+	altText,
+	isEven,
 }: Props) => {
 	return (
 		<div
 			className={`flex flex-col-reverse items-center justify-between gap-y-14 ${
 				isEven === 0 ? "md:flex-row-reverse " : "md:flex-row "
-			}`}
-		>
+			}`}>
 			<div className="w-full md:w-[45%] text-center md:text-start flex flex-col items-center md:items-start">
 				<div className="text-sm mb-5">
 					<p>{title}</p>
@@ -56,8 +55,7 @@ const ProjectItem = ({
 						<Link
 							href={viewProjectLink}
 							className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
-						hover:text-[#141515] hover:bg-white hover:border-white ease-linear duration-500"
-						>
+						hover:text-[#141515] hover:bg-white hover:border-white ease-linear duration-500">
 							<span>View Project</span>{" "}
 							<span>
 								<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] ease-linear duration-500" />
@@ -65,8 +63,7 @@ const ProjectItem = ({
 						</Link>
 						<Link
 							href={caseStudyLink}
-							className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-[#9743FF] hover:bg-white hover:border-primary-white ease-linear duration-500"
-						>
+							className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-[#9743FF] hover:bg-white hover:border-primary-white ease-linear duration-500">
 							Read Case Study
 						</Link>
 					</div>
@@ -84,4 +81,4 @@ const ProjectItem = ({
 	);
 };
 
-export default ProjectItem
+export default ProjectItem;

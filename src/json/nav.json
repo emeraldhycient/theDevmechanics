@@ -1,18 +1,18 @@
 [
-  {
-    "name": "Services",
-    "href": "/services"
-  },
-  {
-    "name": "Projects",
-    "href": "/project"
-  },
-  {
-    "name": "About",
-    "href": "/about"
-  },
-  {
-    "name": "Blog",
-    "href": "/blog"
-  }
+	{
+		"name": "Services",
+		"href": "/services"
+	},
+	{
+		"name": "Projects",
+		"href": "/project"
+	},
+	{
+		"name": "About",
+		"href": "/about"
+	},
+	{
+		"name": "Blog",
+		"href": "/blog"
+	}
 ]

@@ -1,12 +1,12 @@
-import SectionContainer from '@/components/molecules/section-container.'
-import React from 'react';
+import SectionContainer from "@/components/molecules/section-container.";
+import React from "react";
 import project from "../../../json/project.json";
-import ProjectItem from '@/components/atoms/project-item';
+import ProjectItem from "@/components/atoms/project-item";
 
-type Props = {}
+type Props = {};
 
 const Project = (props: Props) => {
-  return (
+	return (
 		<SectionContainer>
 			<div className="flex-col justify-center items-start gap-8 flex w-full md:max-w-[80%] lg:max-w-[65%]">
 				<div className=" text-neutral-900 font-semibold text-3xl md:text-4xl lg:text-5xl leading-[3rem] md:leading-[4rem] lg:leading-[4rem]">
@@ -28,7 +28,7 @@ const Project = (props: Props) => {
 				))}
 			</div>
 		</SectionContainer>
-  );
-}
+	);
+};
 
-export default Project
+export default Project;
