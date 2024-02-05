@@ -1,15 +1,21 @@
-import React from 'react'
+import React from "react";
 
 type Props = {
-    className?: string;
-    headerClassName?: string;
-    subHeaderClassName?: string;
-    headerText?: string;
-    subHeaderText?: string;
-}
+	className?: string;
+	headerClassName?: string;
+	subHeaderClassName?: string;
+	headerText?: string;
+	subHeaderText?: string;
+};
 
-const SectionHeader = ({ className, headerClassName, headerText, subHeaderClassName, subHeaderText}: Props) => {
-  return (
+const SectionHeader = ({
+	className,
+	headerClassName,
+	headerText,
+	subHeaderClassName,
+	subHeaderText,
+}: Props) => {
+	return (
 		<div
 			className={`flex-col items-start gap-y-5 inline-flex ${className}`}
 		>
@@ -24,7 +30,7 @@ const SectionHeader = ({ className, headerClassName, headerText, subHeaderClassN
 				<p>{subHeaderText}</p>
 			</div>
 		</div>
-  );
-}
+	);
+};
 
-export default SectionHeader
+export default SectionHeader;

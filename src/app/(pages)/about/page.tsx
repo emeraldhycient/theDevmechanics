@@ -11,9 +11,9 @@ type Props = {};
 const About = (props: Props) => {
 	return (
 		<SectionContainer>
-			<div className="flex-col justify-center items-start gap-8 flex w-full md:max-w-[80%] lg:max-w-[55%]">
+			<div className="flex-col justify-center items-start gap-8 flex w-full md:max-w-[80%] lg:max-w-[55.009%]">
 				<div className=" text-neutral-900 font-semibold text-3xl md:text-4xl lg:text-5xl leading-[3rem] md:leading-[4rem] lg:leading-[4rem]">
-					We are a team that believes in the power of technology.
+					We are a team that believes <br /> in the power of technology.
 				</div>
 				<div className=" text-neutral-900 text-sm font-normal leading-[27px]">
 					Founded with a vision to revolutionize the world of software
@@ -22,6 +22,7 @@ const About = (props: Props) => {
 					deliver exceptional, customized software solutions that
 					propel businesses into the future.
 				</div>
+				
 				<div className="justify-start items-center gap-4 inline-flex">
 					<SocialIcons />
 				</div>
