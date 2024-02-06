@@ -3,17 +3,12 @@ import React from "react";
 import ServicesList from "@/json/services.json";
 import SectionContainer from "../molecules/section-container.";
 import SectionHeader from "../atoms/section-header";
+import { BannerImage } from "../atoms";
 
 const Services = (): React.ReactNode => {
 	return (
 		<SectionContainer containerClassName={`!pt-20`}>
-			<Image
-				src={`/images/home-bg.png`}
-				width={800}
-				height={500}
-				className={`w-full object-center h-[100px] md:h-[150px] lg:h-[200px] object-cover rounded-t-3xl lg:rounded-t-[3rem] `}
-				alt="Image"
-			/>
+			<BannerImage src={`/images/home-bg.png`} />
 
 			<SectionHeader
 				headerText="Solution For Every Factor"
