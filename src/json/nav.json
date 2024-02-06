@@ -14,5 +14,13 @@
 	{
 		"name": "Blog",
 		"href": "/blog"
+	},
+	{
+		"name": "Contact",
+		"href": "/contact"
+	},
+	{
+		"name": "Career",
+		"href": "/career"
 	}
 ]
