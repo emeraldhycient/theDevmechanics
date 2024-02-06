@@ -1,53 +1,40 @@
 "use client";
 import JobOpeningItem from "@/components/atoms/job-opening-item";
 import SectionHeader from "@/components/atoms/section-header";
+import SliderButton from "@/components/atoms/slider-button";
+import TestimonialCard from "@/components/atoms/testimonial-card";
+import HeroContainer from "@/components/molecules/hero-container";
 import SectionContainer from "@/components/molecules/section-container.";
-import React from "react";
-import jobOpenings from "../../../json/jobOpenings.json";
 import Link from "next/link";
-import ArrowIcon from "../../../../public/icons/arrow-icon";
+import React from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ArrowIcon from "../../../../public/icons/arrow-icon";
+import jobOpenings from "../../../json/jobOpenings.json";
 import story from "../../../json/story.json";
-import TestimonialCard from "@/components/atoms/testimonial-card";
-import SliderButton from "@/components/atoms/slider-button";
+import InfoCircleIcon from "../../../../public/images/info-circle-icon";
 
 type Props = {};
 
 const Career = (props: Props) => {
 	return (
 		<SectionContainer containerClassName="pt-20 md:pt-24">
-			<div className="flex flex-col justify-center items-center gap-4 ">
-				<div className="text-center text-neutral-900 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[84px]">
-					Grow With Us
-				</div>
-				<div className="text-center text-neutral-900 font-normal leading-[35px] md:w-[52%]">
-					Are you ready to contribute your unique touch of magic? We
+			<HeroContainer
+				title="Grow With Us"
+				description="Are you ready to contribute your unique touch of magic? We
 					are continually seeking exceptionally talented individuals
 					to enrich our dynamic team! Explore our current job openings
-					below.{" "}
-				</div>
-				<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center gap-x-3 gap-y-5">
-					<Link
-						href=""
-						id=""
-						className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
-						hover:text-[#141515] hover:bg-white hover:border-white ease-linear duration-500">
-						<span>Explore Jobs</span>{" "}
-						<span>
-							<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] ease-linear duration-500" />
-						</span>
-					</Link>
-					<Link
-						href=""
-						id=""
-						className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-[#9743FF] hover:bg-white hover:border-primary-white ease-linear duration-500">
-						Learn More
-					</Link>
-				</div>
-			</div>
+					below."
+				descriptionClassName="md:!w-[38rem] lg:!w-[38rem]"
+				titleClassName=""
+				firstLink="/"
+				firstLinkText="Explore Jobs"
+				secondLinkText="Get a Quote"
+				secondLink="/"
+				containerClassName="!mb-32"
+			/>
 
-			<div className="flex flex-col gap-y-24 mt-32">
+			<div className="flex flex-col gap-y-20 mt-32">
 				<SectionHeader
 					headerText="Employees Testimonials"
 					subHeaderText="Employees tell their stories of working with DevMechanics."
@@ -55,8 +42,9 @@ const Career = (props: Props) => {
 				/>
 				<div className="relative group">
 					<Swiper
-						className="w-full flex flex-row items-center"
+						className="w-full flex flex-row items-center "
 						breakpoints={{
+							320: { spaceBetween: 50 },
 							768: { spaceBetween: 5, slidesPerView: 1.4 },
 							1136: {
 								spaceBetween: 5,
@@ -75,7 +63,7 @@ const Career = (props: Props) => {
 						in how we operate and serve our customers."
 									position="CEO at Frameio Stores"
 									rating={3}
-									containerClassName="lg:max-w-[80%]"
+									containerClassName="p-5 rounded-xl md:max-w-[90%] bg-gradient-to-t from-zinc-100 to-gray-100"
 								/>
 							</SwiperSlide>
 						))}
@@ -84,16 +72,31 @@ const Career = (props: Props) => {
 				</div>
 			</div>
 
-			<div className="flex flex-col gap-y-16 mt-36">
+			<div className="flex flex-col gap-y-14 mt-36">
 				<SectionHeader
 					headerText="Work with us"
 					subHeaderText="Job Openings"
 					subHeaderClassName="md:max-w-full"
 				/>
 				<div className="flex flex-col gap-y-10">
-					{jobOpenings.map((job, index) => (
-						<JobOpeningItem key={index} {...job} />
-					))}
+					{jobOpenings?.length !== 0 || jobOpenings.length > 0 ? (
+						<>
+							{jobOpenings.map((job, index) => (
+								<JobOpeningItem key={index} {...job} />
+							))}
+						</>
+					) : (
+						<div className="px-5 md:px-16 py-10 bg-gradient-to-tr from-sky-300 to-cyan-200 rounded-3xl flex flex-col sg:flex-row justify-start items-start gap-6">
+							<div className="flex items-center justify-center ">
+								<InfoCircleIcon className="w-14 h-14 fill-black" />
+							</div>
+							<div className="text-neutral-900 text-2xl ls:text-3xl font-semibold leading-[3rem] ls:leading-[3rem]">
+								Oops, Sorry! We are not actively recruiting at
+								this time, but <br /> we encourage you to check
+								back regularly for new opportunities.
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</SectionContainer>
