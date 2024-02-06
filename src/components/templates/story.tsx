@@ -17,7 +17,7 @@ const Story = (props: Props) => {
 			<SectionHeader
 				headerText="Client Success Stories"
 				subHeaderText="Clients tell their stories of success with DevMechanics."
-				subHeaderClassName="lg:!max-w-[70%]"
+				subHeaderClassName="md:w-[33rem] lg:w-[35rem]"
 			/>
 			<div className="relative group">
 				<Swiper
