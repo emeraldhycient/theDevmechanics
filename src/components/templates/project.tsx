@@ -14,6 +14,7 @@ const Project = (props: Props) => {
 				headerText="View Our Projects"
 				subHeaderText="A testament to our versatility & commitment to
 							excellence 🔥"
+				subHeaderClassName="md:w-[40rem] lg:w-[70%]"
 			/>
 			<div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-neutral-50 to-neutral-100 rounded-2xl px-3 md:px-12 py-9 md:py-7 gap-y-14 mt-20">
 				<div className="w-full md:w-[45%] text-center md:text-start flex flex-col items-center md:items-start ">
