@@ -1,4 +1,4 @@
-import BannerImage from "./banner_image";
+import BannerImage from "./banner-image";
 import Icon from "./icon";
 
 export { BannerImage, Icon };
