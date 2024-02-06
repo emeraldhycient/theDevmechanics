@@ -21,12 +21,14 @@ const Career = (props: Props) => {
 				<div className="text-center text-neutral-900 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[84px]">
 					Grow With Us
 				</div>
+
 				<div className="text-center text-neutral-900 font-normal leading-[35px] md:w-[52%]">
 					Are you ready to contribute your unique touch of magic? We
 					are continually seeking exceptionally talented individuals
 					to enrich our dynamic team! Explore our current job openings
 					below.{" "}
 				</div>
+
 				<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center gap-x-3 gap-y-5">
 					<Link
 						href=""
