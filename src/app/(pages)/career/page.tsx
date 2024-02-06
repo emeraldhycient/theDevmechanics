@@ -78,7 +78,7 @@ const Career = (props: Props) => {
 					subHeaderText="Job Openings"
 					subHeaderClassName="md:max-w-full"
 				/>
-				<div className="flex flex-col gap-y-10">
+				<div className="flex flex-col gap-y-16">
 					{jobOpenings?.length !== 0 || jobOpenings.length > 0 ? (
 						<>
 							{jobOpenings.map((job, index) => (
