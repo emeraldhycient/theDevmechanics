@@ -11,7 +11,7 @@ const Icon = ({ icon, link }: { icon: string; link: string }) => {
 					alt="Icon"
 					width={56}
 					height={56}
-					className={`p-3 rounded-full bg-[#FCFAFF] w-[40px] h-[40px]`}
+					className={`p-3 rounded-full bg-[#FCFAFF] w-[45px] h-[45px]`}
 				/>
 			</Link>
 		</>
