@@ -8,6 +8,8 @@ const TestimonialCard = ({
 	position,
 	message,
 	containerClassName,
+	icon,
+	fill,
 }: {
 	rating: number;
 	maxStars: number;
@@ -15,6 +17,8 @@ const TestimonialCard = ({
 	position: string;
 	message: string;
 	containerClassName?: string;
+	icon?: React.ReactNode;
+	fill?: string;
 }) => {
 	return (
 		<div
@@ -22,16 +26,21 @@ const TestimonialCard = ({
 			<div className="justify-start items-center gap-4 inline-flex">
 				<div className="justify-start items-center gap-2.5 flex">
 					{Array.from({ length: maxStars }).map((_, index) => (
-						<StarIcon
-							key={index}
-							className={
-								index < rating
-									? "fill-blue-600"
-									: "stroke-black"
-							}
-							fill={index < rating ? "blue" : "transparent"}
-							empty={index < rating ? false : true}
-						/>
+						<span key={index}>
+							{icon ? (
+								<>icon</>
+							) : (
+								<StarIcon
+									className={
+										index < rating
+											? `${fill}`
+											: "stroke-[#F2E8FF]"
+									}
+									fill={index < rating ? "" : "transparent"}
+									empty={index < rating ? false : true}
+								/>
+							)}
+						</span>
 					))}
 				</div>
 				<div className="text-neutral-900 text-sm font-semibold ">

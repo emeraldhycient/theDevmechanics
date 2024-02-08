@@ -132,33 +132,33 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 				<div className="text-sm mb-5">
 					<p>{projectName}</p>
 				</div>
-				<div className="text-2xl font-semibold bg-gradient-to-r from-slate-700 to-gray-800 bg-clip-text text-transparent">
+				<div className="text-[2rem] font-medium bg-gradient-to-r from-slate-700 to-gray-800 bg-clip-text text-transparent">
 					<p>{projectMotto}</p>
 				</div>
-				<div className="text-base my-5 bg-gradient-to-r from-slate-400 to-gray-400 bg-clip-text text-transparent leading-loose">
+				<div className="text-base my-5 text-[#9FA4A6] leading-loose">
 					<p>{projectDescription}</p>
 				</div>
-				<div className="text-base font-medium bg-gradient-to-r from-gray-900 to-neutral-800 bg-clip-text text-transparent">
+				<div className="text-[1.25rem] text-[#141515]">
 					<p>{projectServices}</p>
 				</div>
 
 				<div>
-					<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center ml-auto gap-x-3 gap-y-5">
+					<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center ml-auto gap-x-4 gap-y-5">
 						{viewProjectLink && (
 							<Link
 								href={viewProjectLink}
-								className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-gradient-to-r from-purple-500 to-purple-700 min-h-fit min-w-fit border border-[#9743FF] 
-                hover:text-[#141515] hover:bg-white transition duration-500 ease-in-out">
+								className="group flex flex-row items-center gap-x-2 text-[0.9375rem] text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
+                ">
 								<span>{viewProjectText}</span>{" "}
 								<span>
-									<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] transition duration-500 ease-in-out" />
+									<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white" />
 								</span>
 							</Link>
 						)}
 						{readCaseStudyLink && (
 							<Link
 								href={readCaseStudyLink}
-								className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-white hover:bg-gradient-to-r from-zinc-700 to-gray-600 transition duration-500 ease-in-out">
+								className="text-sm text-primary-blue no-underline text-[0.9375rem] capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-transparent">
 								{readCaseStudyText}
 							</Link>
 						)}

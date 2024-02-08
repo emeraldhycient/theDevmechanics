@@ -6,16 +6,19 @@ const HeroSection = (): React.ReactNode => {
 	return (
 		<>
 			<SectionContainer
-				containerClassName="lg:pt-24 lg:pb-36"
+				containerClassName="lg:pt-20 !pb-16 lg:pb-28"
 				className={`flex flex-col items-start justify-start `}>
 				<div className="">
 					<p>Software Design Agency</p>
 				</div>
 				<div
-					className={`text-3xl md:text-4xl lg:text-5xl font-bold py-4 w-full md:w-[36rem] ls:w-[37rem] lg:w-[50rem] leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]`}>
+					className={`text-4xl md:text-5xl lg:text-6xl font-bold py-4 w-full leading-[3rem] md:leading-[4rem] lg:leading-[5rem]`}>
 					<p>
-						We build custom software to meet your unique needs,
-						driving Efficiency &{" "}
+						We build custom software to{" "}
+						<br className="hidden md:block" /> meet your unique
+						needs,
+						<br className="hidden md:block" /> driving Efficiency &{" "}
+						<br className="hidden md:block" />{" "}
 						<span
 							className={`bg-gradient-to-tl from-violet-500 via-purple-800 to-purple-400 bg-clip-text text-transparent`}>
 							Organization
