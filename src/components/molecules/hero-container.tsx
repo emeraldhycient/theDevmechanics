@@ -13,6 +13,7 @@ type Props = {
 	containerClassName?: string;
 	titleClassName?: string;
 	descriptionClassName?: string;
+	icon?: React.ReactNode;
 };
 
 const HeroContainer: React.FC<Props> = ({
@@ -26,6 +27,7 @@ const HeroContainer: React.FC<Props> = ({
 	containerClassName,
 	descriptionClassName,
 	titleClassName,
+	icon,
 }) => {
 	return (
 		<div
@@ -38,7 +40,7 @@ const HeroContainer: React.FC<Props> = ({
 				className={`text-center text-neutral-900 font-normal leading-[35px] w-full ${descriptionClassName}`}>
 				{description}
 			</div>
-			<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center gap-x-3 gap-y-5">
+			<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center gap-x-4 gap-y-5">
 				{LinkParent ? (
 					LinkParent
 				) : (
@@ -46,18 +48,21 @@ const HeroContainer: React.FC<Props> = ({
 						{firstLink && (
 							<Link
 								href={firstLink}
-								className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-gradient-to-r from-purple-500 to-purple-700 min-h-fit min-w-fit border border-[#9743FF]
-                hover:text-[#141515] hover:bg-white ease-linear duration-500">
+								className="group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-[1.875rem] py-3.5 rounded-full bg-[#9743FF]">
 								<span>{firstLinkText}</span>{" "}
-								<span>
-									<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] ease-linear duration-500" />
-								</span>
+								{icon ? (
+									<>{icon}</>
+								) : (
+									<span>
+										<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white group-hover:stroke-[#141515] ease-linear duration-500" />
+									</span>
+								)}
 							</Link>
 						)}
 						{secondLink && (
 							<Link
 								href={secondLink}
-								className="text-sm text-primary-blue no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-primary-white min-h-fit min-w-fit border border-[#FBF3EF] hover:text-[#9743FF] hover:bg-white hover:border-primary-white ease-linear duration-500">
+								className="text-sm text-primary-blue no-underline capitalize px-[1.875rem] py-3 rounded-full bg-primary-white min-h-fit min-w-fit ">
 								{secondLinkText}
 							</Link>
 						)}
