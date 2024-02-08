@@ -17,7 +17,7 @@ const JobOpeningApplyButton = ({ className }: { className?: string }) => {
 		<Link
 			href=""
 			id=""
-			className={`group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
+			className={`group flex flex-row items-center gap-x-2 text-sm text-white no-underline capitalize px-[1.875rem] py-3.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
 						hover:text-[#141515] hover:bg-white hover:border-white ease-linear duration-500 ${className}`}>
 			<span>Apply</span>{" "}
 			<span>
@@ -29,12 +29,12 @@ const JobOpeningApplyButton = ({ className }: { className?: string }) => {
 
 const JobOpeningItem = ({ description, link, location, title }: Props) => {
 	return (
-		<div className="flex flex-col justify-center items-start gap-6">
+		<div className="flex flex-col justify-center items-start gap-6 bg-[#FBFBFF] py-4 px-8 rounded-2xl">
 			<div className="flex flex-row items-center justify-between w-full">
 				<div className="flex flex-row items-center gap-6">
 					<div className="border w-16 h-16"></div>
 					<div className="flex flex-col items-start justify-start gap-1">
-						<div className="text-neutral-900 text-2xl font-semibold ">
+						<div className="text-neutral-900 text-2xl ls:text-3xl font-semibold ">
 							<p>Product Designer</p>
 						</div>
 						<div className="">
@@ -42,7 +42,7 @@ const JobOpeningItem = ({ description, link, location, title }: Props) => {
 						</div>
 					</div>
 				</div>
-				<JobOpeningApplyButton className="!py-2 !hidden mx:!flex" />
+				<JobOpeningApplyButton className="!hidden mx:!flex" />
 			</div>
 			<div className="text-neutral-900 text-base font-normal leading-[35px]">
 				Are you passionate about creating intuitive and beautiful
@@ -74,7 +74,7 @@ const JobOpeningItem = ({ description, link, location, title }: Props) => {
 					<p>$40k</p>
 				</div>
 			</div>
-			<JobOpeningApplyButton className="!py-2 mx:!hidden" />
+			<JobOpeningApplyButton className="mx:!hidden" />
 		</div>
 	);
 };

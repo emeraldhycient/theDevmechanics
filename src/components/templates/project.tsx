@@ -37,7 +37,7 @@ const Project = (props: Props) => {
 						"UI/UX Design, Front & Back End Development"
 					}
 					containerClassName={
-						"!top-[6rem] !z-[9999] !absolute !w-full !rounded-[3.75rem] py-9 md:py-10 mt-20 md:flex-row bg-[#FBF3EF]"
+						"!top-[6rem] !z-[9999] !absolute !w-full !rounded-[3.75rem] py-9 md:py-10 mt-20 md:flex-row bg-[#FBF3EF] !px-3 md:!px-12"
 					}
 					readCaseStudyLink={"/"}
 					viewProjectLink={"/"}

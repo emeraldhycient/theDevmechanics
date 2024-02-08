@@ -17,11 +17,7 @@ const HeroSection = (): React.ReactNode => {
 					<br className="hidden md:block" /> meet your unique needs,
 					<br className="hidden md:block" /> driving Efficiency &{" "}
 					<br className="hidden md:block" />{" "}
-					<span
-						className={`bg-gradient-to-tl from-violet-500 via-purple-800 to-purple-400 bg-clip-text text-transparent`}>
-						Organization
-					</span>
-					.
+					<span className={`text-[#9743FF]`}>Organization</span>.
 				</p>
 			</div>
 			<SocialIcons />

@@ -18,7 +18,7 @@ type Props = {};
 
 const Career = (props: Props) => {
 	return (
-		<SectionContainer containerClassName="pt-20 md:pt-24">
+		<SectionContainer containerClassName="pt-16 md:pt-24">
 			<HeroContainer
 				title="Grow With Us"
 				description="Are you ready to contribute your unique touch of magic? We
@@ -37,8 +37,16 @@ const Career = (props: Props) => {
 			<div className="flex flex-col gap-y-20 mt-32">
 				<SectionHeader
 					headerText="Employees Testimonials"
-					subHeaderText="Employees tell their stories of working with DevMechanics."
-					subHeaderClassName="md:max-w-[55%]"
+					subHeaderText={
+						<>
+							<p>
+								Employees tell their stories of{" "}
+								<br className="hidden md:block" /> working with
+								DevMechanics.
+							</p>
+						</>
+					}
+					subHeaderClassName=""
 				/>
 				<div className="relative group">
 					<Swiper
@@ -63,7 +71,8 @@ const Career = (props: Props) => {
 						in how we operate and serve our customers."
 									position="CEO at Frameio Stores"
 									rating={3}
-									containerClassName="p-5 rounded-xl md:max-w-[90%] bg-gradient-to-t from-zinc-100 to-gray-100"
+									fill={`fill-[#FF9E2C]`}
+									containerClassName="p-5 rounded-xl md:max-w-[90%] bg-[#FCFAFF]"
 								/>
 							</SwiperSlide>
 						))}
