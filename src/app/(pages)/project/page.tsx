@@ -10,21 +10,22 @@ const Project = (props: Props) => {
 		<SectionContainer>
 			<div className="flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
 				<div
-					className={`text-3xl md:text-4xl lg:text-5xl font-semibold py-4 w-full md:w-[36rem] ls:w-[37rem] lg:w-[50rem] leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]`}>
+					className={`text-4xl md:text-5xl lg:text-6xl font-semibold py-4 w-full leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]`}>
 					<p>
 						Develop user-friendly interfaces{" "}
 						<br className="hidden md:block" /> that make a positive
 						impact.
 					</p>
 				</div>
-				<div className="leading-[1.7rem] w-full md:max-w-[80%] lg:w-[45rem]">
+				<div className="w-full text-[1.25rem] leading-[2.1875rem]">
 					<p>
 						Founded with a vision to revolutionize the world of
-						software development, we emerged as a beacon of
-						innovation in the tech industry. Our mission has been
-						clear from the start to deliver exceptional, customized
-						software solutions that propel businesses into the
-						future.
+						software development, we emerged as a{" "}
+						<br className="hidden md:block" /> beacon of innovation
+						in the tech industry. Our mission has been clear from
+						the start to deliver <br className="hidden md:block" />{" "}
+						exceptional, customized software solutions that propel
+						businesses into the future.
 					</p>
 				</div>
 			</div>
