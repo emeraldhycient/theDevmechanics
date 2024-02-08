@@ -30,6 +30,7 @@ const Page = (): React.ReactNode => {
 				secondLinkText="Get a Quote"
 				secondLink="/"
 				containerClassName="!mb-32"
+				icon={<></>}
 			/>
 			<div className="mt-24">
 				{" "}
@@ -37,10 +38,17 @@ const Page = (): React.ReactNode => {
 			</div>
 			<div className="mt-24 flex flex-col gap-y-9">
 				<SectionHeader
-					className="w-full md:!w-[40rem] lg:!w-[45rem]"
+					className="w-full"
 					headerText="Crafting Innovative Solutions"
-					subHeaderText="Expert Software Architecture, Design, and Implementation
-					Across Industries"
+					subHeaderText={
+						<>
+							<p>
+								Expert Software Architecture, Design,{" "}
+								<br className="hidden md:block" /> and
+								Implementation Across Industries
+							</p>
+						</>
+					}
 				/>
 				<br />
 				<ServicePage />
