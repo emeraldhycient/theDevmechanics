@@ -4,8 +4,8 @@ type Props = {
 	className?: string;
 	headerClassName?: string;
 	subHeaderClassName?: string;
-	headerText?: string;
-	subHeaderText?: string;
+	headerText?: string | React.ReactNode;
+	subHeaderText?: string | React.ReactNode;
 };
 
 const SectionHeader = ({
@@ -17,13 +17,13 @@ const SectionHeader = ({
 }: Props) => {
 	return (
 		<div
-			className={`flex-col items-start gap-y-4 inline-flex ${className}`}>
+			className={`flex-col items-start gap-y-5 inline-flex ${className}`}>
 			<div
 				className={`text-neutral-900 text-base font-normal capitalize leading-loose ${headerClassName}`}>
 				<p>{headerText}</p>
 			</div>
 			<div
-				className={` text-neutral-900 font-bold text-3xl md:text-4xl leading-[3rem] md:leading-[3.7rem] w-full ${subHeaderClassName}`}>
+				className={` text-neutral-900 font-bold text-4xl md:text-5xl leading-[3rem] md:leading-[4rem] w-full ${subHeaderClassName}`}>
 				<p>{subHeaderText}</p>
 			</div>
 		</div>

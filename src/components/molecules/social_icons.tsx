@@ -7,21 +7,21 @@ const SocialIcons = () => {
 			icon: "/icons/IG.svg",
 			link: "https://instagram.com/",
 		},
-		{
-			icon: "/icons/behance.svg",
-			link: "https://behance.com/",
-		},
-		{
-			icon: "/icons/dribbble.svg",
-			link: "https://dribbble.com/",
-		},
+		// {
+		// 	icon: "/icons/behance.svg",
+		// 	link: "https://behance.com/",
+		// },
+		// {
+		// 	icon: "/icons/dribbble.svg",
+		// 	link: "https://dribbble.com/",
+		// },
 		{
 			icon: "/icons/linkedin.svg",
 			link: "https://linkedin.com/company/",
 		},
 		{
 			icon: "/icons/twitter.svg",
-			link: "https://x.com/",
+			link: "https://twitter.com/devmechanics?s=21",
 		},
 	];
 

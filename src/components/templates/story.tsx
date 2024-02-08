@@ -13,13 +13,21 @@ type Props = {};
 
 const Story = (props: Props) => {
 	return (
-		<SectionContainer className="flex flex-col !gap-y-14">
+		<SectionContainer
+			containerClassName="!pt-0 mt-[74rem] md:!mt-[42rem]"
+			className="flex flex-col !gap-y-14">
 			<SectionHeader
 				headerText="Client Success Stories"
-				subHeaderText="Clients tell their stories of success with DevMechanics."
-				subHeaderClassName="md:w-[33rem] lg:w-[35rem]"
+				subHeaderText={
+					<>
+						Clients tell their stories of{" "}
+						<br className="hidden md:block" /> success with
+						DevMechanics.
+					</>
+				}
+				subHeaderClassName=""
 			/>
-			<div className="relative group">
+			<div className=" relative group">
 				<Swiper
 					className="w-full flex flex-row items-center"
 					breakpoints={{

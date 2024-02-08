@@ -32,6 +32,7 @@ const StoryItem = (props: Props) => {
 						in how we operate and serve our customers."
 				position="CEO at Frameio Stores"
 				rating={3}
+				fill="fill-[#9743FF]"
 			/>
 		</div>
 	);

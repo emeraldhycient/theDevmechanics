@@ -12,7 +12,7 @@ const Header = (): React.ReactNode => {
 
 	return (
 		<header
-			className={`flex duration-200 justify-between py-4 lg:px-16 md:px-10 px-3 items-center sticky top-0 left-0 text-sm z-[9999] bg-white`}>
+			className={`flex duration-200 justify-between py-4 lg:px-16 md:px-10 px-3 items-center sticky top-0 left-0 text-sm z-[99999999] bg-white`}>
 			<Link href={"/"}>
 				<Image
 					src={`/images/logo.svg`}

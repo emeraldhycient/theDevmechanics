@@ -12,10 +12,15 @@ const Services = (): React.ReactNode => {
 
 			<SectionHeader
 				headerText="Solution For Every Factor"
-				subHeaderText="Software architecture, design and implementation for any
-				industry 🔥"
-				className="mt-24 md:mt-28"
-				subHeaderClassName="mb-20 lg:w-[70%]"
+				subHeaderText={
+					<>
+						Software architecture, design and{" "}
+						<br className="hidden md:block" /> implementation for
+						any industry 🔥
+					</>
+				}
+				className="mt-20 md:mt-20"
+				subHeaderClassName="mb-16 "
 			/>
 
 			<div
@@ -23,8 +28,8 @@ const Services = (): React.ReactNode => {
 				{ServicesList.map((service, index) => (
 					<div
 						key={index}
-						className={`flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px] w-full md:w-[250px] lg:w-[250px] h-[300px] hover:shadow-sm ease-in-out duration-300`}>
-						<section>
+						className={`flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px] w-full md:w-[250px] lg:w-[250px] gap-y-10 hover:shadow-sm ease-in-out duration-300`}>
+						<div className="">
 							<Image
 								src={service.icon}
 								width={62.39}
@@ -33,13 +38,19 @@ const Services = (): React.ReactNode => {
 								alt=""
 							/>
 
-							<h3
-								className={`font-bold text-base py-3 capitalize`}>
-								{service.title}
-							</h3>
-						</section>
+							<div className=" h-[7rem]">
+								<p
+									className={`font-medium text-[1.25rem] py-3 capitalize`}>
+									{service.title}
+								</p>
+							</div>
+						</div>
 
-						<p className={`text-sm`}>{service.writeup}</p>
+						<div className=" h-[7rem]">
+							<p className={`text-[0.9375rem]`}>
+								{service.writeup}
+							</p>
+						</div>
 					</div>
 				))}
 			</div>
