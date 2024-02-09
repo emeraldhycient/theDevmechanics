@@ -20,6 +20,13 @@ export default function Home() {
 			{ opacity: 1, yPercent: 0, duration: 1 },
 		);
 	};
+	const animateHeroSocialMediaIcons = () => {
+		gsap.fromTo(
+			".hero-social-media-icons",
+			{ opacity: 0, yPercent: 70 },
+			{ opacity: 1, yPercent: 0, duration: 1 },
+		);
+	};
 
 	const animateHeroMainText = () => {
 		gsap.fromTo(
@@ -40,6 +47,7 @@ export default function Home() {
 			if (entry.isIntersecting) {
 				animateHeroHeaderText();
 				animateHeroMainText();
+				animateHeroSocialMediaIcons();
 			}
 			observer.unobserve(entry.target);
 		});
