@@ -1,26 +1,40 @@
-import React from "react";
-import { SocialIcons } from ".";
+import React, { RefObject } from "react";
 import SectionContainer from "./section-container.";
 
-const HeroSection = (): React.ReactNode => {
+type HeroSectionProps = {
+	refElement?: RefObject<HTMLDivElement>;
+	title: string | React.ReactNode;
+	description: string | React.ReactNode;
+	containerClassName?: string;
+	descriptionClassName?: string;
+	child?: React.ReactNode;
+};
+
+const HeroSection = ({
+	title,
+	child,
+	description,
+	refElement,
+	containerClassName,
+	descriptionClassName,
+}: HeroSectionProps): React.ReactNode => {
 	return (
 		<SectionContainer
-			containerClassName="lg:pt-20 !pb-16 lg:pb-28"
+			refElement={refElement}
+			containerClassName={`pt-20 pb-10 lg:pt-24 lg:pb-28 ${containerClassName ?? ""}`}
 			className={`flex flex-col items-start justify-start `}>
-			<div className="">
-				<p>Software Design Agency</p>
+			<div className="hero-header-text">
+				{typeof title === "string" ? <p>{title}</p> : title}
 			</div>
 			<div
-				className={`text-4xl md:text-5xl lg:text-6xl font-bold py-4 w-full leading-[3rem] md:leading-[4rem] lg:leading-[5rem]`}>
-				<p>
-					We build custom software to{" "}
-					<br className="hidden md:block" /> meet your unique needs,
-					<br className="hidden md:block" /> driving Efficiency &{" "}
-					<br className="hidden md:block" />{" "}
-					<span className={`text-[#9743FF]`}>Organization</span>.
-				</p>
+				className={`text-4xl md:text-5xl lg:text-6xl font-bold py-4 w-full leading-[3rem] md:leading-[4rem] lg:leading-[5.5rem] ${descriptionClassName ?? ""}`}>
+				{typeof description === "string" ? (
+					<p>{description}</p>
+				) : (
+					description
+				)}
 			</div>
-			<SocialIcons />
+			{child}
 		</SectionContainer>
 	);
 };
