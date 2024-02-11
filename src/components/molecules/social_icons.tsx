@@ -26,8 +26,7 @@ const SocialIcons = () => {
 	];
 
 	return (
-		<div
-			className={`hero-social-media-icons flex items-center flex-wrap gap-x-6 gap-y-3`}>
+		<div className={` flex items-center flex-wrap gap-x-6 gap-y-3`}>
 			{icons.map((icon, index) => (
 				<Icon key={index} link={icon.link} icon={icon.icon} />
 			))}

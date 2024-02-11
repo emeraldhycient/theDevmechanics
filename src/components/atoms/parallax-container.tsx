@@ -5,10 +5,12 @@ const ParallaxContainer = ({
 	text,
 	parallaxCharacterElement,
 	child,
+	className,
 }: {
 	text: string;
 	child?: React.ReactNode;
-	parallaxCharacterElement: React.MutableRefObject<HTMLDivElement[]>;
+	parallaxCharacterElement?: React.MutableRefObject<HTMLDivElement[]>;
+	className?: string;
 }) => {
 	const characters = text.split(" ");
 
@@ -19,7 +21,7 @@ const ParallaxContainer = ({
 					<ParallaxCharacter
 						index={index}
 						child={character}
-						className="hero-main-text-character flex flex-col items-center justify-center"
+						className={` flex flex-col items-center justify-center ${className}`}
 						parallaxCharacterElement={parallaxCharacterElement}
 					/>
 				</div>

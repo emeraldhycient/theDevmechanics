@@ -10,6 +10,7 @@ const TestimonialCard = ({
 	containerClassName,
 	icon,
 	fill,
+	testimonyStarClassName,
 }: {
 	rating: number;
 	maxStars: number;
@@ -19,6 +20,7 @@ const TestimonialCard = ({
 	containerClassName?: string;
 	icon?: React.ReactNode;
 	fill?: string;
+	testimonyStarClassName?: string;
 }) => {
 	return (
 		<div
@@ -31,11 +33,7 @@ const TestimonialCard = ({
 								<>icon</>
 							) : (
 								<StarIcon
-									className={
-										index < rating
-											? `${fill}`
-											: "stroke-[#F2E8FF]"
-									}
+									className={`${index < rating ? `${fill}` : "stroke-[#F2E8FF]"} ${testimonyStarClassName}`}
 									fill={index < rating ? "" : "transparent"}
 									empty={index < rating ? false : true}
 								/>

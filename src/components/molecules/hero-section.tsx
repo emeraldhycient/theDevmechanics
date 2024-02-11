@@ -23,7 +23,7 @@ const HeroSection = ({
 			refElement={refElement}
 			containerClassName={`pt-20 pb-10 lg:pt-24 lg:pb-28 ${containerClassName ?? ""}`}
 			className={`flex flex-col items-start justify-start `}>
-			<div className="hero-header-text">
+			<div className="hero-header-text opacity-0">
 				{typeof title === "string" ? <p>{title}</p> : title}
 			</div>
 			<div
