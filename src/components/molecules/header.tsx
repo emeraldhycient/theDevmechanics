@@ -17,7 +17,7 @@ const Header = (): React.ReactNode => {
 		gsap.fromTo(
 			".header-sub-container",
 			{ yPercent: -150, opacity: 0.3 },
-			{ yPercent: 0, duration: 1.5, ease: "sine.out", opacity: 1 },
+			{ yPercent: 0, duration: 1, ease: "sine.out", opacity: 1 },
 		);
 	};
 

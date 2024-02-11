@@ -22,7 +22,7 @@ const Services = (): React.ReactNode => {
 	useEffect(() => {
 		gsap.fromTo(
 			".service-bg-image",
-			{ width: "50%" },
+			{ width: "50%", opacity: 0 },
 			{
 				scrollTrigger: {
 					trigger: ".service-container",
@@ -30,6 +30,7 @@ const Services = (): React.ReactNode => {
 					end: "31% center",
 					scrub: true,
 				},
+				opacity: 1,
 				width: "100%",
 				duration: 2.5,
 				ease: "sine.out",
@@ -45,10 +46,10 @@ const Services = (): React.ReactNode => {
 					{ yPercent: 150, opacity: 0.3 },
 					{
 						yPercent: 0,
-						duration: 1.2,
+						duration: 1,
 						ease: "sine.out",
 						opacity: 1,
-						stagger: 0.2,
+						stagger: 0.1,
 						onComplete: () => observer.unobserve(entry.target),
 					},
 				);
@@ -76,7 +77,7 @@ const Services = (): React.ReactNode => {
 						},
 						{
 							yPercent: 0,
-							duration: 2.5,
+							duration: 1.5,
 							ease: "back.out(1.7)",
 							stagger: 0.1,
 							rotation: 0,

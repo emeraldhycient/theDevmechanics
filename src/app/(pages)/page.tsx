@@ -27,10 +27,10 @@ export default function Home() {
 						{ yPercent: 150, opacity: 0.3 },
 						{
 							yPercent: 0,
-							duration: 1.5,
+							duration: 1,
 							ease: "sine.out",
 							opacity: 1,
-							stagger: 0.2,
+							stagger: 0.1,
 						},
 					);
 					gsap.fromTo(
