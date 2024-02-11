@@ -1,4 +1,4 @@
-import React from "react";
+import React, { RefObject } from "react";
 
 type Props = {
 	className?: string;
@@ -6,6 +6,7 @@ type Props = {
 	subHeaderClassName?: string;
 	headerText?: string | React.ReactNode;
 	subHeaderText?: string | React.ReactNode;
+	refElement?: RefObject<HTMLDivElement>;
 };
 
 const SectionHeader = ({
@@ -14,12 +15,14 @@ const SectionHeader = ({
 	headerText,
 	subHeaderClassName,
 	subHeaderText,
+	refElement,
 }: Props) => {
 	return (
 		<div
+			ref={refElement}
 			className={`flex-col items-start gap-y-5 inline-flex ${className}`}>
 			<div
-				className={`text-neutral-900 text-base font-normal capitalize leading-loose ${headerClassName}`}>
+				className={`text-neutral-900 text-base font-normal capitalize leading-loose opacity-0 ${headerClassName}`}>
 				<p>{headerText}</p>
 			</div>
 			<div

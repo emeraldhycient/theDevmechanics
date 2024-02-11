@@ -33,8 +33,8 @@ const Header = (): React.ReactNode => {
 	return (
 		<div
 			ref={headerRefElement}
-			className={` duration-200 py-4 sticky top-0 left-0 text-sm z-[99999999] bg-white`}>
-			<div className="header-sub-container w-11/12 md:w-10/12 mx-auto flex items-center justify-between">
+			className={` duration-200 py-4 sticky overflow-y-hidden top-0 left-0 text-sm z-[99999999] bg-white`}>
+			<div className="opacity-0 header-sub-container w-11/12 md:w-10/12 mx-auto flex items-center justify-between">
 				<Link href={"/"}>
 					<Image
 						src={`/images/logo.svg`}

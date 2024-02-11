@@ -2,17 +2,20 @@ import React from "react";
 import StarIcon from "../../../public/icons/star-icon";
 import TestimonialCard from "./testimonial-card";
 
-type Props = { index: number };
+type Props = {
+	index: number;
+	className?: string;
+	testimonyStarClassName?: string;
+};
 
-const StoryItem = (props: Props) => {
+const StoryItem = ({ index, className, testimonyStarClassName }: Props) => {
 	const maxStars = 5;
 	const rating = 3;
 
 	return (
 		<div
-			className="bg-white rounded-[40px] py-10 px-10 gap-10 flex flex-col lg:flex-row items-center md:items-start lg:items-center 
-        w-full lg:min-w-[55rem] cursor-grab
-        ">
+			className={`bg-white rounded-[40px] py-10 px-10 gap-10 flex flex-col lg:flex-row items-center md:items-start lg:items-center 
+        w-full lg:min-w-[55rem] cursor-grab ${className}`}>
 			<div className="relative block">
 				<div className="block overflow-hidden relative h-[18rem] w-[20rem] sm:w-[22rem] md:w-[20rem] rounded-3xl">
 					<img
@@ -24,6 +27,7 @@ const StoryItem = (props: Props) => {
 			</div>
 
 			<TestimonialCard
+				testimonyStarClassName={testimonyStarClassName}
 				name="Dominic Praise"
 				maxStars={5}
 				message="The DevMechanics didn&lsquo;t just provide a service;
