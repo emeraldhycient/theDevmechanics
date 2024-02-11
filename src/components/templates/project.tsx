@@ -42,10 +42,10 @@ const Project = (props: Props) => {
 					{ yPercent: 150, opacity: 0.3 },
 					{
 						yPercent: 0,
-						duration: 1.2,
+						duration: 1,
 						ease: "sine.out",
 						opacity: 1,
-						stagger: 0.2,
+						stagger: 0.1,
 						onComplete: () => observer.unobserve(entry.target),
 					},
 				);
@@ -63,11 +63,11 @@ const Project = (props: Props) => {
 						{ yPercent: 150, opacity: 0.3, scale: 0 },
 						{
 							yPercent: 0,
-							duration: 1.2,
+							duration: 1,
 							ease: "sine.out",
 							scale: 1,
 							opacity: 1,
-							stagger: 0.2,
+							stagger: 0.1,
 							onComplete: () => observer.unobserve(entry.target),
 						},
 					);
