@@ -60,7 +60,7 @@ const Header = (): React.ReactNode => {
 						</ul>
 					</nav>
 				</div>
-				<div className="flex flex-row items-center gap-x-2">
+				<div className="flex flex-row items-center gap-x-8">
 					<button
 						className={`xl:hidden block text-3xl`}
 						onClick={() => {
@@ -70,7 +70,7 @@ const Header = (): React.ReactNode => {
 					</button>
 					<div
 						className={`hidden md:flex [&_button]:text-sm gap-x-3 [&_button]:rounded-full [&_button]:py-3 [&_button]:px-5`}>
-						<button>Get a Quote</button>
+						{/* <button>Get a Quote</button> */}
 
 						<Link href={"/contact"}>
 							<button className={`bg-[#9743FF] text-white`}>
