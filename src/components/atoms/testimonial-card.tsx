@@ -25,7 +25,7 @@ const TestimonialCard = ({
 	return (
 		<div
 			className={`w-full flex flex-col justify-start items-start gap-5 ${containerClassName}`}>
-			<div className="justify-start items-center gap-4 inline-flex">
+			<div className="justify-start items-center gap-4 flex">
 				<div className="justify-start items-center gap-2.5 flex">
 					{Array.from({ length: maxStars }).map((_, index) => (
 						<span key={index}>

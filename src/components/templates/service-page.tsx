@@ -1,14 +1,17 @@
-import React from "react";
 import Services from "@/json/services/services.json";
 import Image from "next/image";
+import React, { useEffect, useRef } from "react";
 import ImageBlock from "../atoms/image-block";
+import gsap from "gsap";
+import { elementObserver } from "../../../hooks";
+import { useGSAP } from "@gsap/react";
 
 const ServicePage = (): React.ReactNode => {
 	return (
 		<div className={`py-5 flex flex-col gap-y-10`}>
 			{Services.map((service, index) => (
 				<div
-					className={`flex lg:justify-between  items-center ${index % 2 == 0 ? "lg:flex-row flex-col" : "lg:flex-row-reverse flex-col"} py-10 gap-y-24`}
+					className={`services-item flex lg:justify-between  items-center ${index % 2 == 0 ? "lg:flex-row flex-col" : "lg:flex-row-reverse flex-col"} py-10 gap-y-24`}
 					key={index}>
 					<div className=" flex-col justify-center items-center flex relative">
 						<div className="relative">
@@ -19,23 +22,22 @@ const ServicePage = (): React.ReactNode => {
 								src="/images/abt.jpg"
 								alt="project-image"
 							/>
-							<div className="z-20 h-[15rem] w-[16.5rem] sm:!w-[19rem] ls:!w-[19rem] absolute rotate-[19deg] sm:rotate-[18deg] -top-3 right-1 sm:-top-2.5 sm:right-0.5 ls:-top-4 ls:right-9 origin-center bg-[#FEDEFF]" />
+							<div className="z-20 h-[15rem] w-[16.5rem] sm:!w-[19rem] ls:!w-[19rem] absolute rotate-[19deg] sm:rotate-[18deg] -top-3 right-1 sm:-top-2.5 sm:right-0.5 ls:-top-4 ls:right-9 origin-center bg-[#FEDEFF]"></div>
 
-							<div className="h-[15rem] w-[17.5rem] sm:!w-[20rem] ls:!w-[21rem] -z-0 absolute rotate-[20deg] sm:rotate-[20deg] -top-10 right-1 sm:-top-10 sm:right-0.5 ls:-top-11 ls:right-9 origin-center bg-[#FCFAFF]" />
+							<div className="h-[15rem] w-[17.5rem] sm:!w-[20rem] ls:!w-[21rem] -z-0 absolute rotate-[20deg] sm:rotate-[20deg] -top-10 right-1 sm:-top-10 sm:right-0.5 ls:-top-11 ls:right-9 origin-center bg-[#FCFAFF]"></div>
 						</div>
 					</div>
-
 					<div
-						className={`w-full lg:w-[55%] flex-col justify-center items-start gap-9 inline-flex`}>
+						className={`w-full lg:w-[55%] flex-col justify-center items-start gap-9 flex`}>
 						<div className="flex flex-row">
-							<div className="py-12">
+							<div className="py-12 service-item-number">
 								<p
 									className={`font-bold lg:text-6xl text-[#141515] md:text-3xl text-3xl`}>
 									{index + 1}
 								</p>
 							</div>
 							<div
-								className={` flex flex-col gap-y-6 px-2 py-2 lg:px-5 gap-x-6 items-start justify-start`}>
+								className={`service-item-main-text-container flex flex-col gap-y-6 px-2 py-2 lg:px-5 gap-x-6 items-start justify-start`}>
 								<div className="relative flex flex-col gap-y-5 px-5 before:content-[''] before:w-[0.01rem] before:h-full before:bg-[#676767] before:text-[#676767] before:absolute before:top-0 before:-left-0">
 									<div>
 										<p className={`text-[#141515]`}>

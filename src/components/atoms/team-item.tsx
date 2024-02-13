@@ -3,11 +3,11 @@ import LinkedIn from "../../../public/icons/linked-in";
 import Link from "next/link";
 import ImageBlock from "./image-block";
 
-type Props = {};
+type Props = { className?: string };
 
-const TeamItem = (props: Props) => {
+const TeamItem = ({ className }: Props) => {
 	return (
-		<div className=" w-full flex flex-col gap-4">
+		<div className={` w-full flex flex-col gap-4 ${className}`}>
 			<ImageBlock
 				src="/images/abt.jpg"
 				subContainerClassName="block overflow-hidden relative !h-[20rem] !w-full"

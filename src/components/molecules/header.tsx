@@ -1,17 +1,22 @@
 "use client";
 
 import Links from "@/json/nav.json";
+import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import { GoArrowRight } from "react-icons/go";
 import { IoReorderTwoOutline } from "react-icons/io5";
 import { elementObserver } from "../../../hooks";
-import gsap from "gsap";
+import Navigation from "../atoms/navigation";
 
 const Header = (): React.ReactNode => {
 	const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 	const headerRefElement = useRef<HTMLDivElement>(null);
+	const pathname = usePathname();
+
+	console.log("router ==>", pathname);
 
 	const animateHeaderSubContainer = () => {
 		gsap.fromTo(
@@ -49,7 +54,9 @@ const Header = (): React.ReactNode => {
 					<nav className="hidden xl:flex">
 						<ul className={`text-sm flex items-center gap-x-10`}>
 							{Links.map((link, index) => (
-								<li key={index}>
+								<li
+									className={`relative ${pathname.includes(link.href) && " before:content-[''] before:absolute before:w-full before:h-[0.1rem] before:bg-[#9743FF] before:rounded-full before:-bottom-1.5 before:left-1/2 before:-translate-x-1/2 before:animate-pulse before:ease-in-out before:duration-300"}`}
+									key={index}>
 									<Link
 										className="header-link p-0.5 flex flex-row items-center justify-center"
 										href={link.href}>
@@ -82,27 +89,20 @@ const Header = (): React.ReactNode => {
 
 				<div
 					onClick={() => setMobileNavOpen(!mobileNavOpen)}
-					className={`bg-white w-full overflow-hidden ${!mobileNavOpen ? "-translate-[100%] py-0 h-0" : "translate-[120%] py-4 h-[100vh]"} absolute top-14 left-0 duration-300 px-4`}>
-					<nav>
-						<ul
-							className={`flex flex-col gap-y-4 w-full [&_li]:text-xl`}>
-							{Links.map((link, index) => (
-								<li key={index}>
-									<Link href={link.href}>
-										<p
-											className={`py-2 flex w-full items-center justify-between`}>
-											{link.name}
-
-											<span
-												className={`text-xl text-[#9FA4A6]`}>
-												<GoArrowRight />
-											</span>
-										</p>
-									</Link>
-								</li>
-							))}
-						</ul>
-						<div
+					className={` bg-white w-full overflow-hidden ${!mobileNavOpen ? "-translate-[100%] py-0 h-0" : "translate-[120%] py-4 h-screen"} absolute top-14 left-0 duration-300 px-4`}>
+					<Navigation
+						links={Links}
+						liClassName=""
+						navClassName=""
+						ulClassName="flex flex-col gap-y-4 w-full [&_li]:text-xl "
+						linkChildContainerClassName="py-2 flex w-full items-center justify-between"
+						child={
+							<span className={`text-xl text-[#9FA4A6]`}>
+								<GoArrowRight />
+							</span>
+						}
+					/>
+					{/* <div
 							className={`w-full flex md:hidden items-center justify-center mt-5 [&_button]:text-sm gap-x-3 [&_button]:rounded-full [&_button]:py-3 [&_button]:px-5`}>
 							<button>Get a Quote</button>
 
@@ -111,8 +111,7 @@ const Header = (): React.ReactNode => {
 									Contact Us
 								</button>
 							</Link>
-						</div>
-					</nav>
+						</div> */}
 				</div>
 			</div>
 		</div>

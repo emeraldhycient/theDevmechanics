@@ -1,26 +1,221 @@
+"use client";
+import { BannerImage } from "@/components/atoms";
+import ImageBlock from "@/components/atoms/image-block";
+import ParallaxContainer from "@/components/atoms/parallax-container";
 import SectionHeader from "@/components/atoms/section-header";
 import TeamItem from "@/components/atoms/team-item";
 import { SocialIcons } from "@/components/molecules";
 import SectionContainer from "@/components/molecules/section-container.";
-import React from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useEffect, useRef } from "react";
+import { elementObserver } from "../../../../hooks";
 import team from "../../../json/team.json";
-import { BannerImage } from "@/components/atoms";
-import ImageBlock from "@/components/atoms/image-block";
+gsap.registerPlugin(ScrollTrigger);
+
 type Props = {};
 
 const About = (props: Props) => {
+	const heroRefElement = useRef<HTMLDivElement>(null);
+	const aboutMainContainerRefElement = useRef<HTMLDivElement>(null);
+	const aboutTeamContainerRefElement = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		gsap.fromTo(
+			".service-bg-image",
+			{ width: "50%", opacity: 0 },
+			{
+				scrollTrigger: {
+					trigger: ".service-container",
+					start: "top 80%",
+					end: "31% center",
+					scrub: true,
+				},
+				opacity: 1,
+				width: "100%",
+				duration: 2.5,
+				ease: "sine.out",
+			},
+		);
+	}, []);
+
+	useGSAP(
+		() => {
+			elementObserver(heroRefElement.current, (entry, observer) => {
+				if (entry.isIntersecting) {
+					gsap.fromTo(
+						".hero-social-media-icons",
+						{ opacity: 0, yPercent: 100 },
+						{
+							opacity: 1,
+							yPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							stagger: 0.2,
+						},
+					);
+					gsap.fromTo(
+						".about-hero-text",
+						{ opacity: 0, yPercent: 100 },
+						{
+							opacity: 1,
+							yPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							onComplete: () => observer.unobserve(entry.target),
+						},
+					);
+					gsap.fromTo(
+						".about-header-text-character",
+						{ yPercent: 150, opacity: 0.3 },
+						{
+							yPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							opacity: 1,
+							stagger: 0.1,
+						},
+					);
+				}
+				// observer.unobserve(entry.target);
+			});
+		},
+		{ scope: heroRefElement },
+	);
+
+	useGSAP(
+		() => {
+			elementObserver(
+				aboutMainContainerRefElement.current,
+				(entry, observer) => {
+					if (entry.isIntersecting) {
+						gsap.fromTo(
+							".about-main-text-character",
+							{ yPercent: 150, opacity: 0.3 },
+							{
+								yPercent: 0,
+								duration: 1,
+								ease: "sine.out",
+								opacity: 1,
+								stagger: 0.1,
+								onComplete: () =>
+									observer.unobserve(entry.target),
+							},
+						);
+
+						gsap.fromTo(
+							".about-main-text",
+							{ opacity: 0, yPercent: 100 },
+							{
+								opacity: 1,
+								yPercent: 0,
+								duration: 1,
+								ease: "sine.out",
+								stagger: 0.1,
+							},
+						);
+						gsap.fromTo(
+							".about-image-one",
+							{ rotate: 0 },
+							{
+								rotate: "10deg",
+								duration: 1,
+								ease: "sine.out",
+								stagger: 0.1,
+							},
+						);
+						gsap.fromTo(
+							".about-image-two",
+							{ rotate: 0 },
+							{
+								rotate: "19deg ",
+								duration: 1,
+								ease: "sine.out",
+								stagger: 0.1,
+							},
+						);
+						gsap.fromTo(
+							".about-image-three",
+							{ rotate: 0 },
+							{
+								rotate: "20deg ",
+								duration: 1,
+								ease: "sine.out",
+								stagger: 0.1,
+							},
+						);
+					}
+				},
+			);
+		},
+		{ scope: aboutMainContainerRefElement },
+	);
+	useGSAP(
+		() => {
+			elementObserver(
+				aboutTeamContainerRefElement.current,
+				(entry, observer) => {
+					if (entry.isIntersecting) {
+						gsap.fromTo(
+							".about-team-header-text-character",
+							{ yPercent: 150, opacity: 0.3 },
+							{
+								yPercent: 0,
+								duration: 1,
+								ease: "sine.out",
+								opacity: 1,
+								stagger: 0.1,
+								onComplete: () =>
+									observer.unobserve(entry.target),
+							},
+						);
+						gsap.fromTo(
+							".team-grid-display",
+							{ yPercent: 150, opacity: 0.3, scale: 0.4 },
+							{
+								yPercent: 0,
+								duration: 1,
+								ease: "sine.out",
+								opacity: 1,
+								scale: 1,
+								stagger: 0.2,
+								onComplete: () =>
+									observer.unobserve(entry.target),
+							},
+						);
+					}
+				},
+			);
+		},
+		{ scope: aboutTeamContainerRefElement },
+	);
+
 	return (
-		<SectionContainer containerClassName="!pt-16 md:!pt-24">
-			<div className="flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
+		<SectionContainer containerClassName="!pt-16 pb-20 md:!pt-20">
+			<div
+				ref={heroRefElement}
+				className="flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
 				<div
 					className={`text-4xl md:text-5xl lg:text-6xl font-semibold py-4 w-full md:w-[36rem] ls:w-[37rem] lg:w-[50rem] leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]`}>
-					<p>
-						We are a team that believes{" "}
-						<br className="hidden md:block" /> in the power of
-						technology.
-					</p>
+					<div>
+						<ParallaxContainer
+							text="We / are / a / team / that / believes"
+							className="about-header-text-character"
+							child={
+								<>
+									<br className="hidden md:block" />
+								</>
+							}
+						/>
+						<ParallaxContainer
+							text="in / the / power / of / technology."
+							className="about-header-text-character"
+							child={<></>}
+						/>
+					</div>
 				</div>
-				<div className="w-full text-[1.25rem] leading-[2.1875rem]">
+				<div className="opacity-0 about-hero-text w-full text-base leading-[2.1875rem]">
 					<p>
 						Founded with a vision to revolutionize the world of
 						software development, we emerged as a{" "}
@@ -36,20 +231,29 @@ const About = (props: Props) => {
 			</div>
 
 			<div className="mt-16">
-				<BannerImage src={`/images/about-bg.png`} />
+				<BannerImage
+					className="service-bg-image"
+					src={`/images/about-bg.png`}
+				/>
 			</div>
 
-			<div className="mt-20 md:mt-32 flex flex-col lg:flex-row lg:justify-between gap-y-32 items-center ">
-				<div className="w-full lg:w-[53%] flex-col justify-center items-start gap-9 inline-flex">
+			<div
+				ref={aboutMainContainerRefElement}
+				className="mt-20 md:mt-32 flex flex-col lg:flex-row lg:justify-between gap-y-32 items-center ">
+				<div className="w-full lg:w-[53%] flex-col justify-center items-start gap-9 flex">
 					<div className="text-neutral-900 font-bold leading-[3rem] md:leading-[3.5rem] text-3xl md:text-[2.60rem]">
-						The Architects of Innovation.
+						<ParallaxContainer
+							text="The / Architects / of / Innovation."
+							className="about-main-text-character"
+							child={<></>}
+						/>
 					</div>
-					<div className="text-neutral-900 text-[1.25rem] leading-[2.5rem]">
+					<div className="about-main-text opacity-0 text-neutral-900 text-[1.25rem] leading-[2.5rem]">
 						Founded with a vision to revolutionize the world of
 						software development, The DevMechanics emerged as a
 						beacon of innovation in the tech industry.{" "}
 					</div>
-					<div className="text-neutral-900  text-[1.25rem] leading-[2.5rem]">
+					<div className="about-main-text opacity-0 text-neutral-900  text-[1.25rem] leading-[2.5rem]">
 						Our mission has been clear from the start: to deliver
 						exceptional, customized software solutions that propel
 						businesses into the future. We are a team that believes
@@ -57,39 +261,51 @@ const About = (props: Props) => {
 						enhance both business processes and everyday life.
 					</div>
 				</div>
+
 				<div className=" flex-col justify-center items-center flex relative">
 					<div className="relative">
 						<ImageBlock
 							containerClassName="!z-30"
-							subContainerClassName="!origin-center !rotate-[10deg] block overflow-hidden relative !h-[23rem] ls:!h-[25rem] !w-[19rem] sm:!w-[22rem] ls:!w-[25rem]"
+							subContainerClassName="about-image-one !origin-center block overflow-hidden relative !h-[23rem] ls:!h-[25rem] !w-[19rem] sm:!w-[22rem] ls:!w-[25rem]"
 							className="!absolute !top-0 !left-0 ls:!-left-7 "
 							src="/images/abt.jpg"
 							alt="project-image"
 						/>
-						<div className="z-20 h-[15rem] w-[16.5rem] sm:!w-[19rem] ls:!w-[19rem] absolute rotate-[19deg] sm:rotate-[18deg] -top-3 right-1 sm:-top-2.5 sm:right-0.5 ls:-top-4 ls:right-9 origin-center bg-[#FEDEFF]" />
+						<div className="about-image-two z-20 h-[15rem] w-[16.5rem] sm:!w-[19rem] ls:!w-[19rem] absolute sm:rotate-[18deg] -top-3 right-1 sm:-top-2.5 sm:right-0.5 ls:-top-4 ls:right-9 origin-center bg-[#FEDEFF]" />
 
-						<div className="h-[15rem] w-[17.5rem] sm:!w-[20rem] ls:!w-[21rem] -z-0 absolute rotate-[20deg] sm:rotate-[20deg] -top-10 right-1 sm:-top-10 sm:right-0.5 ls:-top-11 ls:right-9 origin-center bg-[#FCFAFF]" />
+						<div className="about-image-three h-[15rem] w-[17.5rem] sm:!w-[20rem] ls:!w-[21rem] -z-0 absolute rotate-[20deg] sm:rotate-[20deg] -top-10 right-1 sm:-top-10 sm:right-0.5 ls:-top-11 ls:right-9 origin-center bg-[#FCFAFF]" />
 					</div>
 				</div>
 			</div>
 
-			<div className="mt-36 flex flex-col gap-y-16">
+			<div
+				ref={aboutTeamContainerRefElement}
+				className="mt-36 flex flex-col gap-y-16">
 				<SectionHeader
 					className="w-full "
 					headerText="Our Team"
 					subHeaderText={
 						<>
-							<p>
-								High-quality results and{" "}
-								<br className="hidden md:block" /> a positive
-								team spirit 🔥
-							</p>
+							<ParallaxContainer
+								text="High-quality / results / and"
+								className="about-team-header-text-character"
+								child={<br className="hidden md:block" />}
+							/>
+
+							<ParallaxContainer
+								text="a / positive / team / spirit 🔥"
+								className="about-team-header-text-character"
+								child={<></>}
+							/>
 						</>
 					}
 				/>
 				<div className="grid grid-cols-1 sg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
 					{team.map((child, index) => (
-						<TeamItem key={index} />
+						<TeamItem
+							className="team-grid-display opacity-0"
+							key={index}
+						/>
 					))}
 				</div>
 			</div>

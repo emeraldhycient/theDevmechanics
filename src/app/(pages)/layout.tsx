@@ -4,17 +4,28 @@ import { Footer } from "@/components/templates";
 import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import React from "react";
 import { Toaster } from "react-hot-toast";
+import {
+	useQuery,
+	useMutation,
+	useQueryClient,
+	QueryClient,
+	QueryClientProvider,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<ReactLenis root>
-			<main>
-				<Header />
-				{children}
-				<Footer />
-				<Toaster />
-			</main>
-		</ReactLenis>
+		<QueryClientProvider client={queryClient}>
+			<ReactLenis root>
+				<main>
+					<Header />
+					{children}
+					<Footer />
+					<Toaster />
+				</main>
+			</ReactLenis>
+		</QueryClientProvider>
 	);
 };
 
