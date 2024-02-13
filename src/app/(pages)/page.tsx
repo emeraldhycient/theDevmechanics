@@ -44,8 +44,8 @@ export default function Home() {
 							stagger: 0.2,
 						},
 					);
+					observer.unobserve(entry.target);
 				}
-				observer.unobserve(entry.target);
 			});
 		},
 		{ scope: heroRefElement },

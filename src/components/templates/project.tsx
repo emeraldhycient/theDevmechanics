@@ -46,9 +46,9 @@ const Project = (props: Props) => {
 						ease: "sine.out",
 						opacity: 1,
 						stagger: 0.1,
-						onComplete: () => observer.unobserve(entry.target),
 					},
 				);
+				observer.unobserve(entry.target);
 			}
 		});
 	}, []);
@@ -68,7 +68,6 @@ const Project = (props: Props) => {
 							scale: 1,
 							opacity: 1,
 							stagger: 0.1,
-							onComplete: () => observer.unobserve(entry.target),
 						},
 					);
 					gsap.fromTo(
@@ -82,6 +81,7 @@ const Project = (props: Props) => {
 							stagger: 0.2,
 						},
 					);
+					observer.unobserve(entry.target);
 				}
 			},
 			{ threshold: 0.5 },

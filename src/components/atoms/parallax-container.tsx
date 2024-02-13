@@ -6,16 +6,19 @@ const ParallaxContainer = ({
 	parallaxCharacterElement,
 	child,
 	className,
+	parallaxContainerClassName,
 }: {
 	text: string;
 	child?: React.ReactNode;
 	parallaxCharacterElement?: React.MutableRefObject<HTMLDivElement[]>;
 	className?: string;
+	parallaxContainerClassName?: string;
 }) => {
 	const characters = text.split(" ");
 
 	return (
-		<div className="flex flex-row flex-wrap items-center overflow-y-hidden">
+		<div
+			className={`flex flex-row flex-wrap items-center overflow-y-hidden ${parallaxContainerClassName}`}>
 			{characters.map((character, index) => (
 				<div className="overflow-y-hidden" key={index}>
 					<ParallaxCharacter

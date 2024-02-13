@@ -1,17 +1,17 @@
 "use client";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import React, { useRef } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { elementObserver } from "../../../hooks";
 import "../../app/styles/globals.scss";
 import story from "../../json/story.json";
+import ParallaxContainer from "../atoms/parallax-container";
 import SectionHeader from "../atoms/section-header";
+import SliderButton from "../atoms/slider-button";
 import StoryItem from "../atoms/story-item";
 import SectionContainer from "../molecules/section-container.";
-import SliderButton from "../atoms/slider-button";
-import { useGSAP } from "@gsap/react";
-import { elementObserver } from "../../../hooks";
-import ParallaxContainer from "../atoms/parallax-container";
-import gsap from "gsap";
 
 type Props = {};
 
@@ -31,7 +31,6 @@ const Story = (props: Props) => {
 						ease: "sine.out",
 						opacity: 1,
 						stagger: 0.1,
-						onComplete: () => observer.unobserve(entry.target),
 					},
 				);
 				gsap.fromTo(
@@ -39,6 +38,7 @@ const Story = (props: Props) => {
 					{ opacity: 0, yPercent: 70 },
 					{ opacity: 1, yPercent: 0, duration: 1 },
 				);
+				observer.unobserve(entry.target);
 			}
 		});
 	}, []);
@@ -71,6 +71,7 @@ const Story = (props: Props) => {
 						},
 					},
 				);
+				observer.unobserve(entry.target);
 			}
 		});
 	}, []);

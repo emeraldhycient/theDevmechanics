@@ -20,7 +20,7 @@ const SectionHeader = ({
 	return (
 		<div
 			ref={refElement}
-			className={`flex-col items-start gap-y-5 inline-flex ${className}`}>
+			className={`flex-col items-start gap-y-5 flex justify-start ${className}`}>
 			<div
 				className={`text-neutral-900 text-base font-normal capitalize leading-loose opacity-0 ${headerClassName}`}>
 				<p>{headerText}</p>

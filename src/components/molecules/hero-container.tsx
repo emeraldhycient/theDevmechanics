@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { RefObject } from "react";
 import ArrowIcon from "../../../public/icons/arrow-icon";
 
 type Props = {
@@ -14,6 +14,8 @@ type Props = {
 	titleClassName?: string;
 	descriptionClassName?: string;
 	icon?: React.ReactNode;
+	refElement?: RefObject<HTMLDivElement>;
+	linkContainerClassName?: string;
 };
 
 const HeroContainer: React.FC<Props> = ({
@@ -28,9 +30,12 @@ const HeroContainer: React.FC<Props> = ({
 	descriptionClassName,
 	titleClassName,
 	icon,
+	refElement,
+	linkContainerClassName,
 }) => {
 	return (
 		<div
+			ref={refElement}
 			className={`flex flex-col justify-center items-center gap-4  ${containerClassName}`}>
 			<div
 				className={`text-center text-neutral-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-[3rem] md:leading-[4rem] lg:leading-[5rem] w-full  ${titleClassName}`}>
@@ -40,7 +45,8 @@ const HeroContainer: React.FC<Props> = ({
 				className={`text-center text-neutral-900 font-normal leading-[35px] w-full ${descriptionClassName}`}>
 				{description}
 			</div>
-			<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center gap-x-4 gap-y-5">
+			<div
+				className={`mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center gap-x-4 gap-y-5 ${linkContainerClassName}`}>
 				{LinkParent ? (
 					LinkParent
 				) : (

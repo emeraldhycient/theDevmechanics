@@ -38,29 +38,35 @@ const Services = (): React.ReactNode => {
 		);
 	}, []);
 
-	useGSAP(() => {
-		elementObserver(serviceHeaderRefElement.current, (entry, observer) => {
-			if (entry.isIntersecting) {
-				gsap.fromTo(
-					".service-header-text-character",
-					{ yPercent: 150, opacity: 0.3 },
-					{
-						yPercent: 0,
-						duration: 1,
-						ease: "sine.out",
-						opacity: 1,
-						stagger: 0.1,
-						onComplete: () => observer.unobserve(entry.target),
-					},
-				);
-				gsap.fromTo(
-					".service-main-header",
-					{ opacity: 0, yPercent: 70 },
-					{ opacity: 1, yPercent: 0, duration: 1 },
-				);
-			}
-		});
-	}, []);
+	useGSAP(
+		() => {
+			elementObserver(
+				serviceHeaderRefElement.current,
+				(entry, observer) => {
+					if (entry.isIntersecting) {
+						gsap.fromTo(
+							".service-header-text-character",
+							{ yPercent: 150, opacity: 0.3 },
+							{
+								yPercent: 0,
+								duration: 1,
+								ease: "sine.out",
+								opacity: 1,
+								stagger: 0.1,
+							},
+						);
+						gsap.fromTo(
+							".service-main-header",
+							{ opacity: 0, yPercent: 70 },
+							{ opacity: 1, yPercent: 0, duration: 1 },
+						);
+						observer.unobserve(entry.target);
+					}
+				},
+			);
+		},
+		{ scope: serviceHeaderRefElement },
+	);
 
 	useGSAP(() => {
 		elementObserver(
@@ -83,9 +89,9 @@ const Services = (): React.ReactNode => {
 							rotation: 0,
 							opacity: 1,
 							visibility: "visible",
-							onComplete: () => observer.unobserve(entry.target),
 						},
 					);
+					observer.unobserve(entry.target);
 				}
 			},
 			{ threshold: 0.3 },
@@ -95,7 +101,7 @@ const Services = (): React.ReactNode => {
 	return (
 		<SectionContainer
 			refElement={serviceRefElement}
-			containerClassName={`service-container !pt-20`}
+			containerClassName={`service-container !pt-14`}
 			className="">
 			<BannerImage
 				className="service-bg-image border"
