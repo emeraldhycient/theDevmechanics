@@ -20,6 +20,7 @@ const About = (props: Props) => {
 	const heroRefElement = useRef<HTMLDivElement>(null);
 	const aboutMainContainerRefElement = useRef<HTMLDivElement>(null);
 	const aboutTeamContainerRefElement = useRef<HTMLDivElement>(null);
+	const aboutTeamHeaderRefElement = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		gsap.fromTo(
@@ -99,8 +100,6 @@ const About = (props: Props) => {
 								ease: "sine.out",
 								opacity: 1,
 								stagger: 0.1,
-								onComplete: () =>
-									observer.unobserve(entry.target),
 							},
 						);
 
@@ -145,52 +144,46 @@ const About = (props: Props) => {
 								stagger: 0.1,
 							},
 						);
+						observer.unobserve(entry.target);
 					}
 				},
 			);
 		},
 		{ scope: aboutMainContainerRefElement },
 	);
-	useGSAP(
-		() => {
-			elementObserver(
-				aboutTeamContainerRefElement.current,
-				(entry, observer) => {
-					if (entry.isIntersecting) {
-						gsap.fromTo(
-							".about-team-header-text-character",
-							{ yPercent: 150, opacity: 0.3 },
-							{
-								yPercent: 0,
-								duration: 1,
-								ease: "sine.out",
-								opacity: 1,
-								stagger: 0.1,
-								onComplete: () =>
-									observer.unobserve(entry.target),
-							},
-						);
-						gsap.fromTo(
-							".team-grid-display",
-							{ yPercent: 150, opacity: 0.3, scale: 0.4 },
-							{
-								yPercent: 0,
-								duration: 1,
-								ease: "sine.out",
-								opacity: 1,
-								scale: 1,
-								stagger: 0.2,
-								onComplete: () =>
-									observer.unobserve(entry.target),
-							},
-						);
-					}
-				},
-			);
-		},
-		{ scope: aboutTeamContainerRefElement },
-	);
-
+	useGSAP(() => {
+		elementObserver(
+			aboutTeamHeaderRefElement.current,
+			(entry, observer) => {
+				if (entry.isIntersecting) {
+					gsap.fromTo(
+						".about-team-header-text-character",
+						{ yPercent: 150, opacity: 0.3 },
+						{
+							yPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							opacity: 1,
+							stagger: 0.1,
+						},
+					);
+					gsap.fromTo(
+						".team-grid-display",
+						{ yPercent: 150, opacity: 0.3, scale: 0.4 },
+						{
+							yPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							opacity: 1,
+							scale: 1,
+							stagger: 0.2,
+						},
+					);
+					observer.unobserve(entry.target);
+				}
+			},
+		);
+	}, []);
 	return (
 		<SectionContainer containerClassName="!pt-16 pb-20 md:!pt-20">
 			<div
@@ -248,12 +241,12 @@ const About = (props: Props) => {
 							child={<></>}
 						/>
 					</div>
-					<div className="about-main-text opacity-0 text-neutral-900 text-[1.25rem] leading-[2.5rem]">
+					<div className="about-main-text opacity-0 text-neutral-900 text-base leading-[2.5rem]">
 						Founded with a vision to revolutionize the world of
 						software development, The DevMechanics emerged as a
 						beacon of innovation in the tech industry.{" "}
 					</div>
-					<div className="about-main-text opacity-0 text-neutral-900  text-[1.25rem] leading-[2.5rem]">
+					<div className="about-main-text opacity-0 text-neutral-900  text-base leading-[2.5rem]">
 						Our mission has been clear from the start: to deliver
 						exceptional, customized software solutions that propel
 						businesses into the future. We are a team that believes
@@ -278,10 +271,9 @@ const About = (props: Props) => {
 				</div>
 			</div>
 
-			<div
-				ref={aboutTeamContainerRefElement}
-				className="mt-36 flex flex-col gap-y-16">
+			<div className="mt-28 flex flex-col gap-y-16">
 				<SectionHeader
+					refElement={aboutTeamHeaderRefElement}
 					className="w-full "
 					headerText="Our Team"
 					subHeaderText={
@@ -300,7 +292,9 @@ const About = (props: Props) => {
 						</>
 					}
 				/>
-				<div className="grid grid-cols-1 sg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
+				<div
+					ref={aboutTeamContainerRefElement}
+					className="grid grid-cols-1 sg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
 					{team.map((child, index) => (
 						<TeamItem
 							className="team-grid-display opacity-0"
