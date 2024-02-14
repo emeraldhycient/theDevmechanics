@@ -271,7 +271,7 @@ const About = (props: Props) => {
 				</div>
 			</div>
 
-			<div className="mt-36 flex flex-col gap-y-16">
+			<div className="mt-28 flex flex-col gap-y-16">
 				<SectionHeader
 					refElement={aboutTeamHeaderRefElement}
 					className="w-full "

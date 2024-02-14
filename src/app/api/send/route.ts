@@ -9,11 +9,11 @@ export async function POST(request: Request) {
 		const res = await request.json();
 		const { fullName, email, idea } = res;
 
-		const data = await resend.emails.send({
+		const data: any = await resend.emails.send({
 			from: `${email}`,
 			to: ["adigunolamide200@gmail.com"],
 			subject: " New submission from contact form!",
-			react: ContactEmailTemplate({ fullName, email, idea }),
+			react: ContactEmailTemplate({ fullName, email, idea }) as any,
 		});
 
 		return Response.json(data);

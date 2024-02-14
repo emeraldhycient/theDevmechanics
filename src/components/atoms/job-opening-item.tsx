@@ -32,7 +32,12 @@ const JobOpeningItem = ({ description, link, location, title }: Props) => {
 		<div className="flex flex-col justify-center items-start gap-6 bg-[#FBFBFF] py-4 px-8 rounded-2xl">
 			<div className="flex flex-row items-center justify-between w-full">
 				<div className="flex flex-row items-center gap-6">
-					<div className="border w-16 h-16"></div>
+					<div className="border flex flex-row items-center justify-center w-16 h-16">
+						<BriefCaseIcon
+							className="w-8 h-8 stroke-neutral-400"
+							stroke="text-neutral-400"
+						/>
+					</div>
 					<div className="flex flex-col items-start justify-start gap-1">
 						<div className="text-neutral-900 text-2xl ls:text-3xl font-semibold ">
 							<p>Product Designer</p>

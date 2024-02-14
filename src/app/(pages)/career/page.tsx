@@ -1,54 +1,205 @@
 "use client";
 import JobOpeningItem from "@/components/atoms/job-opening-item";
+import ParallaxContainer from "@/components/atoms/parallax-container";
 import SectionHeader from "@/components/atoms/section-header";
 import SliderButton from "@/components/atoms/slider-button";
 import TestimonialCard from "@/components/atoms/testimonial-card";
 import HeroContainer from "@/components/molecules/hero-container";
 import SectionContainer from "@/components/molecules/section-container.";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowIcon from "../../../../public/icons/arrow-icon";
+import InfoCircleIcon from "../../../../public/images/info-circle-icon";
 import jobOpenings from "../../../json/jobOpenings.json";
 import story from "../../../json/story.json";
-import InfoCircleIcon from "../../../../public/images/info-circle-icon";
+import { useGSAP } from "@gsap/react";
+import { elementObserver } from "../../../../hooks";
+import gsap from "gsap";
 
 type Props = {};
 
 const Career = (props: Props) => {
+	const careerHeroHeaderRefElement = useRef<HTMLDivElement>(null);
+	const careerHeaderRefElement = useRef<HTMLDivElement>(null);
+	const careerJobOpeningHeaderRefElement = useRef<HTMLDivElement>(null);
+	const careerContainerRefElement = useRef<HTMLDivElement>(null);
+
+	useGSAP(() => {
+		elementObserver(
+			careerHeroHeaderRefElement.current,
+			(entry, observer) => {
+				if (entry.isIntersecting) {
+					gsap.fromTo(
+						".career-hero-header-text-character",
+						{ yPercent: 150, opacity: 0.3 },
+						{
+							yPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							opacity: 1,
+							stagger: 0.1,
+						},
+					);
+					gsap.fromTo(
+						".career-hero-text",
+						{ opacity: 0, yPercent: 70 },
+						{ opacity: 1, yPercent: 0, duration: 1 },
+					);
+					gsap.fromTo(
+						".career-hero-link-container",
+						{ opacity: 0, yPercent: 70 },
+						{ opacity: 1, yPercent: 0, duration: 1 },
+					);
+					observer.unobserve(entry.target);
+				}
+			},
+		);
+	}, []);
+
+	useEffect(() => {
+		elementObserver(careerHeaderRefElement.current, (entry, observer) => {
+			if (entry.isIntersecting) {
+				gsap.fromTo(
+					".career-main-header",
+					{ opacity: 0, yPercent: 70 },
+					{ opacity: 1, yPercent: 0, duration: 1 },
+				);
+				gsap.fromTo(
+					".career-header-text-character",
+					{ yPercent: 150, opacity: 0.3 },
+					{
+						yPercent: 0,
+						duration: 1,
+						ease: "sine.out",
+						opacity: 1,
+						stagger: 0.1,
+						onComplete: () => observer.unobserve(entry.target),
+					},
+				);
+			}
+		});
+	}, []);
+
+	useGSAP(() => {
+		elementObserver(
+			careerContainerRefElement.current,
+			(entry, observer) => {
+				if (entry.isIntersecting) {
+					gsap.fromTo(
+						".testimony",
+						{ xPercent: 150, opacity: 0.3 },
+						{
+							xPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							opacity: 1,
+							stagger: 0.1,
+							onComplete: () => {
+								gsap.fromTo(
+									".testimony-star",
+									{ opacity: 0.3, scale: 0 },
+									{
+										duration: 1.2,
+										scale: 1,
+										ease: "sine.out",
+										opacity: 1,
+										stagger: 0.2,
+									},
+								);
+							},
+						},
+					);
+					observer.unobserve(entry.target);
+				}
+			},
+		);
+	}, []);
+
+	useGSAP(() => {
+		elementObserver(
+			careerJobOpeningHeaderRefElement.current,
+			(entry, observer) => {
+				if (entry.isIntersecting) {
+					gsap.fromTo(
+						".career-job-opening-text-character",
+						{ yPercent: 150, opacity: 0.3 },
+						{
+							yPercent: 0,
+							duration: 1,
+							ease: "sine.out",
+							opacity: 1,
+							stagger: 0.1,
+							onComplete: () => {
+								observer.unobserve(entry.target);
+							},
+						},
+					);
+					gsap.fromTo(
+						".openings-main-header",
+						{ opacity: 0, yPercent: 70 },
+						{ opacity: 1, yPercent: 0, duration: 1 },
+					);
+					observer.unobserve(entry.target);
+				}
+			},
+		);
+	}, []);
+
 	return (
 		<SectionContainer containerClassName="pt-16 md:pt-24">
 			<HeroContainer
-				title="Grow With Us"
+				refElement={careerHeroHeaderRefElement}
+				title={
+					<div className="flex flex-col items-center justify-center text-center">
+						<ParallaxContainer
+							text="Grow / With / Us "
+							className="career-hero-header-text-character"
+							parallaxContainerClassName="justify-center"
+							child={<br className="hidden md:block" />}
+						/>
+					</div>
+				}
 				description="Are you ready to contribute your unique touch of magic? We
 					are continually seeking exceptionally talented individuals
 					to enrich our dynamic team! Explore our current job openings
 					below."
-				descriptionClassName="md:!w-[38rem] lg:!w-[38rem]"
+				descriptionClassName="md:!w-[38rem] lg:!w-[38rem] opacity-0 career-hero-text"
 				titleClassName=""
 				firstLink="/"
 				firstLinkText="Explore Jobs"
 				secondLinkText="Get a Quote"
 				secondLink="/"
 				containerClassName="!mb-32"
+				linkContainerClassName="opacity-0 career-hero-link-container"
 			/>
 
 			<div className="flex flex-col gap-y-20 mt-32">
 				<SectionHeader
+					refElement={careerHeaderRefElement}
 					headerText="Employees Testimonials"
 					subHeaderText={
 						<>
-							<p>
-								Employees tell their stories of{" "}
-								<br className="hidden md:block" /> working with
-								DevMechanics.
-							</p>
+							<ParallaxContainer
+								text="Employees / tell / their / stories / of"
+								className="career-header-text-character"
+								parallaxContainerClassName=""
+								child={<br className="hidden md:block" />}
+							/>
+							<ParallaxContainer
+								text="working / with /
+								DevMechanics."
+								className="career-header-text-character"
+								parallaxContainerClassName=""
+								child={<br className="hidden md:block" />}
+							/>
 						</>
 					}
 					subHeaderClassName=""
+					headerClassName="career-main-header"
 				/>
-				<div className="relative group">
+				<div ref={careerContainerRefElement} className="relative group">
 					<Swiper
 						className="w-full flex flex-row items-center "
 						breakpoints={{
@@ -64,6 +215,7 @@ const Career = (props: Props) => {
 							<SwiperSlide key={index}>
 								<TestimonialCard
 									name="Dominic Praise"
+									testimonyStarClassName="testimony-star"
 									maxStars={5}
 									message="The DevMechanics didn&lsquo;t just provide a service;
 						they delivered a transformation to our business process.
@@ -72,7 +224,7 @@ const Career = (props: Props) => {
 									position="CEO at Frameio Stores"
 									rating={3}
 									fill={`fill-[#FF9E2C]`}
-									containerClassName="p-5 rounded-xl md:max-w-[90%] bg-[#FCFAFF]"
+									containerClassName="testimony p-5 rounded-xl md:max-w-[90%] bg-[#FCFAFF]"
 								/>
 							</SwiperSlide>
 						))}
@@ -83,8 +235,16 @@ const Career = (props: Props) => {
 
 			<div className="flex flex-col gap-y-14 mt-36">
 				<SectionHeader
+					refElement={careerJobOpeningHeaderRefElement}
 					headerText="Work with us"
-					subHeaderText="Job Openings"
+					subHeaderText={
+						<ParallaxContainer
+							text="Job / Openings"
+							className="career-job-opening-text-character"
+							child={<></>}
+						/>
+					}
+					headerClassName="openings-main-header"
 					subHeaderClassName="md:max-w-full"
 				/>
 				<div className="flex flex-col gap-y-16">
