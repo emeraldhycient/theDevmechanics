@@ -11,6 +11,34 @@ export type ProjectApiResponse = {
 	};
 };
 
+export type TestimonialApiResponse = { data: TestimonialData[] };
+
+export type EmployeeApiResponse = { data: EmployeeData[] };
+
+interface EmployeeAttributes {
+	name: string;
+	linkdin: string;
+	role: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	image:
+		| {
+				data: null;
+		  }
+		| ImageData;
+}
+
+interface EmployeeData {
+	id: number;
+	attributes: EmployeeAttributes;
+}
+
+interface TestimonialData {
+	id: number;
+	attributes: TestimonialAttributes;
+}
+
 interface ProjectData {
 	attributes: ProjectAttributes;
 }
@@ -156,6 +184,22 @@ interface ProjectAttributes {
 	description: string;
 	image: {
 		data: {
+			attributes: ImageAttributes;
+		};
+	};
+}
+interface TestimonialAttributes {
+	rating: number;
+	comment: string;
+	name: string;
+	position: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	company: string;
+	Image: {
+		data: {
+			id: number;
 			attributes: ImageAttributes;
 		};
 	};

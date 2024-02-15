@@ -90,9 +90,9 @@ import ArrowIcon from "../../../public/icons/arrow-icon";
 import ImageBlock from "./image-block";
 
 interface ProjectItemProps {
-	projectName: string;
-	projectDescription: string;
-	projectServices: string;
+	projectName?: string;
+	projectDescription?: string;
+	projectServices?: string;
 	viewProjectLink?: string;
 	readCaseStudyLink?: string;
 	viewProjectText?: string;
