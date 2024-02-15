@@ -41,8 +41,8 @@ const Footer = () => {
 						<p>info@devmechanics.com</p>
 					</Link>
 					<p className={`py-3`}>
-						89B, Shagari RD, Maryland, Opebi Allen Way, Lagos
-						Nigeria.
+						20 Ijaola street ,Maryland
+Lagos Nigeria.
 					</p>{" "}
 					<br /> <br />
 					<SocialIcons />
