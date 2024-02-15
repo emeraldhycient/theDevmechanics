@@ -7,10 +7,19 @@ import project from "../../../json/project.json";
 import { elementObserver } from "../../../../hooks";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { fetchData } from "@/api";
+import { useQuery } from "@tanstack/react-query";
+import PageLoader from "@/components/atoms/page-loader";
+import { ProjectApiResponse } from "../../../../types";
 
 type Props = {};
 
 const Project = (props: Props) => {
+	const { data, isLoading, isError, error } = useQuery<ProjectApiResponse>({
+		queryKey: ["project"],
+		queryFn: () => fetchData<ProjectApiResponse>(`/projects?populate=*`),
+	});
+
 	const heroRefElement = useRef<HTMLDivElement>(null);
 
 	useGSAP(
@@ -44,6 +53,7 @@ const Project = (props: Props) => {
 		},
 		{ scope: heroRefElement },
 	);
+
 	return (
 		<SectionContainer containerClassName="!pt-16 pb-20 md:!pt-20">
 			<div
@@ -74,23 +84,29 @@ const Project = (props: Props) => {
 					</p>
 				</div>
 			</div>
-
-			<div className="flex flex-col gap-y-28 mt-20">
-				{project.map((project, index) => (
-					<ProjectItem
-						key={index}
-						imageSrc={"/images/preview.png"}
-						projectDescription={`Vision Pay is an innovative agency banking app designed to make easy and secure banking transactions. Our development focused on user-centric design and reliable functionality.`}
-						projectName={project.title}
-						projectMotto={project.subtitle}
-						projectServices={project.skills}
-						containerClassName={""}
-						readCaseStudyLink={"/"}
-						viewProjectLink={"/"}
-						isEven={index % 2}
-					/>
-				))}
-			</div>
+			{isLoading && (
+				<PageLoader className="w-full flex flex-row items-center justify-center py-48" />
+			)}
+			{data && (
+				<div className="flex flex-col gap-y-28 mt-16">
+					{data?.data.map((project, index) => (
+						<ProjectItem
+							key={index}
+							imageSrc={`https://the-devmechanics-strapi-api.onrender.com${project?.attributes?.image?.data?.attributes?.url}`}
+							projectDescription={
+								project?.attributes?.description
+							}
+							projectName={project.attributes?.name}
+							projectMotto={project.attributes?.solution}
+							projectServices={project?.attributes?.type}
+							containerClassName={""}
+							// readCaseStudyLink={"/"}
+							viewProjectLink={project?.attributes?.link}
+							isEven={index % 2}
+						/>
+					))}
+				</div>
+			)}
 		</SectionContainer>
 	);
 };

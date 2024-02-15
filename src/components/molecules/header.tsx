@@ -51,7 +51,7 @@ const Header = (): React.ReactNode => {
 				</Link>
 
 				<div className={`flex items-center gap-x-24`}>
-					<nav className="hidden xl:flex">
+					<nav className="hidden ls:flex">
 						<ul className={`text-sm flex items-center gap-x-10`}>
 							{Links.map((link, index) => (
 								<li
@@ -69,7 +69,7 @@ const Header = (): React.ReactNode => {
 				</div>
 				<div className="flex flex-row items-center gap-x-8">
 					<button
-						className={`xl:hidden block text-3xl`}
+						className={`ls:hidden block text-3xl`}
 						onClick={() => {
 							setMobileNavOpen(!mobileNavOpen);
 						}}>

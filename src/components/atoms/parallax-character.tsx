@@ -13,7 +13,7 @@ const ParallaxCharacter = (props: Props) => {
 			ref={(element: HTMLDivElement) => {
 				props.parallaxCharacterElement?.current?.push(element);
 			}}
-			className={`opacity-0 ${props.className}`}>
+			className={` ${props.className}`}>
 			{props?.child === "/" ? (
 				<p className="mr-[0.700rem]"></p>
 			) : (

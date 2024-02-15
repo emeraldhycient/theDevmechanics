@@ -12,12 +12,26 @@ import SectionHeader from "../atoms/section-header";
 import SliderButton from "../atoms/slider-button";
 import StoryItem from "../atoms/story-item";
 import SectionContainer from "../molecules/section-container.";
+import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "@/api";
+import { TestimonialApiResponse } from "../../../types";
 
 type Props = {};
 
 const Story = (props: Props) => {
 	const storyHeaderRefElement = useRef<HTMLDivElement>(null);
 	const storyContainerRefElement = useRef<HTMLDivElement>(null);
+
+	const { data, isLoading, isError, error } =
+		useQuery<TestimonialApiResponse>({
+			queryKey: ["client-comment"],
+			queryFn: () =>
+				fetchData<TestimonialApiResponse>(
+					`/client-comments?populate=*`,
+				),
+		});
+
+	console.log("data story ==>", data);
 
 	useGSAP(() => {
 		elementObserver(storyHeaderRefElement.current, (entry, observer) => {
@@ -119,12 +133,18 @@ const Story = (props: Props) => {
 						},
 					}}
 					spaceBetween={50}>
-					{story.map((story, index) => (
+					{data?.data?.map((story, index) => (
 						<SwiperSlide key={index}>
 							<StoryItem
-								testimonyStarClassName="opacity-0 scale-0 testimony-star"
-								className="story opacity-0"
+								testimonyStarClassName=""
+								className=""
 								index={index}
+								comment={story?.attributes?.comment}
+								company={story?.attributes?.company}
+								name={story?.attributes?.name}
+								rating={story?.attributes?.rating}
+								position={story?.attributes?.position}
+								image={`https://the-devmechanics-strapi-api.onrender.com${story?.attributes?.Image?.data?.attributes?.url}`}
 							/>
 						</SwiperSlide>
 					))}

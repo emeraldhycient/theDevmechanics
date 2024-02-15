@@ -9,6 +9,10 @@ import ParallaxContainer from "../atoms/parallax-container";
 import ProjectItem from "../atoms/project-item";
 import SectionHeader from "../atoms/section-header";
 import SectionContainer from "../molecules/section-container.";
+import { fetchData } from "@/api";
+import { useQuery } from "@tanstack/react-query";
+import { ProjectApiResponse } from "../../../types";
+import PageLoader from "../atoms/page-loader";
 
 type Props = {};
 
@@ -17,6 +21,13 @@ const Project = (props: Props) => {
 	const projectRefElement = useRef<HTMLDivElement>(null);
 	const elementRefs = useRef<any[]>([]);
 	const projectElementsRem = ["0rem", "4rem", "8rem", "12rem"];
+
+	const { data, isLoading, isError, error } = useQuery<ProjectApiResponse>({
+		queryKey: ["project"],
+		queryFn: () => fetchData<ProjectApiResponse>(`/projects?populate=*`),
+	});
+
+	const projectData = data?.data[0];
 
 	useGSAP(() => {
 		elementRefs.current.forEach((element, index) => {
@@ -135,19 +146,24 @@ const Project = (props: Props) => {
 					className={
 						" project-scroll-trigger  top-0 z-[9999] absolute w-full !rounded-[3.75rem] py-9 md:py-10  md:flex-row bg-[#FBF3EF] px-3 md:px-12"
 					}>
-					<ProjectItem
-						imageSrc={"/images/preview.png"}
-						projectDescription={`Vision Pay is an innovative agency banking app designed to make easy and secure banking transactions. Our development focused on user-centric design and reliable functionality.`}
-						projectName={"Vision Pay"}
-						projectMotto={"Empowering Agency Banking"}
-						projectServices={
-							"UI/UX Design, Front & Back End Development"
-						}
-						imageContainerClassName="project-image-container opacity-0"
-						textContainerClassName={`project-text-container scale-0 opacity-0`}
-						readCaseStudyLink={"/"}
-						viewProjectLink={"/"}
-					/>
+					{isLoading && (
+						<PageLoader className="w-full flex flex-row items-center justify-center py-20" />
+					)}
+					{data && (
+						<ProjectItem
+							imageSrc={`https://the-devmechanics-strapi-api.onrender.com${projectData?.attributes?.image?.data?.attributes?.url}`}
+							projectDescription={
+								projectData?.attributes?.description
+							}
+							projectName={projectData?.attributes?.name}
+							projectMotto={projectData?.attributes?.solution}
+							projectServices={projectData?.attributes?.type}
+							imageContainerClassName="project-image-container"
+							textContainerClassName={`project-text-container `}
+							readCaseStudyLink={"/"}
+							viewProjectLink={projectData?.attributes?.link}
+						/>
+					)}
 				</div>
 			</div>
 		</SectionContainer>
