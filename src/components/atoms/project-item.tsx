@@ -145,15 +145,19 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 				<div>
 					<div className="mt-7 md:mt-5 flex flex-col min-[360px]:flex-row items-center ml-auto gap-x-4 gap-y-5">
 						{viewProjectLink && (
-							<Link
-								href={viewProjectLink}
-								className="group flex flex-row items-center gap-x-2 text-[0.9375rem] text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
-                ">
-								<span>{viewProjectText}</span>{" "}
-								<span>
-									<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white" />
-								</span>
-							</Link>
+							<>
+								<a
+									href={viewProjectLink}
+									className="group flex flex-row items-center gap-x-2 text-[0.9375rem] text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] 
+                "
+									target="_blank"
+									rel="noopener noreferrer">
+									<span>{viewProjectText}</span>{" "}
+									<span>
+										<ArrowIcon className="-rotate-45 w-4 h-4 stroke-white" />
+									</span>
+								</a>
+							</>
 						)}
 						{readCaseStudyLink && (
 							<Link

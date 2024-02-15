@@ -42,6 +42,7 @@ const BlogListItem = ({
 	author?: string;
 	authorClassName?: string;
 }) => {
+	const newTitle = title ?? "";
 	return (
 		<div className={`flex ${flexContainerClassName}`}>
 			<div className={`flex ${contentContainerClassName}`}>
@@ -72,7 +73,7 @@ const BlogListItem = ({
 
 				<div>
 					<Link
-						href={linkHref}
+						href={`/blog/${encodeURIComponent(newTitle)}`}
 						className={`group flex flex-row items-center gap-x-2 text-[0.9375rem] text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] ${linkClassName}`}>
 						<span>Read More</span>{" "}
 						<span>

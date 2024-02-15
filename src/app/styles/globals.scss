@@ -12,6 +12,20 @@
 body {
 	font-family: "Gordita", "Inter", sans-serif;
 
+	&::-webkit-scrollbar {
+		width: 0.6rem;
+	}
+
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 6px hsla(0, 0%, 0%, 0.3);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: hsl(225, 14%, 89%);
+		border-radius: 20px;
+		color: hsl(0, 0%, 96%);
+	}
+
 	.three-body {
 		--uib-size: 35px;
 		--uib-speed: 0.8s;
