@@ -36,6 +36,15 @@ const Navigation = ({
 					</li>
 				))}
 			</ul>
+
+			<div
+				className={`flex mt-5 [&_button]:text-sm gap-x-3 [&_button]:rounded-full [&_button]:py-3 [&_button]:px-5`}>
+				<Link href={"/contact"}>
+					<button className={`bg-[#9743FF] text-white`}>
+						Contact Us
+					</button>
+				</Link>
+			</div>
 		</nav>
 	);
 };
