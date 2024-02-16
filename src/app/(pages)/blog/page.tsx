@@ -49,6 +49,7 @@ const BlogPage = (props: Props) => {
 			{data && (
 				<>
 					<BlogListItem
+						index={data?.data[0]?.id}
 						flexContainerClassName="flex-col gap-y-10 ls:flex-row items-center justify-between"
 						contentContainerClassName="flex flex-col items-start justify-start gap-y-8 ls:w-[50%]"
 						categoryClassName="font-medium text-lg"
@@ -79,6 +80,7 @@ const BlogPage = (props: Props) => {
 								return (
 									<BlogListItem
 										key={index}
+										index={child?.id}
 										flexContainerClassName="flex-col gap-y-10 ls:flex-row-reverse items-center justify-end gap-x-10"
 										contentContainerClassName="flex flex-col items-start justify-start gap-y-8 ls:w-[50%]"
 										categoryClassName="font-normal text-lg"

@@ -10,6 +10,7 @@ const BlogListItem = ({
 	titleClassName,
 	descriptionClassName,
 	linkClassName,
+	index,
 	imageContainerClassName,
 	imageClassName,
 	src,
@@ -23,6 +24,7 @@ const BlogListItem = ({
 	author,
 	authorClassName,
 }: {
+	index: number;
 	flexContainerClassName?: string;
 	contentContainerClassName?: string;
 	categoryClassName?: string;
@@ -73,7 +75,7 @@ const BlogListItem = ({
 
 				<div>
 					<Link
-						href={`/blog/${encodeURIComponent(newTitle)}`}
+						href={`/blog/${encodeURIComponent(index)}`}
 						className={`group flex flex-row items-center gap-x-2 text-[0.9375rem] text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF] ${linkClassName}`}>
 						<span>Read More</span>{" "}
 						<span>
