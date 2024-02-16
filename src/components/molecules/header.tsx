@@ -77,8 +77,6 @@ const Header = (): React.ReactNode => {
 					</button>
 					<div
 						className={`hidden md:flex [&_button]:text-sm gap-x-3 [&_button]:rounded-full [&_button]:py-3 [&_button]:px-5`}>
-						{/* <button>Get a Quote</button> */}
-
 						<Link href={"/contact"}>
 							<button className={`bg-[#9743FF] text-white`}>
 								Contact Us
@@ -86,33 +84,22 @@ const Header = (): React.ReactNode => {
 						</Link>
 					</div>
 				</div>
-
-				<div
-					onClick={() => setMobileNavOpen(!mobileNavOpen)}
-					className={` bg-white w-full overflow-hidden ${!mobileNavOpen ? "-translate-[100%] py-0 h-0" : "translate-[120%] py-4 h-screen"} absolute top-14 left-0 duration-300 px-4`}>
-					<Navigation
-						links={Links}
-						liClassName=""
-						navClassName=""
-						ulClassName="flex flex-col gap-y-4 w-full [&_li]:text-xl "
-						linkChildContainerClassName="py-2 flex w-full items-center justify-between"
-						child={
-							<span className={`text-xl text-[#9FA4A6]`}>
-								<GoArrowRight />
-							</span>
-						}
-					/>
-					{/* <div
-							className={`w-full flex md:hidden items-center justify-center mt-5 [&_button]:text-sm gap-x-3 [&_button]:rounded-full [&_button]:py-3 [&_button]:px-5`}>
-							<button>Get a Quote</button>
-
-							<Link href={"/contact"}>
-								<button className={`bg-[#9743FF] text-white`}>
-									Contact Us
-								</button>
-							</Link>
-						</div> */}
-				</div>
+			</div>
+			<div
+				onClick={() => setMobileNavOpen(!mobileNavOpen)}
+				className={` bg-white w-full overflow-hidden ${!mobileNavOpen ? "-translate-[100%] py-0 h-0" : "translate-[120%] py-4 h-screen"} sticky top-14 left-0 duration-300 px-4`}>
+				<Navigation
+					links={Links}
+					liClassName=""
+					navClassName=""
+					ulClassName="flex flex-col gap-y-4 w-full [&_li]:text-xl "
+					linkChildContainerClassName="py-2 flex w-full items-center justify-between"
+					child={
+						<span className={`text-xl text-[#9FA4A6]`}>
+							<GoArrowRight />
+						</span>
+					}
+				/>
 			</div>
 		</div>
 	);

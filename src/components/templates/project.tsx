@@ -104,6 +104,7 @@ const Project = (props: Props) => {
 			<SectionHeader
 				refElement={projectHeaderRefElement}
 				headerText="View Our Projects"
+				className=""
 				subHeaderText={
 					<>
 						<ParallaxContainer

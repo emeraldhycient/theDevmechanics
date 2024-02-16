@@ -91,8 +91,8 @@ const Story = (props: Props) => {
 
 	return (
 		<SectionContainer
-			containerClassName="!pt-0 pt-[84rem] md:!pt-[52rem]"
-			className="flex flex-col !gap-y-14">
+			containerClassName="pt-[90rem] md:!pt-[52rem]"
+			className="flex flex-col !gap-y-14 ">
 			<SectionHeader
 				refElement={storyHeaderRefElement}
 				headerText="Client Success Stories"
