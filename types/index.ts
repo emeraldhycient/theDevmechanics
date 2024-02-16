@@ -23,7 +23,7 @@ interface CommentAttributes {
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;
-	employee: EmployeeData;
+	employee: { data: EmployeeData };
 }
 
 interface CommentData {
