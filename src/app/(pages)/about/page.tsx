@@ -88,7 +88,6 @@ const About = (props: Props) => {
 						},
 					);
 				}
-				// observer.unobserve(entry.target);
 			});
 		},
 		{ scope: heroRefElement },
@@ -160,6 +159,7 @@ const About = (props: Props) => {
 		},
 		{ scope: aboutMainContainerRefElement },
 	);
+
 	useGSAP(() => {
 		elementObserver(
 			aboutTeamHeaderRefElement.current,
@@ -193,11 +193,12 @@ const About = (props: Props) => {
 			},
 		);
 	}, []);
+
 	return (
 		<SectionContainer containerClassName="!pt-16 pb-20 md:!pt-20">
 			<div
 				ref={heroRefElement}
-				className="flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
+				className="border flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
 				<div
 					className={`text-4xl md:text-5xl lg:text-6xl font-semibold py-4 w-full md:w-[36rem] ls:w-[37rem] lg:w-[50rem] leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]`}>
 					<div>
@@ -217,6 +218,7 @@ const About = (props: Props) => {
 						/>
 					</div>
 				</div>
+
 				<div className="opacity-0 about-hero-text w-full text-base leading-[2.1875rem]">
 					<p>
 						Founded with a vision to revolutionize the world of
