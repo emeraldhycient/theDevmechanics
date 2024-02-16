@@ -61,7 +61,7 @@ export default function Home() {
 						<ParallaxContainer
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="We / build / custom / software / to"
-							className="hero-main-text-character"
+							className="hero-main-text-character opacity-0"
 							child={
 								<>
 									<br className="hidden md:block" />
@@ -71,7 +71,7 @@ export default function Home() {
 						<ParallaxContainer
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="meet / your / unique / needs, / driving"
-							className="hero-main-text-character"
+							className="hero-main-text-character opacity-0"
 							child={
 								<>
 									<br className="hidden md:block" />
@@ -81,7 +81,7 @@ export default function Home() {
 						<ParallaxContainer
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="Efficiency / & /"
-							className="hero-main-text-character"
+							className="hero-main-text-character opacity-0"
 							child={
 								<>
 									<span
@@ -94,7 +94,7 @@ export default function Home() {
 						/>
 					</>
 				}
-				child={<SocialIcons />}
+				child={<SocialIcons className="opacity-0 " />}
 			/>
 			<Services />
 			<Project />

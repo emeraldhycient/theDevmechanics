@@ -17,6 +17,10 @@ import story from "../../../json/story.json";
 import { useGSAP } from "@gsap/react";
 import { elementObserver } from "../../../../hooks";
 import gsap from "gsap";
+import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "@/api";
+import { EmployeeCommentApiResponse } from "../../../../types";
+import PageLoader from "@/components/atoms/page-loader";
 
 type Props = {};
 
@@ -25,6 +29,15 @@ const Career = (props: Props) => {
 	const careerHeaderRefElement = useRef<HTMLDivElement>(null);
 	const careerJobOpeningHeaderRefElement = useRef<HTMLDivElement>(null);
 	const careerContainerRefElement = useRef<HTMLDivElement>(null);
+
+	const { data, isLoading, isError, error } =
+		useQuery<EmployeeCommentApiResponse>({
+			queryKey: ["employee-comment"],
+			queryFn: () =>
+				fetchData<EmployeeCommentApiResponse>(
+					`/employee-comments?populate=*`,
+				),
+		});
 
 	useGSAP(() => {
 		elementObserver(
@@ -199,38 +212,45 @@ const Career = (props: Props) => {
 					subHeaderClassName=""
 					headerClassName="career-main-header"
 				/>
-				<div ref={careerContainerRefElement} className="relative group">
-					<Swiper
-						className="w-full flex flex-row items-center "
-						breakpoints={{
-							320: { spaceBetween: 50 },
-							768: { spaceBetween: 5, slidesPerView: 1.4 },
-							1136: {
-								spaceBetween: 5,
-								slidesPerView: 2,
-							},
-						}}
-						spaceBetween={50}>
-						{story.map((story, index) => (
-							<SwiperSlide key={index}>
-								<TestimonialCard
-									name="Dominic Praise"
-									testimonyStarClassName="testimony-star"
-									maxStars={5}
-									message="The DevMechanics didn&lsquo;t just provide a service;
-						they delivered a transformation to our business process.
-						Their bespoke software solution has been a game-changer
-						in how we operate and serve our customers."
-									position="CEO at Frameio Stores"
-									rating={3}
-									fill={`fill-[#FF9E2C]`}
-									containerClassName="testimony p-5 rounded-xl md:max-w-[90%] bg-[#FCFAFF]"
-								/>
-							</SwiperSlide>
-						))}
-						<SliderButton />
-					</Swiper>
-				</div>
+				{isLoading && (
+					<PageLoader className="w-full flex flex-row items-center justify-center py-36" />
+				)}
+				{data && (
+					<div
+						ref={careerContainerRefElement}
+						className="relative group">
+						<Swiper
+							className="w-full flex flex-row items-center "
+							breakpoints={{
+								320: { spaceBetween: 50 },
+								768: { spaceBetween: 5, slidesPerView: 1.4 },
+								1136: {
+									spaceBetween: 5,
+									slidesPerView: 2,
+								},
+							}}
+							spaceBetween={50}>
+							{data?.data?.map((comment, index) => (
+								<SwiperSlide key={index}>
+									<TestimonialCard
+										name={
+											comment?.attributes?.employee
+												?.attributes?.name
+										}
+										// testimonyStarClassName="testimony-star"
+										maxStars={5}
+										message={comment?.attributes?.comment}
+										position={`${comment?.attributes?.employee?.attributes?.role} at DevMechanics`}
+										rating={comment?.attributes?.rating}
+										fill={`fill-[#FF9E2C]`}
+										containerClassName="testimony p-5 rounded-xl md:max-w-[90%] bg-[#FCFAFF]"
+									/>
+								</SwiperSlide>
+							))}
+							<SliderButton />
+						</Swiper>
+					</div>
+				)}
 			</div>
 
 			<div className="flex flex-col gap-y-14 mt-36">
@@ -248,10 +268,10 @@ const Career = (props: Props) => {
 					subHeaderClassName="md:max-w-full"
 				/>
 				<div className="flex flex-col gap-y-16">
-					{jobOpenings?.length !== 0 || jobOpenings.length > 0 ? (
+					{[]?.length !== 0 || [].length > 0 ? (
 						<>
-							{jobOpenings.map((job, index) => (
-								<JobOpeningItem key={index} {...job} />
+							{[].map((job, index) => (
+								<JobOpeningItem key={index} />
 							))}
 						</>
 					) : (

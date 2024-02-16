@@ -1,20 +1,12 @@
 import React from "react";
 import { Icon } from "../atoms";
 
-const SocialIcons = () => {
-	const icons = [
+const SocialIcons = ({ className }: { className?: string }) => {
+	const icons: { icon: string; link: string }[] = [
 		{
 			icon: "/icons/IG.svg",
 			link: "https://instagram.com/",
 		},
-		// {
-		// 	icon: "/icons/behance.svg",
-		// 	link: "https://behance.com/",
-		// },
-		// {
-		// 	icon: "/icons/dribbble.svg",
-		// 	link: "https://dribbble.com/",
-		// },
 		{
 			icon: "/icons/linkedin.svg",
 			link: "https://linkedin.com/company/",
@@ -28,7 +20,12 @@ const SocialIcons = () => {
 	return (
 		<div className={` flex items-center flex-wrap gap-x-6 gap-y-3`}>
 			{icons.map((icon, index) => (
-				<Icon key={index} link={icon.link} icon={icon.icon} />
+				<Icon
+					key={index}
+					link={icon.link}
+					icon={icon.icon}
+					className={className}
+				/>
 			))}
 		</div>
 	);

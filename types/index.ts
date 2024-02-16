@@ -14,14 +14,35 @@ export type ProjectApiResponse = {
 export type TestimonialApiResponse = { data: TestimonialData[] };
 
 export type EmployeeApiResponse = { data: EmployeeData[] };
+export type EmployeeCommentApiResponse = { data: CommentData[] };
+
+interface CommentAttributes {
+	id: number;
+	comment: string;
+	rating: number;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+	employee: EmployeeData;
+}
+
+interface CommentData {
+	id: number;
+	attributes: CommentAttributes;
+}
 
 interface EmployeeAttributes {
 	name: string;
-	linkdin: string;
+	linkedin: string;
 	role: string;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;
+	email: string;
+	employeeId: string;
+	gender: string;
+	instagram: string;
+	twitter: string;
 	image:
 		| {
 				data: null;

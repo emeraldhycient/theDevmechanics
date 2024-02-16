@@ -147,7 +147,7 @@ const Project = (props: Props) => {
 						" project-scroll-trigger  top-0 z-[9999] absolute w-full !rounded-[3.75rem] py-9 md:py-10  md:flex-row bg-[#FBF3EF] px-3 md:px-12"
 					}>
 					{isLoading && (
-						<PageLoader className="w-full flex flex-row items-center justify-center py-20" />
+						<PageLoader className="w-full flex flex-row items-center justify-center py-36" />
 					)}
 					{data && (
 						<ProjectItem
@@ -158,8 +158,8 @@ const Project = (props: Props) => {
 							projectName={projectData?.attributes?.name}
 							projectMotto={projectData?.attributes?.solution}
 							projectServices={projectData?.attributes?.type}
-							imageContainerClassName="project-image-container"
-							textContainerClassName={`project-text-container `}
+							// imageContainerClassName="project-image-container"
+							// textContainerClassName={`project-text-container `}
 							readCaseStudyLink={"/"}
 							viewProjectLink={projectData?.attributes?.link}
 						/>

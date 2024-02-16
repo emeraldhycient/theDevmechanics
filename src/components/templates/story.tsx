@@ -15,6 +15,7 @@ import SectionContainer from "../molecules/section-container.";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "@/api";
 import { TestimonialApiResponse } from "../../../types";
+import PageLoader from "../atoms/page-loader";
 
 type Props = {};
 
@@ -30,8 +31,6 @@ const Story = (props: Props) => {
 					`/client-comments?populate=*`,
 				),
 		});
-
-	console.log("data story ==>", data);
 
 	useGSAP(() => {
 		elementObserver(storyHeaderRefElement.current, (entry, observer) => {
@@ -92,7 +91,7 @@ const Story = (props: Props) => {
 
 	return (
 		<SectionContainer
-			containerClassName="!pt-0 mt-[84rem] md:!mt-[52rem]"
+			containerClassName="!pt-0 pt-[84rem] md:!pt-[52rem]"
 			className="flex flex-col !gap-y-14">
 			<SectionHeader
 				refElement={storyHeaderRefElement}
@@ -102,11 +101,7 @@ const Story = (props: Props) => {
 						<ParallaxContainer
 							text="Clients / tell / their / stories / of"
 							className="story-header-text-character"
-							child={
-								<>
-									<br className="hidden md:block" />
-								</>
-							}
+							child={<br className="hidden md:block" />}
 						/>
 						<ParallaxContainer
 							text="success / with / DevMechanics."
@@ -118,39 +113,44 @@ const Story = (props: Props) => {
 				headerClassName="story-main-header"
 				subHeaderClassName=""
 			/>
-			<div ref={storyContainerRefElement} className="relative group">
-				<Swiper
-					className="w-full flex flex-row items-center"
-					breakpoints={{
-						768: { spaceBetween: 4, slidesPerView: 1.4 },
-						1024: {
-							spaceBetween: 5,
-							slidesPerView: 1,
-						},
-						1136: {
-							spaceBetween: 5,
-							slidesPerView: 1.2,
-						},
-					}}
-					spaceBetween={50}>
-					{data?.data?.map((story, index) => (
-						<SwiperSlide key={index}>
-							<StoryItem
-								testimonyStarClassName=""
-								className=""
-								index={index}
-								comment={story?.attributes?.comment}
-								company={story?.attributes?.company}
-								name={story?.attributes?.name}
-								rating={story?.attributes?.rating}
-								position={story?.attributes?.position}
-								image={`https://the-devmechanics-strapi-api.onrender.com${story?.attributes?.Image?.data?.attributes?.url}`}
-							/>
-						</SwiperSlide>
-					))}
-					<SliderButton />
-				</Swiper>
-			</div>
+			{isLoading && (
+				<PageLoader className="w-full flex flex-row items-center justify-center py-36" />
+			)}
+			{data && (
+				<div ref={storyContainerRefElement} className="relative group">
+					<Swiper
+						className="w-full flex flex-row items-center"
+						breakpoints={{
+							768: { spaceBetween: 4, slidesPerView: 1.4 },
+							1024: {
+								spaceBetween: 5,
+								slidesPerView: 1,
+							},
+							1136: {
+								spaceBetween: 5,
+								slidesPerView: 1.2,
+							},
+						}}
+						spaceBetween={50}>
+						{data?.data?.map((story, index) => (
+							<SwiperSlide key={index}>
+								<StoryItem
+									// testimonyStarClassName="opacity-0 scale-0 testimony-star"
+									// className="story opacity-0"
+									index={index}
+									comment={story?.attributes?.comment}
+									company={story?.attributes?.company}
+									name={story?.attributes?.name}
+									rating={story?.attributes?.rating}
+									position={story?.attributes?.position}
+									image={`https://the-devmechanics-strapi-api.onrender.com${story?.attributes?.Image?.data?.attributes?.url}`}
+								/>
+							</SwiperSlide>
+						))}
+						<SliderButton />
+					</Swiper>
+				</div>
+			)}
 		</SectionContainer>
 	);
 };

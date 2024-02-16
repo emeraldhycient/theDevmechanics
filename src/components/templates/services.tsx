@@ -117,17 +117,13 @@ const Services = (): React.ReactNode => {
 						<ParallaxContainer
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="Software / architecture, / design / and"
-							className="service-header-text-character"
-							child={
-								<>
-									<br className="hidden md:block" />
-								</>
-							}
+							className="service-header-text-character opacity-0 "
+							child={<br className="hidden md:block" />}
 						/>
 						<ParallaxContainer
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="implementation / for / any / industry 🔥"
-							className="service-header-text-character"
+							className="service-header-text-character opacity-0 "
 							child={<></>}
 						/>
 					</>
