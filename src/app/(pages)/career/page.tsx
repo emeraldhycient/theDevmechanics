@@ -234,13 +234,13 @@ const Career = (props: Props) => {
 								<SwiperSlide key={index}>
 									<TestimonialCard
 										name={
-											comment?.attributes?.employee
+											comment?.attributes?.employee?.data
 												?.attributes?.name
 										}
 										// testimonyStarClassName="testimony-star"
 										maxStars={5}
 										message={comment?.attributes?.comment}
-										position={`${comment?.attributes?.employee?.attributes?.role} at DevMechanics`}
+										position={`${comment?.attributes?.employee?.data?.attributes?.role} at DevMechanics`}
 										rating={comment?.attributes?.rating}
 										fill={`fill-[#FF9E2C]`}
 										containerClassName="testimony p-5 rounded-xl md:max-w-[90%] bg-[#FCFAFF]"
