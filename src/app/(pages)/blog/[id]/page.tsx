@@ -9,10 +9,10 @@ import { useRouter, useParams } from "next/navigation";
 
 type Props = {};
 
-const BlogId = (props: Props) => {
+const BlogId = ({ params }: { params: { slug: string } }) => {
 	const route = useParams();
 	const { id } = route;
-	console.log("id of blogs ");
+	console.log("id of blogs ", params);
 	const { data, isLoading, isError, error } = useQuery<BlogIdApiResponse>({
 		queryKey: ["data", id],
 		queryFn: () => fetchData<BlogIdApiResponse>(`/blogs/${id}?populate=*`),

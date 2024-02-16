@@ -27,8 +27,8 @@ const About = (props: Props) => {
 	const aboutTeamHeaderRefElement = useRef<HTMLDivElement>(null);
 
 	const { data, isLoading, isError, error } = useQuery<EmployeeApiResponse>({
-		queryKey: ["team"],
-		queryFn: () => fetchData<EmployeeApiResponse>(`/teams?populate=*`),
+		queryKey: ["employee"],
+		queryFn: () => fetchData<EmployeeApiResponse>(`/employees?populate=*`),
 	});
 
 	useEffect(() => {
@@ -302,7 +302,7 @@ const About = (props: Props) => {
 					}
 				/>
 				{isLoading && (
-					<PageLoader className="w-full flex flex-row items-center justify-center py-28" />
+					<PageLoader className="w-full flex flex-row items-center justify-center py-32" />
 				)}
 				{data && data?.data.length > 0 && (
 					<div
@@ -310,14 +310,14 @@ const About = (props: Props) => {
 						className="grid grid-cols-1 sg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
 						{data?.data?.map((child, index) => (
 							<TeamItem
-								className="team-grid-display opacity-0"
+								// className="team-grid-display opacity-0"
 								key={index}
 								image={
 									child?.attributes?.image
 										? `https://the-devmechanics-strapi-api.onrender.com${child?.attributes?.image?.data?.attributes?.url}`
 										: "/images/placeholder.jpg"
 								}
-								linkedin={child?.attributes?.linkdin}
+								linkedin={child?.attributes?.linkedin}
 								name={child?.attributes?.name}
 								position={child?.attributes?.role}
 							/>

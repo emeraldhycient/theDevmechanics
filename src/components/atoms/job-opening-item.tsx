@@ -6,10 +6,10 @@ import BriefCaseIcon from "../../../public/icons/brief-case-icon";
 import MoneyIcon from "../../../public/icons/money-icon";
 
 type Props = {
-	location: string;
-	title: string;
-	description: string;
-	link: string;
+	location?: string;
+	title?: string;
+	description?: string;
+	link?: string;
 };
 
 const JobOpeningApplyButton = ({ className }: { className?: string }) => {
