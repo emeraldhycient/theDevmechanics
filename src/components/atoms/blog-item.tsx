@@ -54,7 +54,7 @@ const BlogListItem = ({
 
 				<div className="flex flex-col gap-y-2">
 					<div
-						className={`font-medium text-3xl md:text-4xl ${titleClassName}`}>
+						className={`font-medium text-3xl md:text-4xl leading-[3rem] md:leading-[3.5rem] ${titleClassName}`}>
 						<p>{title}</p>
 					</div>
 
