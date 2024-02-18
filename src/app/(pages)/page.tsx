@@ -62,6 +62,7 @@ export default function Home() {
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="We / build / custom / software / to"
 							className="hero-main-text-character opacity-0"
+							parallaxContainerClassName="text-4xl md:text-5xl lg:text-6xl leading-[3.2rem] md:leading-[4.5rem] lg:leading-[6rem]"
 							child={
 								<>
 									<br className="hidden md:block" />
@@ -72,6 +73,7 @@ export default function Home() {
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="meet / your / unique / needs, / driving"
 							className="hero-main-text-character opacity-0"
+							parallaxContainerClassName="text-4xl md:text-5xl lg:text-6xl leading-[3.2rem] md:leading-[4.5rem] lg:leading-[6rem]"
 							child={
 								<>
 									<br className="hidden md:block" />
@@ -82,6 +84,7 @@ export default function Home() {
 							parallaxCharacterElement={parallaxCharacterElement}
 							text="Efficiency / & /"
 							className="hero-main-text-character opacity-0"
+							parallaxContainerClassName="text-4xl md:text-5xl lg:text-6xl leading-[3.2rem] md:leading-[4.5rem] lg:leading-[6rem]"
 							child={
 								<>
 									<span

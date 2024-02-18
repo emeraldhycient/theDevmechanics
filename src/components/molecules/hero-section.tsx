@@ -27,7 +27,7 @@ const HeroSection = ({
 				{typeof title === "string" ? <p>{title}</p> : title}
 			</div>
 			<div
-				className={`text-4xl md:text-5xl lg:text-6xl font-bold py-4 w-full leading-[3rem] md:leading-[4rem] lg:leading-[5.5rem] ${descriptionClassName ?? ""}`}>
+				className={` font-bold py-4 w-full  ${descriptionClassName ?? ""}`}>
 				{typeof description === "string" ? (
 					<p>{description}</p>
 				) : (

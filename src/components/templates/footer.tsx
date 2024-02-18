@@ -41,8 +41,7 @@ const Footer = () => {
 						<p>info@devmechanics.com</p>
 					</Link>
 					<p className={`py-3`}>
-						20 Ijaola street ,Maryland
-Lagos Nigeria.
+						20 Ijaola street ,Maryland Lagos Nigeria.
 					</p>{" "}
 					<br /> <br />
 					<SocialIcons />

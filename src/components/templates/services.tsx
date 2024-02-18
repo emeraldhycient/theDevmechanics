@@ -77,18 +77,14 @@ const Services = (): React.ReactNode => {
 						".services",
 						{
 							yPercent: 100,
-							rotation: 20,
 							opacity: 0.3,
-							visibility: "hidden",
 						},
 						{
 							yPercent: 0,
 							duration: 1.5,
-							ease: "back.out(1.7)",
-							stagger: 0.1,
-							rotation: 0,
+							ease: "backout(1.7)",
+							stagger: 0.2,
 							opacity: 1,
-							visibility: "visible",
 						},
 					);
 					observer.unobserve(entry.target);
@@ -139,7 +135,7 @@ const Services = (): React.ReactNode => {
 				{ServicesList.map((service, index) => (
 					<div
 						key={index}
-						className={`services invisible opacity-0 flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px] w-full md:w-[250px] lg:w-[250px] gap-y-10 hover:shadow-sm ease-in-out duration-300`}>
+						className={`services opacity-0 flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px] w-full md:w-[250px] lg:w-[250px] gap-y-10 hover:shadow-sm`}>
 						<div className="">
 							<Image
 								src={service.icon}

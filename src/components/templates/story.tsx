@@ -87,11 +87,11 @@ const Story = (props: Props) => {
 				observer.unobserve(entry.target);
 			}
 		});
-	}, []);
+	}, [data]);
 
 	return (
 		<SectionContainer
-			containerClassName="pt-[90rem] md:!pt-[52rem]"
+			containerClassName="pt-[90rem] pb-20 md:!pt-[52rem]"
 			className="flex flex-col !gap-y-14 ">
 			<SectionHeader
 				refElement={storyHeaderRefElement}
@@ -116,41 +116,39 @@ const Story = (props: Props) => {
 			{isLoading && (
 				<PageLoader className="w-full flex flex-row items-center justify-center py-36" />
 			)}
-			{data && (
-				<div ref={storyContainerRefElement} className="relative group">
-					<Swiper
-						className="w-full flex flex-row items-center"
-						breakpoints={{
-							768: { spaceBetween: 4, slidesPerView: 1.4 },
-							1024: {
-								spaceBetween: 5,
-								slidesPerView: 1,
-							},
-							1136: {
-								spaceBetween: 5,
-								slidesPerView: 1.2,
-							},
-						}}
-						spaceBetween={50}>
-						{data?.data?.map((story, index) => (
-							<SwiperSlide key={index}>
-								<StoryItem
-									// testimonyStarClassName="opacity-0 scale-0 testimony-star"
-									// className="story opacity-0"
-									index={index}
-									comment={story?.attributes?.comment}
-									company={story?.attributes?.company}
-									name={story?.attributes?.name}
-									rating={story?.attributes?.rating}
-									position={story?.attributes?.position}
-									image={`https://the-devmechanics-strapi-api.onrender.com${story?.attributes?.Image?.data?.attributes?.url}`}
-								/>
-							</SwiperSlide>
-						))}
-						<SliderButton />
-					</Swiper>
-				</div>
-			)}
+			<div ref={storyContainerRefElement} className="relative group">
+				<Swiper
+					className="w-full flex flex-row items-center"
+					breakpoints={{
+						768: { spaceBetween: 4, slidesPerView: 1.4 },
+						1024: {
+							spaceBetween: 5,
+							slidesPerView: 1,
+						},
+						1136: {
+							spaceBetween: 5,
+							slidesPerView: 1.2,
+						},
+					}}
+					spaceBetween={50}>
+					{data?.data?.map((story, index) => (
+						<SwiperSlide key={index}>
+							<StoryItem
+								testimonyStarClassName="opacity-0 scale-0 testimony-star"
+								className="story opacity-0"
+								index={index}
+								comment={story?.attributes?.comment}
+								company={story?.attributes?.company}
+								name={story?.attributes?.name}
+								rating={story?.attributes?.rating}
+								position={story?.attributes?.position}
+								image={`https://the-devmechanics-strapi-api.onrender.com${story?.attributes?.Image?.data?.attributes?.url}`}
+							/>
+						</SwiperSlide>
+					))}
+					<SliderButton />
+				</Swiper>
+			</div>
 		</SectionContainer>
 	);
 };
