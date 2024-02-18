@@ -9,13 +9,15 @@ import SectionContainer from "@/components/molecules/section-container.";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { elementObserver } from "../../../../hooks";
 import team from "../../../json/team.json";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "@/api";
 import { EmployeeApiResponse } from "../../../../types";
 import PageLoader from "@/components/atoms/page-loader";
+import For from "@/components/atoms/for";
+import Show from "@/components/atoms/show";
 gsap.registerPlugin(ScrollTrigger);
 
 type Props = {};
@@ -25,6 +27,14 @@ const About = (props: Props) => {
 	const aboutMainContainerRefElement = useRef<HTMLDivElement>(null);
 	const aboutTeamContainerRefElement = useRef<HTMLDivElement>(null);
 	const aboutTeamHeaderRefElement = useRef<HTMLDivElement>(null);
+	const [aboutPageHeroHeaderTextState] = useState([
+		{ text: "We are a team that believes", hasChild: true },
+		{ text: "in the power of technology.", hasChild: false },
+	]);
+	const [aboutPageHeaderTextState] = useState([
+		{ text: "High-quality results and", hasChild: true },
+		{ text: "a positive team spirit 🔥", hasChild: false },
+	]);
 
 	const { data, isLoading, isError, error } = useQuery<EmployeeApiResponse>({
 		queryKey: ["employee"],
@@ -33,7 +43,7 @@ const About = (props: Props) => {
 
 	useEffect(() => {
 		gsap.fromTo(
-			".service-bg-image",
+			".about-bg-image",
 			{ width: "50%", opacity: 0 },
 			{
 				scrollTrigger: {
@@ -73,7 +83,6 @@ const About = (props: Props) => {
 							yPercent: 0,
 							duration: 1,
 							ease: "sine.out",
-							onComplete: () => observer.unobserve(entry.target),
 						},
 					);
 					gsap.fromTo(
@@ -87,6 +96,7 @@ const About = (props: Props) => {
 							stagger: 0.1,
 						},
 					);
+					observer.unobserve(entry.target);
 				}
 			});
 		},
@@ -177,6 +187,22 @@ const About = (props: Props) => {
 						},
 					);
 					gsap.fromTo(
+						".about-main-header",
+						{ opacity: 0, yPercent: 70 },
+						{ opacity: 1, yPercent: 0, duration: 1 },
+					);
+					observer.unobserve(entry.target);
+				}
+			},
+		);
+	}, []);
+
+	useGSAP(() => {
+		elementObserver(
+			aboutTeamContainerRefElement.current,
+			(entry, observer) => {
+				if (entry.isIntersecting) {
+					gsap.fromTo(
 						".team-grid-display",
 						{ yPercent: 150, opacity: 0.3, scale: 0.4 },
 						{
@@ -192,31 +218,29 @@ const About = (props: Props) => {
 				}
 			},
 		);
-	}, []);
+	}, [data]);
 
 	return (
 		<SectionContainer containerClassName="!pt-16 pb-20 md:!pt-20">
 			<div
 				ref={heroRefElement}
-				className="border flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
-				<div
-					className={`text-4xl md:text-5xl lg:text-6xl font-semibold py-4 w-full md:w-[36rem] ls:w-[37rem] lg:w-[50rem] leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]`}>
-					<div>
-						<ParallaxContainer
-							text="We / are / a / team / that / believes"
-							className="about-header-text-character"
-							child={
-								<>
-									<br className="hidden md:block" />
-								</>
-							}
-						/>
-						<ParallaxContainer
-							text="in / the / power / of / technology."
-							className="about-header-text-character"
-							child={<></>}
-						/>
-					</div>
+				className="flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
+				<div className={` py-4 w-full`}>
+					<For each={aboutPageHeroHeaderTextState}>
+						{({ text, hasChild }, index) => (
+							<ParallaxContainer
+								key={index}
+								text={text}
+								className="about-header-text-character opacity-0"
+								parallaxContainerClassName="text-4xl md:text-5xl lg:text-6xl font-semibold leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]"
+								child={
+									<Show when={hasChild}>
+										<br className="hidden md:block" />
+									</Show>
+								}
+							/>
+						)}
+					</For>
 				</div>
 
 				<div className="opacity-0 about-hero-text w-full text-base leading-[2.1875rem]">
@@ -236,7 +260,7 @@ const About = (props: Props) => {
 
 			<div className="mt-16">
 				<BannerImage
-					className="service-bg-image"
+					className="about-bg-image"
 					src={`/images/about-bg.png`}
 				/>
 			</div>
@@ -247,8 +271,8 @@ const About = (props: Props) => {
 				<div className="w-full lg:w-[53%] flex-col justify-center items-start gap-9 flex">
 					<div className="text-neutral-900 font-bold leading-[3rem] md:leading-[3.5rem] text-3xl md:text-[2.60rem]">
 						<ParallaxContainer
-							text="The / Architects / of / Innovation."
-							className="about-main-text-character"
+							text="The Architects of Innovation."
+							className="about-main-text-character opacity-0"
 							child={<></>}
 						/>
 					</div>
@@ -287,20 +311,23 @@ const About = (props: Props) => {
 					refElement={aboutTeamHeaderRefElement}
 					className="w-full "
 					headerText="Our Team"
+					headerClassName="about-main-header opacity-0"
 					subHeaderText={
-						<>
-							<ParallaxContainer
-								text="High-quality / results / and"
-								className="about-team-header-text-character"
-								child={<br className="hidden md:block" />}
-							/>
-
-							<ParallaxContainer
-								text="a / positive / team / spirit 🔥"
-								className="about-team-header-text-character"
-								child={<></>}
-							/>
-						</>
+						<For each={aboutPageHeaderTextState}>
+							{({ text, hasChild }, index) => (
+								<ParallaxContainer
+									key={index}
+									parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+									text={text}
+									className="about-team-header-text-character opacity-0"
+									child={
+										<Show when={hasChild}>
+											<br className="hidden md:block" />
+										</Show>
+									}
+								/>
+							)}
+						</For>
 					}
 				/>
 				{isLoading && (
@@ -312,7 +339,7 @@ const About = (props: Props) => {
 						className="grid grid-cols-1 sg:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 gap-y-8">
 						{data?.data?.map((child, index) => (
 							<TeamItem
-								// className="team-grid-display opacity-0"
+								className="team-grid-display opacity-0"
 								key={index}
 								image={
 									child?.attributes?.image

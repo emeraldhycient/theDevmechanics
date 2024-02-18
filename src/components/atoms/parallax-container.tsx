@@ -18,7 +18,7 @@ const ParallaxContainer = ({
 
 	return (
 		<div
-			className={`flex flex-row flex-wrap items-center overflow-y-hidden ${parallaxContainerClassName}`}>
+			className={`flex flex-row flex-wrap items-center overflow-y-hidden gap-x-[0.800rem] ${parallaxContainerClassName}`}>
 			{characters.map((character, index) => (
 				<div className="overflow-y-hidden" key={index}>
 					<ParallaxCharacter

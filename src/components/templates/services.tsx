@@ -10,6 +10,8 @@ import { BannerImage } from "../atoms";
 import ParallaxContainer from "../atoms/parallax-container";
 import SectionHeader from "../atoms/section-header";
 import SectionContainer from "../molecules/section-container.";
+import For from "../atoms/for";
+import Show from "../atoms/show";
 gsap.registerPlugin(ScrollTrigger);
 
 const Services = (): React.ReactNode => {
@@ -18,6 +20,10 @@ const Services = (): React.ReactNode => {
 	const serviceContainerRefElement = useRef<HTMLDivElement>(null);
 	const parallaxCharacterElement = useRef<HTMLDivElement[]>([]);
 	const [animated, setAnimated] = useState(false);
+	const [homePageServiceHeaderTextState] = useState([
+		{ text: "Software architecture, design and", hasChild: true },
+		{ text: "implementation for any industry 🔥", hasChild: false },
+	]);
 
 	useEffect(() => {
 		gsap.fromTo(
@@ -110,22 +116,28 @@ const Services = (): React.ReactNode => {
 				subHeaderText={
 					<>
 						{" "}
-						<ParallaxContainer
-							parallaxCharacterElement={parallaxCharacterElement}
-							text="Software / architecture, / design / and"
-							className="service-header-text-character opacity-0 "
-							child={<br className="hidden md:block" />}
-						/>
-						<ParallaxContainer
-							parallaxCharacterElement={parallaxCharacterElement}
-							text="implementation / for / any / industry 🔥"
-							className="service-header-text-character opacity-0 "
-							child={<></>}
-						/>
+						<For each={homePageServiceHeaderTextState}>
+							{({ text, hasChild }, index) => (
+								<ParallaxContainer
+									key={index}
+									parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+									parallaxCharacterElement={
+										parallaxCharacterElement
+									}
+									text={text}
+									className="service-header-text-character opacity-0 "
+									child={
+										<Show when={hasChild}>
+											<br className="hidden md:block" />
+										</Show>
+									}
+								/>
+							)}
+						</For>
 					</>
 				}
 				className="service-header-text-container mt-20 md:mt-20"
-				headerClassName="service-main-header"
+				headerClassName="service-main-header opacity-0"
 				subHeaderClassName="mb-16 "
 			/>
 

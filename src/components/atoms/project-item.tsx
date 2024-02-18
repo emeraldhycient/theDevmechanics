@@ -128,17 +128,17 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 				isEven === 0 ? "md:flex-row-reverse " : "md:flex-row "
 			}  gap-y-14 ${containerClassName}`}>
 			<div
-				className={`w-full md:w-[48%] text-center md:text-start flex flex-col items-center md:items-start ${textContainerClassName}`}>
-				<div className="text-sm mb-5">
+				className={`w-full md:w-[53%] text-center md:text-start flex flex-col items-center md:items-start ${textContainerClassName}`}>
+				<div className="text-base mb-5">
 					<p>{projectName}</p>
 				</div>
 				<div className="text-[2rem] font-medium bg-gradient-to-r from-slate-700 to-gray-800 bg-clip-text text-transparent">
 					<p>{projectMotto}</p>
 				</div>
-				<div className="my-5 text-[1.15rem] font-normal text-[#9FA4A6] leading-loose">
+				<div className="my-5 text-[1.10rem] font-normal text-[#9FA4A6] leading-loose">
 					<p>{projectDescription}</p>
 				</div>
-				<div className="text-[1.25rem] text-[#141515]">
+				<div className="text-[1.10rem] text-[#141515]">
 					<p>{projectServices}</p>
 				</div>
 

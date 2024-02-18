@@ -2,7 +2,7 @@
 import ParallaxContainer from "@/components/atoms/parallax-container";
 import ProjectItem from "@/components/atoms/project-item";
 import SectionContainer from "@/components/molecules/section-container.";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import project from "../../../json/project.json";
 import { elementObserver } from "../../../../hooks";
 import { useGSAP } from "@gsap/react";
@@ -11,6 +11,8 @@ import { fetchData } from "@/api";
 import { useQuery } from "@tanstack/react-query";
 import PageLoader from "@/components/atoms/page-loader";
 import { ProjectApiResponse } from "../../../../types";
+import For from "@/components/atoms/for";
+import Show from "@/components/atoms/show";
 
 type Props = {};
 
@@ -19,8 +21,11 @@ const Project = (props: Props) => {
 		queryKey: ["project"],
 		queryFn: () => fetchData<ProjectApiResponse>(`/projects?populate=*`),
 	});
-
 	const heroRefElement = useRef<HTMLDivElement>(null);
+	const [projectPageHeroHeaderTextState] = useState([
+		{ text: "Develop user-friendly interfaces", hasChild: true },
+		{ text: "that make a positive impact.", hasChild: false },
+	]);
 
 	useGSAP(
 		() => {
@@ -34,7 +39,6 @@ const Project = (props: Props) => {
 							yPercent: 0,
 							duration: 1,
 							ease: "sine.out",
-							onComplete: () => observer.unobserve(entry.target),
 						},
 					);
 					gsap.fromTo(
@@ -48,6 +52,7 @@ const Project = (props: Props) => {
 							stagger: 0.1,
 						},
 					);
+					observer.unobserve(entry.target);
 				}
 			});
 		},
@@ -59,18 +64,22 @@ const Project = (props: Props) => {
 			<div
 				ref={heroRefElement}
 				className="flex-col justify-center items-start gap-6 flex pb-20 md:pb-24">
-				<div
-					className={`text-4xl md:text-5xl lg:text-6xl font-semibold py-4 w-full leading-[3rem] md:leading-[4rem] lg:leading-[4.5rem]`}>
-					<ParallaxContainer
-						text="Develop / user-friendly / interfaces"
-						className="project-header-text-character"
-						child={<br className="hidden md:block" />}
-					/>
-					<ParallaxContainer
-						text="that / make / a / positive / impact."
-						className="project-header-text-character"
-						child={<></>}
-					/>
+				<div className={`font-semibold py-4 w-full `}>
+					<For each={projectPageHeroHeaderTextState}>
+						{({ text, hasChild }, index) => (
+							<ParallaxContainer
+								key={index}
+								text={text}
+								className="project-header-text-character opacity-0"
+								parallaxContainerClassName="text-4xl md:text-5xl lg:text-6xl leading-[3.5rem] md:leading-[4.5rem] lg:leading-[5.2rem]"
+								child={
+									<Show when={hasChild}>
+										<br className="hidden md:block" />
+									</Show>
+								}
+							/>
+						)}
+					</For>
 				</div>
 				<div className="project-hero-text opacity-0 w-full text-base leading-[2.1875rem]">
 					<p>

@@ -7,7 +7,7 @@ import TestimonialCard from "@/components/atoms/testimonial-card";
 import HeroContainer from "@/components/molecules/hero-container";
 import SectionContainer from "@/components/molecules/section-container.";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowIcon from "../../../../public/icons/arrow-icon";
@@ -21,6 +21,8 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "@/api";
 import { EmployeeCommentApiResponse } from "../../../../types";
 import PageLoader from "@/components/atoms/page-loader";
+import For from "@/components/atoms/for";
+import Show from "@/components/atoms/show";
 
 type Props = {};
 
@@ -29,6 +31,10 @@ const Career = (props: Props) => {
 	const careerHeaderRefElement = useRef<HTMLDivElement>(null);
 	const careerJobOpeningHeaderRefElement = useRef<HTMLDivElement>(null);
 	const careerContainerRefElement = useRef<HTMLDivElement>(null);
+	const [careerPageHeaderTextState] = useState([
+		{ text: "Employees tell their stories of", hasChild: true },
+		{ text: "working with DevMechanics.", hasChild: false },
+	]);
 
 	const { data, isLoading, isError, error } =
 		useQuery<EmployeeCommentApiResponse>({
@@ -161,15 +167,15 @@ const Career = (props: Props) => {
 	}, []);
 
 	return (
-		<SectionContainer containerClassName="pt-16 md:pt-24">
+		<SectionContainer containerClassName="pt-16 pb-20 md:pt-24">
 			<HeroContainer
 				refElement={careerHeroHeaderRefElement}
 				title={
 					<div className="flex flex-col items-center justify-center text-center">
 						<ParallaxContainer
-							text="Grow / With / Us "
-							className="career-hero-header-text-character"
-							parallaxContainerClassName="justify-center"
+							text="Grow With Us "
+							className="career-hero-header-text-character opacity-0"
+							parallaxContainerClassName="justify-center text-neutral-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-[3rem] md:leading-[4rem] lg:leading-[5rem]"
 							child={<br className="hidden md:block" />}
 						/>
 					</div>
@@ -188,29 +194,31 @@ const Career = (props: Props) => {
 				linkContainerClassName="opacity-0 career-hero-link-container"
 			/>
 
-			<div className="flex flex-col gap-y-20 mt-32">
+			<div className="flex flex-col gap-y-16 mt-28">
 				<SectionHeader
 					refElement={careerHeaderRefElement}
 					headerText="Employees Testimonials"
 					subHeaderText={
 						<>
-							<ParallaxContainer
-								text="Employees / tell / their / stories / of"
-								className="career-header-text-character"
-								parallaxContainerClassName=""
-								child={<br className="hidden md:block" />}
-							/>
-							<ParallaxContainer
-								text="working / with /
-								DevMechanics."
-								className="career-header-text-character"
-								parallaxContainerClassName=""
-								child={<br className="hidden md:block" />}
-							/>
+							<For each={careerPageHeaderTextState}>
+								{({ text, hasChild }, index) => (
+									<ParallaxContainer
+										key={index}
+										parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+										text={text}
+										className="career-header-text-character opacity-0"
+										child={
+											<Show when={hasChild}>
+												<br className="hidden md:block" />
+											</Show>
+										}
+									/>
+								)}
+							</For>
 						</>
 					}
 					subHeaderClassName=""
-					headerClassName="career-main-header"
+					headerClassName="career-main-header opacity-0"
 				/>
 				{isLoading && (
 					<PageLoader className="w-full flex flex-row items-center justify-center py-36" />
@@ -253,18 +261,19 @@ const Career = (props: Props) => {
 				)}
 			</div>
 
-			<div className="flex flex-col gap-y-14 mt-36">
+			<div className="flex flex-col gap-y-10 mt-32">
 				<SectionHeader
 					refElement={careerJobOpeningHeaderRefElement}
 					headerText="Work with us"
 					subHeaderText={
 						<ParallaxContainer
-							text="Job / Openings"
-							className="career-job-opening-text-character"
+							text="Job Openings"
+							parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+							className="career-job-opening-text-character opacity-0"
 							child={<></>}
 						/>
 					}
-					headerClassName="openings-main-header"
+					headerClassName="openings-main-header opacity-0"
 					subHeaderClassName="md:max-w-full"
 				/>
 				<div className="flex flex-col gap-y-16">

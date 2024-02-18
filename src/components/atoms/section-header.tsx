@@ -25,8 +25,7 @@ const SectionHeader = ({
 				className={`text-neutral-900 text-base font-normal capitalize leading-loose opacity-0 ${headerClassName}`}>
 				<p>{headerText}</p>
 			</div>
-			<div
-				className={` text-neutral-900 font-bold text-4xl md:text-5xl leading-[3rem] md:leading-[4rem] w-full ${subHeaderClassName}`}>
+			<div className={`  w-full ${subHeaderClassName}`}>
 				<p>{subHeaderText}</p>
 			</div>
 		</div>

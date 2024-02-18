@@ -14,11 +14,12 @@ const ParallaxCharacter = (props: Props) => {
 				props.parallaxCharacterElement?.current?.push(element);
 			}}
 			className={` ${props.className}`}>
-			{props?.child === "/" ? (
+			{/* {props?.child === "/" ? (
 				<p className="mr-[0.700rem]"></p>
 			) : (
 				<p>{props.child}</p>
-			)}
+			)} */}
+			<p>{props.child}</p>
 		</div>
 	);
 };

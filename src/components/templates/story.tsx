@@ -1,7 +1,7 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { elementObserver } from "../../../hooks";
@@ -16,12 +16,18 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "@/api";
 import { TestimonialApiResponse } from "../../../types";
 import PageLoader from "../atoms/page-loader";
+import For from "../atoms/for";
+import Show from "../atoms/show";
 
 type Props = {};
 
 const Story = (props: Props) => {
 	const storyHeaderRefElement = useRef<HTMLDivElement>(null);
 	const storyContainerRefElement = useRef<HTMLDivElement>(null);
+	const [homePageStoryHeaderTextState] = useState([
+		{ text: "Clients tell their stories of", hasChild: true },
+		{ text: "success with DevMechanics.", hasChild: false },
+	]);
 
 	const { data, isLoading, isError, error } =
 		useQuery<TestimonialApiResponse>({
@@ -97,20 +103,23 @@ const Story = (props: Props) => {
 				refElement={storyHeaderRefElement}
 				headerText="Client Success Stories"
 				subHeaderText={
-					<>
-						<ParallaxContainer
-							text="Clients / tell / their / stories / of"
-							className="story-header-text-character"
-							child={<br className="hidden md:block" />}
-						/>
-						<ParallaxContainer
-							text="success / with / DevMechanics."
-							className="story-header-text-character"
-							child={<></>}
-						/>
-					</>
+					<For each={homePageStoryHeaderTextState}>
+						{({ hasChild, text }, index) => (
+							<ParallaxContainer
+								key={index}
+								text={text}
+								className="story-header-text-character opacity-0"
+								parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+								child={
+									<Show when={hasChild}>
+										<br className="hidden md:block" />
+									</Show>
+								}
+							/>
+						)}
+					</For>
 				}
-				headerClassName="story-main-header"
+				headerClassName="story-main-header opacity-0"
 				subHeaderClassName=""
 			/>
 			{isLoading && (

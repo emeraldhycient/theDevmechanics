@@ -37,8 +37,7 @@ const HeroContainer: React.FC<Props> = ({
 		<div
 			ref={refElement}
 			className={`flex flex-col justify-center items-center gap-4  ${containerClassName}`}>
-			<div
-				className={`text-center text-neutral-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-[3rem] md:leading-[4rem] lg:leading-[5rem] w-full  ${titleClassName}`}>
+			<div className={`text-center w-full  ${titleClassName}`}>
 				{title}
 			</div>
 			<div

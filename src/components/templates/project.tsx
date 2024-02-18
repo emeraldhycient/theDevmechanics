@@ -1,18 +1,20 @@
+import { fetchData } from "@/api";
 import { useGSAP } from "@gsap/react";
+import { useQuery } from "@tanstack/react-query";
 import gsap from "gsap";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { elementObserver } from "../../../hooks";
 import ArrowIcon from "../../../public/icons/arrow-icon";
+import { ProjectApiResponse } from "../../../types";
+import For from "../atoms/for";
 import ImageBlock from "../atoms/image-block";
+import PageLoader from "../atoms/page-loader";
 import ParallaxContainer from "../atoms/parallax-container";
 import ProjectItem from "../atoms/project-item";
 import SectionHeader from "../atoms/section-header";
 import SectionContainer from "../molecules/section-container.";
-import { fetchData } from "@/api";
-import { useQuery } from "@tanstack/react-query";
-import { ProjectApiResponse } from "../../../types";
-import PageLoader from "../atoms/page-loader";
+import Show from "../atoms/show";
 
 type Props = {};
 
@@ -21,6 +23,10 @@ const Project = (props: Props) => {
 	const projectRefElement = useRef<HTMLDivElement>(null);
 	const elementRefs = useRef<any[]>([]);
 	const projectElementsRem = ["0rem", "4rem", "8rem", "12rem"];
+	const [homePageProjectHeaderTextState] = useState([
+		{ text: "A testament to our versatility &", hasChild: true },
+		{ text: "commitment to excellence 🔥", hasChild: false },
+	]);
 
 	const { data, isLoading, isError, error } = useQuery<ProjectApiResponse>({
 		queryKey: ["project"],
@@ -58,6 +64,11 @@ const Project = (props: Props) => {
 						opacity: 1,
 						stagger: 0.1,
 					},
+				);
+				gsap.fromTo(
+					".project-main-header",
+					{ opacity: 0, yPercent: 70 },
+					{ opacity: 1, yPercent: 0, duration: 1 },
 				);
 				observer.unobserve(entry.target);
 			}
@@ -100,30 +111,30 @@ const Project = (props: Props) => {
 	}, []);
 
 	return (
-		<SectionContainer containerClassName="!relative !min-h-fit !pt-10 md:!pt-14">
+		<SectionContainer containerClassName="!relative !min-h-fit !pt-10 md:!pt-20">
 			<SectionHeader
 				refElement={projectHeaderRefElement}
 				headerText="View Our Projects"
 				className=""
 				subHeaderText={
-					<>
-						<ParallaxContainer
-							text="A / testament / to / our / versatility / &"
-							className="project-header-text-character"
-							child={
-								<>
-									<br className="hidden md:block" />
-								</>
-							}
-						/>
-						<ParallaxContainer
-							text="commitment / to / excellence 🔥"
-							className="project-header-text-character"
-							child={<></>}
-						/>
-					</>
+					<For each={homePageProjectHeaderTextState}>
+						{({ hasChild, text }, index) => (
+							<ParallaxContainer
+								key={index}
+								text={text}
+								className="project-header-text-character opacity-0"
+								parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+								child={
+									<Show when={hasChild}>
+										<br className="hidden md:block" />
+									</Show>
+								}
+							/>
+						)}
+					</For>
 				}
 				subHeaderClassName=""
+				headerClassName="project-main-header"
 			/>
 
 			<div className="mt-16 h-fit relative">

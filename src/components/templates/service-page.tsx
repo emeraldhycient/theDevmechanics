@@ -1,4 +1,4 @@
-import Services from "@/json/services/services.json";
+import services from "@/json/services/services.json";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import ImageBlock from "../atoms/image-block";
@@ -9,7 +9,7 @@ import { useGSAP } from "@gsap/react";
 const ServicePage = (): React.ReactNode => {
 	return (
 		<div className={`py-5 flex flex-col gap-y-10`}>
-			{Services.map((service, index) => (
+			{services.map((service, index) => (
 				<div
 					className={`services-item flex lg:justify-between  items-center ${index % 2 == 0 ? "lg:flex-row flex-col" : "lg:flex-row-reverse flex-col"} py-10 gap-y-24`}
 					key={index}>
@@ -71,26 +71,34 @@ const ServicePage = (): React.ReactNode => {
 													{service.points?.title}
 												</h3>
 
-												<ul
-													className={`flex flex-col gap-y-2 [&_li]:text-base text-[#676767]`}>
-													{service.points?.points.map(
-														(point, index) => (
-															<li
-																key={index}
-																className={`flex gap-x-3 lg:items-center items-start`}>
-																<Image
-																	src={`/icons/bullet-point.svg`}
-																	alt="Bullet Point Icon"
-																	width={16}
-																	height={18}
-																	className={`w-[13px] lg:mt-0 mt-1`}
-																/>
+												<div>
+													<div
+														className={`flex flex-col gap-y-2 [&_li]:text-base text-[#676767]`}>
+														{service.points?.points.map(
+															(point, index) => (
+																<div
+																	key={index}
+																	className={`flex gap-x-3 lg:items-center items-start`}>
+																	<Image
+																		src={`/icons/bullet-point.svg`}
+																		alt="Bullet Point Icon"
+																		width={
+																			16
+																		}
+																		height={
+																			18
+																		}
+																		className={`w-[13px] lg:mt-0 mt-1`}
+																	/>
 
-																<p>{point}</p>
-															</li>
-														),
-													)}
-												</ul>
+																	<p>
+																		{point}
+																	</p>
+																</div>
+															),
+														)}
+													</div>
+												</div>
 											</div>
 										</>
 									)}

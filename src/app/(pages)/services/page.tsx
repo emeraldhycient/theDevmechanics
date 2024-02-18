@@ -8,10 +8,12 @@ import { ServicePage } from "@/components/templates";
 import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { elementObserver } from "../../../../hooks";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import For from "@/components/atoms/for";
+import Show from "@/components/atoms/show";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +22,15 @@ const Page = (): React.ReactNode => {
 	const serviceHeaderRefElement = useRef<HTMLDivElement>(null);
 	const serviceHeroHeaderRefElement = useRef<HTMLDivElement>(null);
 	const serviceRefElement = useRef<HTMLDivElement>(null);
-	const serviceListRefElementContainer = useRef<HTMLDivElement>(null);
+	const serviceListContainerRef = useRef<HTMLDivElement>(null);
+	const [servicePageHeroHeaderTextState] = useState([
+		{ text: "We bring your dreams to", hasChild: true },
+		{ text: "life, with optimized processes.", hasChild: false },
+	]);
+	const [servicePageHeaderTextState] = useState([
+		{ text: "Expert Software Architecture, Design,", hasChild: true },
+		{ text: "and Implementation Across Industries", hasChild: false },
+	]);
 
 	useEffect(() => {
 		gsap.fromTo(
@@ -55,7 +65,6 @@ const Page = (): React.ReactNode => {
 							ease: "sine.out",
 							opacity: 1,
 							stagger: 0.1,
-							onComplete: () => observer.unobserve(entry.target),
 						},
 					);
 					gsap.fromTo(
@@ -68,6 +77,7 @@ const Page = (): React.ReactNode => {
 						{ opacity: 0, yPercent: 70 },
 						{ opacity: 1, yPercent: 0, duration: 1 },
 					);
+					observer.unobserve(entry.target);
 				}
 			},
 		);
@@ -85,7 +95,6 @@ const Page = (): React.ReactNode => {
 						ease: "sine.out",
 						opacity: 1,
 						stagger: 0.1,
-						onComplete: () => observer.unobserve(entry.target),
 					},
 				);
 				gsap.fromTo(
@@ -93,6 +102,7 @@ const Page = (): React.ReactNode => {
 					{ opacity: 0, yPercent: 70 },
 					{ opacity: 1, yPercent: 0, duration: 1 },
 				);
+				observer.unobserve(entry.target);
 			}
 		});
 	}, []);
@@ -100,7 +110,7 @@ const Page = (): React.ReactNode => {
 	useGSAP(
 		() => {
 			elementObserver(
-				serviceListRefElementContainer.current,
+				serviceListContainerRef.current,
 				(entry, observer) => {
 					if (entry.isIntersecting) {
 						console.log("This should work");
@@ -108,7 +118,7 @@ const Page = (): React.ReactNode => {
 				},
 			);
 		},
-		{ scope: serviceListRefElementContainer },
+		{ scope: serviceListContainerRef },
 	);
 
 	return (
@@ -119,20 +129,24 @@ const Page = (): React.ReactNode => {
 				refElement={serviceHeroHeaderRefElement}
 				title={
 					<div className="flex flex-col items-center justify-center text-center">
-						<ParallaxContainer
-							parallaxCharacterElement={parallaxCharacterElement}
-							text="We / bring / your / dreams / to"
-							className="service-hero-header-text-character"
-							parallaxContainerClassName="justify-center"
-							child={<br className="hidden md:block" />}
-						/>
-						<ParallaxContainer
-							parallaxCharacterElement={parallaxCharacterElement}
-							parallaxContainerClassName="justify-center"
-							text="life, / with / optimized / processes."
-							className="service-hero-header-text-character"
-							child={<></>}
-						/>
+						<For each={servicePageHeroHeaderTextState}>
+							{({ text, hasChild }, index) => (
+								<ParallaxContainer
+									key={index}
+									parallaxCharacterElement={
+										parallaxCharacterElement
+									}
+									text={text}
+									className="service-hero-header-text-character opacity-0"
+									parallaxContainerClassName="justify-center text-neutral-900 text-4xl md:text-5xl lg:text-6xl font-medium leading-[3rem] md:leading-[4rem] lg:leading-[5rem]"
+									child={
+										<Show when={hasChild}>
+											<br className="hidden md:block" />
+										</Show>
+									}
+								/>
+							)}
+						</For>
 					</div>
 				}
 				description="Explore our creative services and experience expert software
@@ -152,7 +166,7 @@ const Page = (): React.ReactNode => {
 				{" "}
 				<BannerImage
 					src={`/images/services/banner.svg`}
-					className="service-bg-image border"
+					className="service-bg-image"
 				/>
 			</div>
 			<div className="mt-24 flex flex-col gap-y-9">
@@ -162,31 +176,30 @@ const Page = (): React.ReactNode => {
 					headerText="Crafting Innovative Solutions"
 					subHeaderText={
 						<>
-							<ParallaxContainer
-								parallaxCharacterElement={
-									parallaxCharacterElement
-								}
-								text="Expert / Software / Architecture, / Design,"
-								className="service-header-text-character"
-								child={
-									<>
-										<br className="hidden md:block" />
-									</>
-								}
-							/>
-							<ParallaxContainer
-								parallaxCharacterElement={
-									parallaxCharacterElement
-								}
-								text="and / Implementation / Across / Industries"
-								className="service-header-text-character"
-								child={<></>}
-							/>
+							<For each={servicePageHeaderTextState}>
+								{({ text, hasChild }, index) => (
+									<ParallaxContainer
+										key={index}
+										parallaxCharacterElement={
+											parallaxCharacterElement
+										}
+										parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+										text={text}
+										className="service-header-text-character opacity-0"
+										child={
+											<Show when={hasChild}>
+												<br className="hidden md:block" />
+											</Show>
+										}
+									/>
+								)}
+							</For>
 						</>
 					}
-					headerClassName="service-main-header"
+					headerClassName="service-main-header opacity-0"
 				/>
-				<div className="" ref={serviceListRefElementContainer}>
+
+				<div className="pt-10" ref={serviceListContainerRef}>
 					<ServicePage />
 				</div>
 			</div>
