@@ -7,17 +7,18 @@ import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import { BlogApiResponse, BlogIdApiResponse } from "../../../../../types";
 import For from "@/components/atoms/for";
+import { format } from "date-fns";
 
 type Props = {};
 
 const BlogId = ({ params }: { params: { slug: string } }) => {
 	const route = useParams();
 	const { id } = route;
-	console.log("id of blogs ", params);
 	const { data, isLoading, isError, error } = useQuery<BlogIdApiResponse>({
-		queryKey: ["data", id],
+		queryKey: ["blog", id],
 		queryFn: () => fetchData<BlogIdApiResponse>(`/blogs/${id}?populate=*`),
 	});
+
 	return (
 		<SectionContainer containerClassName="pt-20">
 			{isLoading && (
@@ -65,7 +66,7 @@ const BlogId = ({ params }: { params: { slug: string } }) => {
 					</div>
 
 					<div className="flex flex-row ">
-						<div className=" w-[30%]">
+						<div className="hidden md:flex w-[30%]">
 							<p>{data?.data?.attributes?.date_created}</p>
 						</div>
 						<div className="grow w-full flex flex-col gap-y-5">
