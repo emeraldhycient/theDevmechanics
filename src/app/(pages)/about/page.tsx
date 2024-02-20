@@ -342,9 +342,13 @@ const About = (props: Props) => {
 								className="team-grid-display opacity-0"
 								key={index}
 								image={
-									child?.attributes?.image
-										? `https://the-devmechanics-strapi-api.onrender.com${child?.attributes?.image?.data?.attributes?.url}`
-										: "/images/placeholder.jpg"
+									child?.attributes?.image?.data?.attributes
+										?.url
+										? `${child?.attributes?.image?.data?.attributes?.url}`
+										: child?.attributes?.gender.toLowerCase() ===
+											  "male"
+											? "/images/placeholder.jpg"
+											: "/images/female-placeholder.png"
 								}
 								linkedin={child?.attributes?.linkedin}
 								name={child?.attributes?.name}

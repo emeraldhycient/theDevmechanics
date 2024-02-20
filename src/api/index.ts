@@ -5,7 +5,7 @@ export const fetchData = async <T>(
 ) => {
 	try {
 		const response = await fetch(
-			`https://the-devmechanics-strapi-api.onrender.com/api${url}`,
+			`${process.env.NEXT_PUBLIC_STRAPI_URL}api${url}`,
 			{
 				method,
 				headers: {
