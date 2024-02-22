@@ -58,7 +58,7 @@ const TestimonialCard = ({
 					{name},{" "}
 				</span>
 				<span className="text-neutral-900 text-sm font-medium  leading-7">
-					{role} at {company}
+					{role} at {company ?? "theDevMechanics"}
 				</span>
 			</div>
 		</div>

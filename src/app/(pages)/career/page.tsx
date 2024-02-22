@@ -247,8 +247,9 @@ const Career = (props: Props) => {
 										}
 										// testimonyStarClassName="testimony-star"
 										maxStars={5}
+										company={"null"}
 										message={comment?.attributes?.comment}
-										position={`${comment?.attributes?.employee?.data?.attributes?.role} at DevMechanics`}
+										role={`${comment?.attributes?.employee?.data?.attributes?.role}`}
 										rating={comment?.attributes?.rating}
 										fill={`fill-[#FF9E2C]`}
 										containerClassName="testimony p-5 rounded-xl md:max-w-[90%] bg-[#FCFAFF]"
