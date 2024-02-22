@@ -5,8 +5,9 @@ const TestimonialCard = ({
 	rating,
 	maxStars,
 	name,
-	position,
+	role,
 	message,
+	company,
 	containerClassName,
 	icon,
 	fill,
@@ -15,8 +16,9 @@ const TestimonialCard = ({
 	rating: number;
 	maxStars: number;
 	name: string;
-	position: string;
+	role: string;
 	message: string;
+	company: string;
 	containerClassName?: string;
 	icon?: React.ReactNode;
 	fill?: string;
@@ -56,7 +58,7 @@ const TestimonialCard = ({
 					{name},{" "}
 				</span>
 				<span className="text-neutral-900 text-sm font-medium  leading-7">
-					{position}
+					{role} at {company}
 				</span>
 			</div>
 		</div>

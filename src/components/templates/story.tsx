@@ -150,8 +150,8 @@ const Story = (props: Props) => {
 								company={story?.attributes?.company}
 								name={story?.attributes?.name}
 								rating={story?.attributes?.rating}
-								position={story?.attributes?.position}
-								image={`https://the-devmechanics-strapi-api.onrender.com${story?.attributes?.Image?.data?.attributes?.url}`}
+								role={story?.attributes?.role}
+								image={`/images/placeholder.jpg`}
 							/>
 						</SwiperSlide>
 					))}

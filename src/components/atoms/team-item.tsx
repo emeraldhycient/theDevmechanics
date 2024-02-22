@@ -12,6 +12,7 @@ type Props = {
 };
 
 const TeamItem = ({ className, linkedin, name, position, image }: Props) => {
+	console.log("images", image);
 	return (
 		<div className={` w-full flex flex-col gap-4 ${className}`}>
 			<ImageBlock

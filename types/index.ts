@@ -1,20 +1,24 @@
 export type BlogApiResponse = {
 	data: BlogData[];
-	meta: {
-		pagination: PaginationInfo;
-	};
+	meta: PaginationApiResponse;
 };
 export type ProjectApiResponse = {
 	data: ProjectData[];
-	meta: {
-		pagination: PaginationInfo;
-	};
+	meta: PaginationApiResponse;
 };
-
-export type TestimonialApiResponse = { data: TestimonialData[] };
-
-export type EmployeeApiResponse = { data: EmployeeData[] };
-export type EmployeeCommentApiResponse = { data: CommentData[] };
+export type TestimonialApiResponse = {
+	data: TestimonialData[];
+	meta: PaginationApiResponse;
+};
+export type EmployeeApiResponse = {
+	data: EmployeeData[];
+	meta: PaginationApiResponse;
+};
+export type EmployeeCommentApiResponse = {
+	data: CommentData[];
+	meta: PaginationApiResponse;
+};
+export type PaginationApiResponse = { pagination: PaginationInfo };
 
 interface CommentAttributes {
 	id: number;
@@ -31,6 +35,23 @@ interface CommentData {
 	attributes: CommentAttributes;
 }
 
+export interface EmployeeGender {
+	data: EmployeeGenderData;
+}
+
+export interface EmployeeGenderData {
+	id: number;
+	attributes: Attributes;
+}
+
+export interface Attributes {
+	name: string;
+	gender_id: string;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt: string;
+}
+
 interface EmployeeAttributes {
 	name: string;
 	linkedin: string;
@@ -40,17 +61,17 @@ interface EmployeeAttributes {
 	publishedAt: string;
 	email: string;
 	employeeId: string;
-	gender: string;
 	instagram: string;
 	twitter: string;
-	image:
-		| {
-				data: null;
-		  }
-		| ImageData;
+	employee_gender: EmployeeGender;
+	image: {
+		data: {
+			attributes: ImageAttributes;
+		}[];
+	};
 }
 
-interface EmployeeData {
+export interface EmployeeData {
 	id: number;
 	attributes: EmployeeAttributes;
 }
@@ -61,6 +82,7 @@ interface TestimonialData {
 }
 
 interface ProjectData {
+	id: number;
 	attributes: ProjectAttributes;
 }
 
@@ -194,14 +216,14 @@ interface BlogResponse {
 }
 
 interface ProjectAttributes {
-	id: number;
-	name: string;
+	project_id: number;
+	title: string;
 	link: string;
 	type: string;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;
-	solution: string;
+	motto: string;
 	description: string;
 	image: {
 		data: {
@@ -213,7 +235,7 @@ interface TestimonialAttributes {
 	rating: number;
 	comment: string;
 	name: string;
-	position: string;
+	role: string;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;

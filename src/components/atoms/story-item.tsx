@@ -7,7 +7,7 @@ type Props = {
 	className?: string;
 	testimonyStarClassName?: string;
 	name: string;
-	position: string;
+	role: string;
 	comment: string;
 	image: string;
 	rating: number;
@@ -22,7 +22,7 @@ const StoryItem = ({
 	company,
 	image,
 	name,
-	position,
+	role,
 	rating,
 }: Props) => {
 	return (
@@ -44,8 +44,9 @@ const StoryItem = ({
 				name={name}
 				maxStars={rating}
 				message={comment}
-				position={position}
+				role={role}
 				rating={rating}
+				company={company}
 				fill="fill-[#9743FF]"
 			/>
 		</div>

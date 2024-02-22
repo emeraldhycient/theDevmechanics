@@ -163,17 +163,19 @@ const Project = (props: Props) => {
 					)}
 					{data && (
 						<ProjectItem
-							imageSrc={`https://the-devmechanics-strapi-api.onrender.com${projectData?.attributes?.image?.data?.attributes?.url}`}
+							imageSrc={`${projectData?.attributes?.image?.data?.attributes?.url}`}
 							projectDescription={
 								projectData?.attributes?.description
 							}
-							projectName={projectData?.attributes?.name}
-							projectMotto={projectData?.attributes?.solution}
+							projectName={projectData?.attributes?.title}
+							projectMotto={projectData?.attributes?.motto}
 							projectServices={projectData?.attributes?.type}
 							// imageContainerClassName="project-image-container"
 							// textContainerClassName={`project-text-container `}
 							readCaseStudyLink={"/"}
-							viewProjectLink={projectData?.attributes?.link}
+							viewProjectLink={
+								projectData?.attributes?.link ?? "/"
+							}
 						/>
 					)}
 				</div>

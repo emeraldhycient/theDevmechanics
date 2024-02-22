@@ -14,7 +14,7 @@ import { elementObserver } from "../../../../hooks";
 import team from "../../../json/team.json";
 import { useQuery } from "@tanstack/react-query";
 import { fetchData } from "@/api";
-import { EmployeeApiResponse } from "../../../../types";
+import { EmployeeApiResponse, EmployeeData } from "../../../../types";
 import PageLoader from "@/components/atoms/page-loader";
 import For from "@/components/atoms/for";
 import Show from "@/components/atoms/show";
@@ -220,6 +220,26 @@ const About = (props: Props) => {
 		);
 	}, [data]);
 
+	const getImageUrl = (child: EmployeeData) => {
+		const { attributes } = child;
+
+		// If image data exists, use the first image URL
+		if (attributes?.image?.data) {
+			return attributes.image.data[0].attributes.url;
+		}
+
+		// If the employee's gender is male, use a male placeholder image
+		if (
+			attributes?.employee_gender?.data?.attributes?.name.toLowerCase() ===
+			"male"
+		) {
+			return "/images/placeholder.jpg";
+		}
+
+		// Otherwise, use a female placeholder image
+		return "/images/female-placeholder.png";
+	};
+
 	return (
 		<SectionContainer containerClassName="!pt-16 pb-20 md:!pt-20">
 			<div
@@ -341,15 +361,7 @@ const About = (props: Props) => {
 							<TeamItem
 								className="team-grid-display opacity-0"
 								key={index}
-								image={
-									child?.attributes?.image?.data?.attributes
-										?.url
-										? `${child?.attributes?.image?.data?.attributes?.url}`
-										: child?.attributes?.gender.toLowerCase() ===
-											  "male"
-											? "/images/placeholder.jpg"
-											: "/images/female-placeholder.png"
-								}
+								image={getImageUrl(child)}
 								linkedin={child?.attributes?.linkedin}
 								name={child?.attributes?.name}
 								position={child?.attributes?.role}
