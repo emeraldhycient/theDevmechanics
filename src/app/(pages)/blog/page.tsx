@@ -51,16 +51,17 @@ const BlogPage = (props: Props) => {
 					<BlogListItem
 						index={data?.data[0]?.id}
 						flexContainerClassName="flex-col gap-y-10 ls:flex-row items-center justify-between"
-						contentContainerClassName="flex flex-col items-start justify-start gap-y-8 ls:w-[50%]"
+						contentContainerClassName="flex flex-col items-start justify-start gap-y-8 ls:w-[55%]"
 						categoryClassName="font-medium text-lg"
 						titleClassName="font-medium text-3xl md:text-4xl"
 						descriptionClassName="text-[#9FA4A6] leading-7"
 						linkClassName="group flex flex-row items-center gap-x-2 text-[0.9375rem] text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF]"
 						imageContainerClassName=""
 						imageClassName=""
-						src={`https://the-devmechanics-strapi-api.onrender.com${firstBlog?.image?.data?.attributes?.url}`}
+						src={`${firstBlog?.image?.data?.attributes?.url}`}
 						alt="project-image"
 						category="Featured Post"
+						blog_id={firstBlog?.blog_id}
 						title={firstBlog?.title}
 						description={firstBlog?.description}
 						author={firstBlog?.author?.data?.attributes?.username}
@@ -89,13 +90,14 @@ const BlogPage = (props: Props) => {
 										linkClassName="group flex flex-row items-center gap-x-2 text-[0.9375rem] text-white no-underline capitalize px-4 py-2.5 font-medium rounded-full bg-[#9743FF] min-h-fit min-w-fit border border-[#9743FF]"
 										imageContainerClassName=""
 										imageClassName=""
-										src={`https://the-devmechanics-strapi-api.onrender.com${data?.image?.data?.attributes?.url}`}
+										src={`${data?.image?.data?.attributes?.url}`}
 										alt="project-image"
 										category={
-											data?.category?.data?.attributes
-												?.title
+											data?.blog_categories?.data[0]
+												?.attributes?.name
 										}
 										title={data?.title}
+										blog_id={data?.blog_id}
 										description={data?.description}
 										linkHref=""
 										arrowIconClassName="-rotate-45 w-4 h-4 stroke-white"

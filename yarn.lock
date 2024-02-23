@@ -353,6 +353,11 @@
     domhandler "^5.0.3"
     selderee "^0.11.0"
 
+"@strapi/blocks-react-renderer@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@strapi/blocks-react-renderer/-/blocks-react-renderer-1.0.0.tgz#6ca5d3c760f0c1847e291ec961e262c3695b2d3a"
+  integrity sha512-MwyjCOEGH7D9NWA1+ecApVKUx6bposzjKsPC9mebYrzaNuE6t/9hYH7rBb2ktMuPvMTjsyp9/RGfBKdKcnWC4g==
+
 "@studio-freight/hamo@^0.6.24":
   version "0.6.28"
   resolved "https://registry.yarnpkg.com/@studio-freight/hamo/-/hamo-0.6.28.tgz#da8af3edb22c9d70d985c45f2d5aa28f37baf4aa"

@@ -225,7 +225,7 @@ const About = (props: Props) => {
 
 		// If image data exists, use the first image URL
 		if (attributes?.image?.data) {
-			return attributes.image.data[0].attributes.url;
+			return attributes.image.data.attributes.url;
 		}
 
 		// If the employee's gender is male, use a male placeholder image

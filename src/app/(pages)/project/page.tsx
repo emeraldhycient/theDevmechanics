@@ -101,12 +101,12 @@ const Project = (props: Props) => {
 					{data?.data.map((project, index) => (
 						<ProjectItem
 							key={index}
-							imageSrc={`https://the-devmechanics-strapi-api.onrender.com${project?.attributes?.image?.data?.attributes?.url}`}
+							imageSrc={`${project?.attributes?.image?.data?.attributes?.url}`}
 							projectDescription={
 								project?.attributes?.description
 							}
-							projectName={project.attributes?.name}
-							projectMotto={project.attributes?.solution}
+							projectName={project.attributes?.title}
+							projectMotto={project.attributes?.motto}
 							projectServices={project?.attributes?.type}
 							containerClassName={""}
 							// readCaseStudyLink={"/"}

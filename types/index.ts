@@ -20,6 +20,23 @@ export type EmployeeCommentApiResponse = {
 };
 export type PaginationApiResponse = { pagination: PaginationInfo };
 
+export type UserPermissionType = {
+	data: {
+		attributes: {
+			blocked: boolean;
+			confirmed: boolean;
+			createdAt: string;
+			email: string;
+			instagram: string;
+			linkedin: string;
+			provider: string;
+			twitter: string;
+			updatedAt: string;
+			username: string;
+		};
+	};
+};
+
 interface CommentAttributes {
 	id: number;
 	comment: string;
@@ -67,7 +84,7 @@ interface EmployeeAttributes {
 	image: {
 		data: {
 			attributes: ImageAttributes;
-		}[];
+		};
 	};
 }
 
@@ -92,17 +109,19 @@ export type BlogData = {
 	id: number;
 	attributes: {
 		title: string;
-		content: BlogContent[];
+		new_content: any[];
+		old_content: string;
 		date_created: string;
-		blog_id: string;
+		blog_id: number;
 		createdAt: string;
 		updatedAt: string;
 		publishedAt: string;
 		description: string;
 		image: ImageData;
-		tags: TagData;
+		blog_tags: TagData;
 		author: AuthorData;
-		category: CategoryData;
+		blog_categories: CategoryData;
+		users_permissions_user: UserPermissionType;
 	};
 };
 
@@ -180,7 +199,7 @@ interface TagData {
 
 interface CategoryAttributes {
 	id: number;
-	title: string;
+	name: string;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;
@@ -189,7 +208,7 @@ interface CategoryAttributes {
 interface CategoryData {
 	data: {
 		attributes: CategoryAttributes;
-	};
+	}[];
 }
 
 interface AuthorAttributes {

@@ -262,7 +262,7 @@ const Career = (props: Props) => {
 				)}
 			</div>
 
-			<div className="flex flex-col gap-y-10 mt-32">
+			<div className="flex flex-col gap-y-10 mt-24">
 				<SectionHeader
 					refElement={careerJobOpeningHeaderRefElement}
 					headerText="Work with us"

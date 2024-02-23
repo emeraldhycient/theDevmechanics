@@ -13,6 +13,7 @@ const BlogListItem = ({
 	index,
 	imageContainerClassName,
 	imageClassName,
+	blog_id,
 	src,
 	alt,
 	category,
@@ -32,6 +33,7 @@ const BlogListItem = ({
 	descriptionClassName?: string;
 	linkClassName?: string;
 	imageContainerClassName?: string;
+	blog_id?: number;
 	imageClassName?: string;
 	src: string;
 	alt: string;
