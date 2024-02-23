@@ -71,7 +71,7 @@ export interface Attributes {
 
 interface EmployeeAttributes {
 	name: string;
-	linkedin: string;
+	linkdin: string;
 	role: string;
 	createdAt: string;
 	updatedAt: string;
