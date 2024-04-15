@@ -5,12 +5,13 @@ import SectionContainer from "@/components/molecules/section-container.";
 import Services from "@/json/contact/available_services.json";
 import ProjectTypes from "@/json/contact/project_types.json";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import InfoCorrectIcon from "../../../../public/icons/info-correct-icon";
 import InfoErrorIcon from "../../../../public/icons/info-error-icon";
 import Spinner from "@/components/atoms/spinner";
+import gsap from "gsap";
 
 type Inputs = {
 	fullName: string;
@@ -22,6 +23,7 @@ const Page = (): React.ReactNode => {
 	const [services, setServices] = useState<string[]>([]);
 	const [projectType, setProjectType] = useState<string[]>([]);
 	const [loading, setLoading] = useState(false);
+	const projectTypeRefElement = useRef<HTMLButtonElement[]>([]);
 	const {
 		register,
 		handleSubmit,
@@ -117,6 +119,18 @@ const Page = (): React.ReactNode => {
 		setter((values) => [...values, item]);
 	};
 
+	const handleClick = (index: number) => {
+		let element: HTMLButtonElement = projectTypeRefElement.current[index];
+		gsap.to(element, {
+			duration: 0.5,
+			ease: "power1.inOut",
+			scale: 0.9, // Scale down
+			yoyo: true, // Play the animation in reverse
+			repeat: 1, // Repeat indefinitely
+			backgroundColor: "#9743FF",
+		});
+	};
+
 	return (
 		<SectionContainer containerClassName="">
 			<div
@@ -143,15 +157,19 @@ const Page = (): React.ReactNode => {
 					<div className={`flex gap-x-3 flex-wrap gap-y-5`}>
 						{ProjectTypes.map((type, index) => (
 							<button
+								ref={(element) =>
+									projectTypeRefElement.current.push(element!)
+								}
 								onClick={() => {
 									addOrRemoveItem(
 										setProjectType,
 										projectType,
 										type,
 									);
+									handleClick(index);
 								}}
 								key={index}
-								className={`${projectType.includes(type) ? "text-white bg-[#9743FF]" : "bg-[#FCFAFF]"} duration-100 py-2 px-5 rounded-full border`}>
+								className={`${projectType.includes(type) ? "text-white" : "bg-[#FCFAFF]"} duration-100 py-2 px-5 rounded-full border`}>
 								{type}
 							</button>
 						))}

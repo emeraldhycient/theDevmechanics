@@ -1,5 +1,7 @@
 "use client";
+import For from "@/components/atoms/for";
 import ParallaxContainer from "@/components/atoms/parallax-container";
+import Show from "@/components/atoms/show";
 import { HeroSection, SocialIcons } from "@/components/molecules";
 import { Services } from "@/components/templates";
 import Project from "@/components/templates/project";
@@ -8,15 +10,15 @@ import gsap from "gsap";
 import { useRef, useState } from "react";
 import { elementObserver } from "../../../hooks";
 import Story from "../../components/templates/story";
-import For from "@/components/atoms/for";
-import Show from "@/components/atoms/show";
 
 export default function Home() {
 	const heroRefElement = useRef<HTMLDivElement>(null);
 	const parallaxCharacterElement = useRef<HTMLDivElement[]>([]);
 	const [homePageHeroMainTextState] = useState([
-		{ text: "We build custom software to", hasChild: true },
-		{ text: "meet your unique needs, driving", hasChild: false },
+		{
+			text: "We build custom software to meet your unique needs, driving Efficiency &",
+			hasChild: true,
+		},
 	]);
 
 	useGSAP(
@@ -28,6 +30,7 @@ export default function Home() {
 						{ opacity: 0, yPercent: 70 },
 						{
 							opacity: 1,
+							ease: "back.out(1.7)",
 							yPercent: 0,
 							duration: 1,
 						},
@@ -40,12 +43,12 @@ export default function Home() {
 						},
 						{
 							yPercent: 0,
-							duration: 1,
-							ease: "sine.out",
+							duration: 1.5,
+							ease: "back.out(1.7)",
 							opacity: 1,
 							stagger: {
 								each: 0.1,
-								from: "center",
+								from: "start",
 							},
 						},
 					);
@@ -72,42 +75,34 @@ export default function Home() {
 			<HeroSection
 				refElement={heroRefElement}
 				title="Software Design Agency"
+				containerClassName="w-full md:max-w-[85%]"
+				sectionContainerClassName="flex flex-col items-center md:items-start justify-center md:justify-start text-center md:text-start"
 				description={
-					<>
-						<For each={homePageHeroMainTextState}>
-							{({ text, hasChild }, index) => (
-								<ParallaxContainer
-									key={index}
-									parallaxCharacterElement={
-										parallaxCharacterElement
-									}
-									text={text}
-									className="hero-main-text-character opacity-0"
-									parallaxContainerClassName="text-4xl md:text-5xl lg:text-6xl leading-[3.2rem] md:leading-[4.5rem] lg:leading-[6rem]"
-									child={
-										<Show when={hasChild}>
-											<br className="hidden md:block" />
-										</Show>
-									}
-								/>
-							)}
-						</For>
-
-						<ParallaxContainer
-							parallaxCharacterElement={parallaxCharacterElement}
-							text="Efficiency &"
-							className="hero-main-text-character opacity-0"
-							parallaxContainerClassName="text-4xl md:text-5xl lg:text-6xl leading-[3.2rem] md:leading-[4.5rem] lg:leading-[6rem]"
-							child={
-								<span className="hero-main-text-character opacity-0">
-									<span className={` text-[#9743FF]`}>
-										Organization
-									</span>
-									<span>.</span>
-								</span>
-							}
-						/>
-					</>
+					<For each={homePageHeroMainTextState}>
+						{({ text, hasChild }, index) => (
+							<ParallaxContainer
+								key={index}
+								parallaxCharacterElement={
+									parallaxCharacterElement
+								}
+								text={text}
+								className="hero-main-text-character opacity-0"
+								parallaxContainerClassName="flex items-center md:items-start justify-center md:justify-start text-center md:text-start text-[2.30rem] md:text-5xl lg:text-6xl leading-[3.5rem] md:leading-[4.5rem] lg:leading-[6rem]"
+								child={
+									<ParallaxContainer
+										text={"Organization"}
+										className="hero-main-text-character opacity-0"
+										parallaxContainerClassName="text-4xl text-[#9743FF] md:text-5xl lg:text-6xl leading-[3.2rem] md:leading-[4.5rem] lg:leading-[6rem] gap-x-0"
+										child={
+											<span className="text-black">
+												.
+											</span>
+										}
+									/>
+								}
+							/>
+						)}
+					</For>
 				}
 				child={<SocialIcons className="opacity-0 " />}
 			/>

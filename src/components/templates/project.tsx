@@ -24,8 +24,11 @@ const Project = (props: Props) => {
 	const elementRefs = useRef<any[]>([]);
 	const projectElementsRem = ["0rem", "4rem", "8rem", "12rem"];
 	const [homePageProjectHeaderTextState] = useState([
-		{ text: "A testament to our versatility &", hasChild: true },
-		{ text: "commitment to excellence 🔥", hasChild: false },
+		{
+			text: "A testament to our versatility & commitment to excellence 🔥",
+			hasChild: true,
+		},
+		// { text: "commitment to excellence 🔥", hasChild: false },
 	]);
 
 	const { data, isLoading, isError, error } = useQuery<ProjectApiResponse>({
@@ -115,7 +118,7 @@ const Project = (props: Props) => {
 			<SectionHeader
 				refElement={projectHeaderRefElement}
 				headerText="View Our Projects"
-				className=""
+				className="flex flex-col items-center md:items-start justify-center md:justify-start text-center md:text-start"
 				subHeaderText={
 					<For each={homePageProjectHeaderTextState}>
 						{({ hasChild, text }, index) => (
@@ -123,7 +126,7 @@ const Project = (props: Props) => {
 								key={index}
 								text={text}
 								className="project-header-text-character opacity-0"
-								parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+								parallaxContainerClassName="flex items-center md:items-start justify-center md:justify-start text-center md:text-start text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
 								child={
 									<Show when={hasChild}>
 										<br className="hidden md:block" />
@@ -133,7 +136,7 @@ const Project = (props: Props) => {
 						)}
 					</For>
 				}
-				subHeaderClassName=""
+				subHeaderClassName="w-full md:w-[80%]"
 				headerClassName="project-main-header"
 			/>
 

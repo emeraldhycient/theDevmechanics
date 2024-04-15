@@ -8,6 +8,7 @@ type HeroSectionProps = {
 	containerClassName?: string;
 	descriptionClassName?: string;
 	child?: React.ReactNode;
+	sectionContainerClassName?: string;
 };
 
 const HeroSection = ({
@@ -17,17 +18,18 @@ const HeroSection = ({
 	refElement,
 	containerClassName,
 	descriptionClassName,
+	sectionContainerClassName,
 }: HeroSectionProps): React.ReactNode => {
 	return (
 		<SectionContainer
 			refElement={refElement}
 			containerClassName={`pt-20 pb-10 lg:pt-24 lg:pb-28 ${containerClassName ?? ""}`}
-			className={`flex flex-col items-start justify-start `}>
+			className={`flex flex-col items-start justify-start ${sectionContainerClassName}`}>
 			<div className="hero-header-text opacity-0">
 				{typeof title === "string" ? <p>{title}</p> : title}
 			</div>
 			<div
-				className={` font-bold py-4 w-full  ${descriptionClassName ?? ""}`}>
+				className={`font-bold py-4 w-full  ${descriptionClassName ?? ""}`}>
 				{typeof description === "string" ? (
 					<p>{description}</p>
 				) : (

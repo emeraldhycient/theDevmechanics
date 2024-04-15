@@ -19,10 +19,14 @@ const Services = (): React.ReactNode => {
 	const serviceHeaderRefElement = useRef<HTMLDivElement>(null);
 	const serviceContainerRefElement = useRef<HTMLDivElement>(null);
 	const parallaxCharacterElement = useRef<HTMLDivElement[]>([]);
+
 	const [animated, setAnimated] = useState(false);
 	const [homePageServiceHeaderTextState] = useState([
-		{ text: "Software architecture, design and", hasChild: true },
-		{ text: "implementation for any industry 🔥", hasChild: false },
+		{
+			text: "Software architecture, design and implementation for any industry 🔥",
+			hasChild: true,
+		},
+		// { text: "implementation for any industry 🔥", hasChild: false },
 	]);
 
 	useEffect(() => {
@@ -120,7 +124,7 @@ const Services = (): React.ReactNode => {
 							{({ text, hasChild }, index) => (
 								<ParallaxContainer
 									key={index}
-									parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+									parallaxContainerClassName="flex items-center md:items-start justify-center md:justify-start text-center md:text-start text-neutral-900 font-bold text-[2.30rem] md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
 									parallaxCharacterElement={
 										parallaxCharacterElement
 									}
@@ -136,9 +140,9 @@ const Services = (): React.ReactNode => {
 						</For>
 					</>
 				}
-				className="service-header-text-container mt-20 md:mt-20"
+				className="service-header-text-container mt-20 md:mt-20 flex flex-col items-center md:items-start justify-center md:justify-start text-center md:text-start"
 				headerClassName="service-main-header opacity-0"
-				subHeaderClassName="mb-16 "
+				subHeaderClassName="mb-16 w-full md:w-[80%]"
 			/>
 
 			<div
@@ -147,7 +151,7 @@ const Services = (): React.ReactNode => {
 				{ServicesList.map((service, index) => (
 					<div
 						key={index}
-						className={`services opacity-0 flex flex-col justify-between py-6 px-4 border border-[#FCFAFF] rounded-[29.245px] w-full md:w-[250px] lg:w-[250px] gap-y-10 hover:shadow-sm`}>
+						className={`border-[#eee0ff] services opacity-0 flex flex-col justify-between py-6 px-4 border rounded-[29.245px] w-full md:w-[250px] lg:w-[250px] gap-y-7 md:gap-y-10 hover:shadow-sm`}>
 						<div className="">
 							<Image
 								src={service.icon}

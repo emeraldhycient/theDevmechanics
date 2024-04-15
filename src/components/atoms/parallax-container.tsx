@@ -1,5 +1,6 @@
 import React from "react";
 import ParallaxCharacter from "./parallax-character";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const ParallaxContainer = ({
 	text,
@@ -15,10 +16,14 @@ const ParallaxContainer = ({
 	parallaxContainerClassName?: string;
 }) => {
 	const characters = text.split(" ");
+	const { scrollYProgress, scrollY } = useScroll();
+	const y = useSpring(scrollY);
 
 	return (
-		<div
-			className={`flex flex-row flex-wrap items-center overflow-y-hidden gap-x-[0.800rem] ${parallaxContainerClassName}`}>
+		<motion.div
+			// // style={{ y: -y }}
+			// initial={{ opacity: 0 }}
+			className={`flex flex-row flex-wrap items-center gap-x-[0.800rem] ${parallaxContainerClassName}`}>
 			{characters.map((character, index) => (
 				<div className="overflow-y-hidden" key={index}>
 					<ParallaxCharacter
@@ -30,7 +35,7 @@ const ParallaxContainer = ({
 				</div>
 			))}
 			{child}
-		</div>
+		</motion.div>
 	);
 };
 

@@ -25,8 +25,11 @@ const Story = (props: Props) => {
 	const storyHeaderRefElement = useRef<HTMLDivElement>(null);
 	const storyContainerRefElement = useRef<HTMLDivElement>(null);
 	const [homePageStoryHeaderTextState] = useState([
-		{ text: "Clients tell their stories of", hasChild: true },
-		{ text: "success with DevMechanics.", hasChild: false },
+		{
+			text: "Clients tell their stories of success with DevMechanics.",
+			hasChild: true,
+		},
+		// { text: "success with DevMechanics.", hasChild: false },
 	]);
 
 	const { data, isLoading, isError, error } =
@@ -102,6 +105,7 @@ const Story = (props: Props) => {
 			<SectionHeader
 				refElement={storyHeaderRefElement}
 				headerText="Client Success Stories"
+				className="flex flex-col items-center md:items-start justify-center md:justify-start text-center md:text-start"
 				subHeaderText={
 					<For each={homePageStoryHeaderTextState}>
 						{({ hasChild, text }, index) => (
@@ -109,7 +113,7 @@ const Story = (props: Props) => {
 								key={index}
 								text={text}
 								className="story-header-text-character opacity-0"
-								parallaxContainerClassName="text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
+								parallaxContainerClassName="flex items-center md:items-start justify-center md:justify-start text-center md:text-start text-neutral-900 font-bold text-4xl md:text-5xl leading-[3.5rem] md:leading-[4.5rem]"
 								child={
 									<Show when={hasChild}>
 										<br className="hidden md:block" />
@@ -120,7 +124,7 @@ const Story = (props: Props) => {
 					</For>
 				}
 				headerClassName="story-main-header opacity-0"
-				subHeaderClassName=""
+				subHeaderClassName="w-full md:w-[70%]"
 			/>
 			{isLoading && (
 				<PageLoader className="w-full flex flex-row items-center justify-center py-36" />
