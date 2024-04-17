@@ -70,9 +70,9 @@ export interface Attributes {
 }
 
 interface EmployeeAttributes {
-	name: string;
+	full_name: string;
 	linkdin: string;
-	role: string;
+	job_title: string;
 	createdAt: string;
 	updatedAt: string;
 	publishedAt: string;

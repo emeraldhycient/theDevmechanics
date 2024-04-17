@@ -10,6 +10,7 @@ import gsap from "gsap";
 import { useRef, useState } from "react";
 import { elementObserver } from "../../../hooks";
 import Story from "../../components/templates/story";
+import StackedCards from "@/components/stack";
 
 export default function Home() {
 	const heroRefElement = useRef<HTMLDivElement>(null);
@@ -72,6 +73,7 @@ export default function Home() {
 
 	return (
 		<>
+			{/* <StackedCards  /> */}
 			<HeroSection
 				refElement={heroRefElement}
 				title="Software Design Agency"

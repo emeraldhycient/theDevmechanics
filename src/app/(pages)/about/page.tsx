@@ -38,7 +38,8 @@ const About = (props: Props) => {
 
 	const { data, isLoading, isError, error } = useQuery<EmployeeApiResponse>({
 		queryKey: ["employee"],
-		queryFn: () => fetchData<EmployeeApiResponse>(`/employees?populate=*`),
+		queryFn: () =>
+			fetchData<EmployeeApiResponse>(`/employees?populate=*&sort=id:asc`),
 	});
 
 	useGSAP(() => {
@@ -372,8 +373,8 @@ const About = (props: Props) => {
 										key={index}
 										image={getImageUrl(child)}
 										linkedin={child?.attributes?.linkdin}
-										name={child?.attributes?.name}
-										position={child?.attributes?.role}
+										name={child?.attributes?.full_name}
+										position={child?.attributes?.job_title}
 									/>
 								))}
 							</div>
