@@ -252,7 +252,7 @@ const Career = (props: Props) => {
 												name={
 													comment?.attributes
 														?.employee?.data
-														?.attributes?.name
+														?.attributes?.full_name
 												}
 												// testimonyStarClassName="testimony-star"
 												maxStars={5}
@@ -260,7 +260,7 @@ const Career = (props: Props) => {
 												message={
 													comment?.attributes?.comment
 												}
-												role={`${comment?.attributes?.employee?.data?.attributes?.role}`}
+												role={`${comment?.attributes?.employee?.data?.attributes?.job_title}`}
 												rating={
 													comment?.attributes?.rating
 												}
