@@ -256,7 +256,7 @@ const Career = (props: Props) => {
 												}
 												// testimonyStarClassName="testimony-star"
 												maxStars={5}
-												company={"null"}
+												company={"theDevMechanics"}
 												message={
 													comment?.attributes?.comment
 												}
